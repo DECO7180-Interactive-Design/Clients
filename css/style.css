@@ -5,13 +5,23 @@ body {
   font-size: 16pt;
 }
 
+.horizontal-line {
+  text-align: center;
+  opacity: 0.5;
+  margin: 10% 0 10%;
+}
+
+.horizontal-line img {
+  width: 30%;
+}
+
 /* Navigation Bar */
 
 nav {
   margin: 0;
   background-color: #1252ae;
   opacity: 0.8;
-  height: 130px;
+  height: 80px;
   display: flex;
   flex-direction: row;
 }
@@ -21,7 +31,9 @@ nav #logo {
 }
 
 nav img {
-  height: 125px
+  height: 60px;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 nav #menu {
@@ -37,21 +49,156 @@ nav a {
 }
 
 nav .selected {
-  font-size: 42pt;
+  font-size: 24pt;
   font-weight: 700;
   color: #1252ae;
   background-color: white;
   padding: 0 40px 0;
-  border-radius: 19px;
+  border-radius: 10px;
 }
 
 nav .unselected {
-  font-size: 36pt;
+  font-size: 18pt;
   opacity: 0.5;
   color: white;
 }
 
 nav #separator {
-  font-size: 35pt;
+  font-size: 18pt;
   font-weight: 100;
+}
+
+/* Hero Page */
+
+main {
+  background: no-repeat url("../assets/hero-image.png");
+  background-size: cover;
+}
+
+main #main-texts {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+main h2{
+  font-family: 'Poppins';
+  font-size: 32pt;
+  font-weight: 400;
+  margin: 0;
+}
+
+main h1 {
+  font-family: 'Poppins';
+  font-size: 48pt;
+  font-weight: 700;
+  margin: 1% 5% 1.2%;
+}
+
+main p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12;
+  margin: 0;
+}
+
+main #account-links {
+  padding-left: 5%;
+  padding-top: 18%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+main a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Poppins';
+  font-size: 22pt;
+  width: 400px;
+  margin: 8px 0 8px;
+  padding: 10px;
+  border-radius: 19px;
+  text-align: center;
+}
+
+main .log-in {
+  background-color: #FFCE46;
+}
+
+main .sign-up {
+  background-color: #273A5E;
+}
+
+/* Chapter 1 - Questions */
+
+#questions {
+  text-align: center;
+}
+
+#c1 {
+  font-family: 'Poppins';
+  font-size: 48pt;
+  font-weight: 100;
+  margin: 0 0 8%;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+#chooses {
+  display: flex;
+  background: no-repeat url('../assets/background-triangle.png');
+  background-size: 100% 100%;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+#chooses a {
+  width: 50%;
+  background-color: #DEEBF2;
+  border-radius: 0;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  font-family: 'Poppins';
+  font-size: 22pt;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+#chooses div {
+  width: 5px;
+  height: 100%;
+  background-color: #1252ae;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.choose1 {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.choose2 {
+  text-align: left;
+  padding-left: 20px;
+}
+
+#chooses a:hover {
+  background-color: #1252ae;
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
+/* Routes Selection */
+
+#routes {
+  text-align: center;
+}
+
+#routes-list {
+  display: flex;
 }

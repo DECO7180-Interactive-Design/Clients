@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16pt;
+  }
+  
+  .horizontal-line {
+    text-align: center;
+    opacity: 0.5;
+    margin: 10% 0 10%;
+  }
+  
+  .horizontal-line img {
+    width: 30%;
+  }
+
+/* Navigation Bar */
+
+nav {
+    margin: 0;
+    background-color: #1252ae;
+    opacity: 0.8;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  nav #logo {
+    width: 37%;
+  }
+  
+  nav img {
+    height: 60px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  
+  nav #menu {
+    font-family: 'Poppins';
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    margin: 0 40px 0;
+  }
+  
+  nav .selected {
+    font-size: 24pt;
+    font-weight: 700;
+    color: #1252ae;
+    background-color: white;
+    padding: 0 40px 0;
+    border-radius: 10px;
+  }
+  
+  nav .unselected {
+    font-size: 18pt;
+    opacity: 0.5;
+    color: white;
+  }
+  
+  nav #separator {
+    font-size: 18pt;
+    font-weight: 100;
+  }
+
+  main h1 {
+    font-family: 'Poppins';
+    font-size: 48pt;
+    font-weight: 100;
+    margin-top: 10%; 
+  }
+ 
+  main a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 22pt;
+    width: 400px;
+    margin: 8px 0 8px;
+    padding: 10px;
+    border-radius: 19px;
+    text-align: center;
+  }
+
+  
+  #questions {
+    text-align: center;
+  }
+  
+  
+  .bold {
+    font-weight: 400;
+  }
+  
+  #chooses {
+    display: flex;
+    background: no-repeat url('../assets/background-triangle.png');
+    background-size: 100% 100%;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+  }
+  
+  #chooses a {
+    width: 50%;
+    background-color: #DEEBF2;
+    border-radius: 0;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 22pt;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  
+  #chooses div {
+    width: 5px;
+    height: 100%;
+    background-color: #1252ae;
+    display: inline-block;
+    border-radius: 5px;
+  }
+  
+  .choose1 {
+    text-align: right;
+    padding-right: 20px;
+  }
+  
+  .choose2 {
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  #chooses a:hover {
+    background-color: #1252ae;
+    color: white;
+    transition: ease-in-out 0.2s;
+  }
+  

@@ -9,12 +9,21 @@ let map = L.map('map').setView([-27.495432, 153.012024], 15);
 // Using the basic map to replace the api map.
 L.esri.basemapLayer('Topographic').addTo(map);
 
-let routes = L.esri.featureLayer({
+const routes = L.esri.featureLayer({
     url: 'https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0',
     // where: "DESCRIPTION = 'Primary cycle route'"
 });
 
 console.log(routes);
+
+// Set the style (colour) of different route type.
+let primaryStyle = {
+    "color": "#EB92BE"
+};
+
+let secondaryStyle = {
+    "color": "#C2F784"
+}
 
 // Add a bounds aroud uq.
 let southWest = L.latLng(-27.5014174, 152.9891076);
@@ -22,13 +31,29 @@ let northEast = L.latLng(-27.4776612, 153.0417289);
 let bounds = L.latLngBounds(southWest, northEast);
 map.fitBounds(bounds);
 
-// Query for the routes within the bounds.
+// Query for primary clcle routes
 routes.query()
     .within(bounds)
-    .run(function (error, featureCollection) {
-        console.log(featureCollection);
+    .where("DESCRIPTION = 'Primary cycle route'")
+    .run(function (error, primaryRoutes) {
+        console.log(primaryRoutes);
 
-        L.geoJSON(featureCollection).addTo(map);
+        L.geoJSON(primaryRoutes, {
+            style: primaryStyle
+        }).addTo(map);
+    });
+
+
+// Query for local cycle routes.
+routes.query()
+    .within(bounds)
+    .where("DESCRIPTION = 'Local cycle route'")
+    .run(function (error, secondaryRoutes) {
+        console.log(secondaryRoutes);
+
+        L.geoJSON(secondaryRoutes, {
+            style: secondaryStyle
+        }).addTo(map);
     });
 
 // Add routes to basic map.

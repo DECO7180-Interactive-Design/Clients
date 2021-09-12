@@ -11,15 +11,16 @@ L.esri.basemapLayer('Topographic').addTo(map);
 
 let routes = L.esri.featureLayer({
     url: 'https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0',
-    where: "DESCRIPTION = 'Primary cycle route'"
+    // where: "DESCRIPTION = 'Primary cycle route'"
 });
 
 console.log(routes);
 
 // Add a bounds aroud uq.
-let southWest = L.latLng(-27.4943556, 153.0038058);
-let northEast = L.latLng(-27.5027481, 153.019045);
+let southWest = L.latLng(-27.5014174, 152.9891076);
+let northEast = L.latLng(-27.4776612, 153.0417289);
 let bounds = L.latLngBounds(southWest, northEast);
+map.fitBounds(bounds);
 
 // Query for the routes within the bounds.
 routes.query()

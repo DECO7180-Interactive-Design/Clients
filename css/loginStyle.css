@@ -1,0 +1,71 @@
+form {
+    border: 3px solid white;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #deebf2;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #273a5e;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 10px 0 10px 0;
+  }
+  
+  img.bike {
+    width: 12%;
+    height: 12%;
+  }
+  
+  .container {
+    margin: auto;
+    width: 30%;
+    padding: 15px;
+    background-color: #deebf2;
+    border-radius: 25px;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: blue;
+  }
+
+  span.password {
+    float: right;
+    padding-top: 15px;
+  }
+  span.account {
+    float: left;
+    padding-top: 15px;
+  }
+
+  /* @media screen and (max-width: 300px) {
+    span.password {
+      display: block;
+      float: none;
+    }
+    span.account {
+      display: block;
+      float: none;
+    }
+  } */

@@ -1,0 +1,135 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(../assets/Main\ Interface.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.music{
+    border-radius: 15px;
+    background-color: #DEEBF2;
+    display: flex;
+    position: relative;
+    width: 320px;
+    padding: 20px 30px;
+    margin: 100px 0;
+    z-index: 10;
+}
+
+.title {
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.action-btn{
+    background-color: #DEEBF2;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0 20px;
+    cursor: pointer;
+    border: 0;
+}
+#sidebutton a {
+    position: absolute; 
+    right: 20px; 
+    padding: 15px; 
+    width: 150px; 
+    text-decoration: none; 
+    font-size: 16px; 
+    color: black; 
+    border-radius: 25px; 
+  }
+  
+  #sidebutton a:hover {
+    opacity: 0.8;
+  }
+  
+  #nextStop {
+    top: 50px;
+    font-weight: bold;
+    background-color: #FBA100;
+    text-align: center;
+  }
+  
+  #last {
+    top: 160px;
+    font-weight: bold;
+    background-color: #FBA100; 
+    text-align: center;
+  }
+  
+  #photo {
+    top: 270px;
+    font-weight: bold;
+    background-color: #FBA100; 
+    text-align: center;
+  }
+  
+  #sc {
+    top: 380px;
+    font-weight: bold;
+    background-color: #FBA100; 
+    text-align: center;
+  }
+
+  #competition {
+    top: 490px;
+    font-weight: bold;
+    background-color: #FBA100;
+    text-align: center;
+  }
+  
+  #around {
+    top: 600px;
+    font-weight: bold;
+    background-color: #FBA100; 
+    text-align: center;
+  }
+  
+  #more {
+    top: 710px;
+    font-weight: bold;
+    background-color: #FBA100;
+    text-align: center; 
+  }
+  
+  #end {
+    top: 820px;
+    font-weight: bold;
+    background-color: rgb(243, 32, 32);
+    text-align: center; 
+    color:#fff !important;
+  }
+
+  #pauseRiding {
+    display: flex;
+    position: absolute;
+    left: 45%;
+    bottom: 8%;
+    background-color: #FBA100;
+    font-size: 4em;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  #pauseRiding i:hover {
+    opacity: 0.8;
+  }
+
+  /* #pauseRiding.fas {
+    color: #fff;
+  } */
+
+  .mapbox {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    background-color: white;
+    bottom: 1%;
+  }

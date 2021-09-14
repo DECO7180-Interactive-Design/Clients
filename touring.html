@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touring</title>
+    <link rel="stylesheet" href="css/touring.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+  rel="stylesheet">
+</head>
+<body>
+    <div class="music">
+        <div>
+            <audio src="assets/Levitating.mp3" id="audio"></audio>
+        </div>
+        <div class="title">
+            <!-- <i class="fas fa-music"></i> -->
+            <h4 id="title">Levitating</h4>
+        </div>
+        
+        <div class="icon">
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+    
+            <button id="play" class="action-btn">
+                <i class="fas fa-play"></i>
+            </button>
+    
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div id="sidebutton" class="side">
+        <a href="#" id="nextStop">Next Milestone</a>
+        <a href="#" id="last">Last Milestone</a>
+        <a href="#" id="photo">Take Photo</a>
+        <a href="#" id="sc">Remove SC</a>
+        <a href="#" id="competition">Competition</a>
+        <a href="#" id="around">Around Me</a>
+        <a href="#" id="more">More Info</a>
+        <a href="index.html" id="end">End Tour</a>
+    </div>
+
+    <div id="pauseRiding">
+        <i class="fas fa-pause" style="color: #fff; margin: 20px;"></i>
+    </div>
+
+    <div class="mapbox">
+        I am a map.
+        <img src="assets/Route.png" alt="routeMap">
+    </div>
+
+    <script src="js/touring.js"></script>
+    <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>
+</body>
+</html>

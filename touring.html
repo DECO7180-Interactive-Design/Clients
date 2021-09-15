@@ -12,48 +12,70 @@
   rel="stylesheet">
 </head>
 <body>
-    <div class="music">
-        <div>
-            <audio src="assets/Levitating.mp3" id="audio"></audio>
+    <div class="container">
+        <!-- <div class="player">
+            <i class="fas fa-music"></i>
+            <p>music Player</p>
+        </div> -->
+
+        <div class="dropDown">
+            <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
+            <div id="options" class="dropdown-option">
+                <a href="#">Take Photo</a>
+                <a href="#">Shadow Cyclist</a>
+                <a href="#">Competition</a>
+                <a href="#">Around Me</a>
+                <a href="#">More Info</a>
+              </div>
         </div>
-        <div class="title">
-            <!-- <i class="fas fa-music"></i> -->
-            <h4 id="title">Levitating</h4>
+
+        <div class="music">
+            <div>
+                <audio src="assets/Levitating.mp3" id="audio"></audio>
+            </div>
+            
+            <div class="title">
+                <h4 id="title">Levitating</h4>
+            </div>
+            
+            <div class="icon">
+                <button id="prev" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+        
+                <button id="play" class="action-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+        
+                <button id="next" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
         </div>
         
-        <div class="icon">
-            <button id="prev" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-    
-            <button id="play" class="action-btn">
-                <i class="fas fa-play"></i>
-            </button>
-    
-            <button id="next" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
+        <div class="hideAll">
+            <i class="fas fa-eye-slash"></i>
         </div>
-    </div>
+        <!-- <div class="hide">Hide All</div> -->
+        
+        <div class="controlBtn">
+            <div id="lastStop"><i class="fas fa-backward" style="color: #fff; margin: 20px;"></i></div>
+            <div id="pauseRiding"><i class="fas fa-pause" style="color: #fff; margin: 20px;"></i></div>
+            <div id="stop"><i class="fas fa-stop" style="color: #fff; margin: 20px;" onclick="confirmAction()"></i></div>
+            <div id="nextStop"><i class="fas fa-forward" style="color: #fff; margin: 20px;"></i></div>
+        </div>
+        
+
+        <div id="mapModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img1">
+            <div id="caption"></div>
+        </div>
+
+        <div class="mapbox" id="popMap">
+            <img id="mapImg" src="assets/Route.png" alt="route map">
+        </div>
     
-    <div id="sidebutton" class="side">
-        <a href="#" id="nextStop">Next Milestone</a>
-        <a href="#" id="last">Last Milestone</a>
-        <a href="#" id="photo">Take Photo</a>
-        <a href="#" id="sc">Remove SC</a>
-        <a href="#" id="competition">Competition</a>
-        <a href="#" id="around">Around Me</a>
-        <a href="#" id="more">More Info</a>
-        <a href="index.html" id="end">End Tour</a>
-    </div>
-
-    <div id="pauseRiding">
-        <i class="fas fa-pause" style="color: #fff; margin: 20px;"></i>
-    </div>
-
-    <div class="mapbox">
-        I am a map.
-        <img src="assets/Route.png" alt="routeMap">
     </div>
 
     <script src="js/touring.js"></script>

@@ -5,11 +5,49 @@ body{
     background-size: cover;
 }
 
+.dropDown {
+  position: absolute;
+  top: 1px;
+  background-color: #ccc;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.dropDown:hover, .dropDown:focus {
+  opacity: 0.8;
+}
+
+.dropdown-option {
+  display: none;
+  position: absolute;
+  background-color: #DEEBF2;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.dropDown a:hover {
+  background-color: #FBA100;
+}
+
+.dropdown-option a {
+  color: black;
+  padding: 15px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
 .music{
     border-radius: 15px;
     background-color: #DEEBF2;
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 38%;
     width: 320px;
     padding: 20px 30px;
     margin: 100px 0;
@@ -22,114 +60,175 @@ body{
   text-align: center;
 }
 .icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 .action-btn{
-    background-color: #DEEBF2;
-    font-size: 20px;
-    padding: 10px;
-    margin: 0 20px;
+  background-color: #DEEBF2;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 20px;
+  cursor: pointer;
+  border: 0;
+}
+
+  .hideAll {
+    position: absolute; 
+    top: 1px;
+    right: 20px;
+    font-size: 30px;
+    padding: 20px;
     cursor: pointer;
     border: 0;
-}
-#sidebutton a {
-    position: absolute; 
-    right: 20px; 
-    padding: 15px; 
-    width: 150px; 
-    text-decoration: none; 
-    font-size: 16px; 
-    color: black; 
-    border-radius: 25px; 
   }
-  
-  #sidebutton a:hover {
-    opacity: 0.8;
-  }
-  
-  #nextStop {
-    top: 50px;
-    font-weight: bold;
-    background-color: #FBA100;
-    text-align: center;
-  }
-  
-  #last {
-    top: 160px;
-    font-weight: bold;
-    background-color: #FBA100; 
-    text-align: center;
-  }
-  
-  #photo {
-    top: 270px;
-    font-weight: bold;
-    background-color: #FBA100; 
-    text-align: center;
-  }
-  
-  #sc {
-    top: 380px;
-    font-weight: bold;
-    background-color: #FBA100; 
-    text-align: center;
+  .hideAll i:hover {
+    opacity: 0.6;
   }
 
-  #competition {
-    top: 490px;
-    font-weight: bold;
-    background-color: #FBA100;
-    text-align: center;
+  /* .hideAll:hover + .hide {
+    display: block;
   }
-  
-  #around {
-    top: 600px;
-    font-weight: bold;
-    background-color: #FBA100; 
-    text-align: center;
-  }
-  
-  #more {
-    top: 710px;
-    font-weight: bold;
-    background-color: #FBA100;
-    text-align: center; 
-  }
-  
-  #end {
-    top: 820px;
-    font-weight: bold;
-    background-color: rgb(243, 32, 32);
-    text-align: center; 
-    color:#fff !important;
-  }
+  .hide {
+    display: none;
+  } */
 
   #pauseRiding {
     display: flex;
     position: absolute;
-    left: 45%;
+    left: 42%;
     bottom: 8%;
     background-color: #FBA100;
-    font-size: 4em;
+    font-size: 3em;
     border-radius: 50px;
     cursor: pointer;
   }
+
+  #lastStop {
+    display: flex;
+    position: absolute;
+    left: 35%;
+    bottom: 8%;
+    background-color: #FBA100;
+    font-size: 3em;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  #stop {
+    display: flex;
+    position: absolute;
+    left: 49%;
+    bottom: 8%;
+    background-color: #FBA100;
+    font-size: 3em;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  #nextStop{
+    display: flex;
+    position: absolute;
+    left: 56%;
+    bottom: 8%;
+    background-color: #FBA100;
+    font-size: 3em;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
   #pauseRiding i:hover {
     opacity: 0.8;
   }
 
-  /* #pauseRiding.fas {
-    color: #fff;
-  } */
+  #lastStop i:hover {
+    opacity: 0.8;
+  }
 
+  #stop i:hover {
+    opacity: 0.8;
+  }
+
+  #nextStop i:hover {
+    opacity: 0.8;
+  }
+  
   .mapbox {
     position: fixed;
     width: 400px;
-    height: 400px;
+    height: 320px;
     text-align: center;
-    background-color: white;
     bottom: 1%;
+    background-color: rgba(0,0,0,0.1); /* opacity */
   }
+
+/* mapPopUp */
+#mapImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#mapImg:hover {opacity: 0.7;}
+
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 10; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.6); /* opacity */
+}
+
+/* Modal image */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 85%;
+  max-width: 650px;
+}
+
+/* Caption */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 650px;
+  text-align: center;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.3s;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}

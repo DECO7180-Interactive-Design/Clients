@@ -9,4 +9,28 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 1;
+}
+
+#filter {
+    padding-left: 30px;
+}
+
+#filter label {
+    /* let the margin work using inline-block */
+    display: inline-block;
+    margin: 12px 5px 12px 0px;
+}
+
+.overlay {
+  height: 200px;
+  width: 350px;
+  /* margin-left: -100px; */
+  position: absolute;
+  top: 107px;
+  left: 138px;
+  float: left;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  pointer-events: auto;
 }

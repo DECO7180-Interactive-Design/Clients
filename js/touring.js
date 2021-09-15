@@ -76,7 +76,7 @@ function confirmAction() {
     let confirmAction = confirm("Are you sure to end this tour?")
     if(confirmAction==true) {
         // return true;
-        window.location.replace("new target URL");
+        window.location.replace("index.html");
     } else {return false;}
 }
 

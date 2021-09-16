@@ -13,11 +13,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- <div class="player">
-            <i class="fas fa-music"></i>
-            <p>music Player</p>
-        </div> -->
-
         <div class="dropDown">
             <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
             <div id="options" class="dropdown-option">
@@ -60,7 +55,7 @@
         
         <div class="controlBtn">
             <div id="lastStop"><i class="fas fa-backward" style="color: #fff; margin: 20px;"></i></div>
-            <div id="pauseRiding"><i class="fas fa-pause" style="color: #fff; margin: 20px;"></i></div>
+            <div id="pauseRiding"><i class="fas fa-play" style="color: #fff; margin: 20px;" onclick="startTimer()"></i></div>
             <div id="stop"><i class="fas fa-stop" style="color: #fff; margin: 20px;" onclick="confirmAction()"></i></div>
             <div id="nextStop"><i class="fas fa-forward" style="color: #fff; margin: 20px;"></i></div>
         </div>
@@ -77,6 +72,21 @@
         </div>
     
     </div>
+    <section id="stat">
+        <div id="timer">
+            Riding time: 00:00:00
+        </div>
+        <br>
+        <br>
+        <div id="speed">Speed: 15 km/h </div>
+        <br>
+        <br>
+        <div id="calory">Calories Burned: 10 kj</div><br>
+        <br>
+        <div>40 RPM   69 BPM</div>
+    </section>
+    
+
 
     <script src="js/touring.js"></script>
     <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>

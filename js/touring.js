@@ -11,7 +11,12 @@ const hideBtn = document.querySelector('.hideAll')
 const map = document.querySelector('.mapbox')
 const controlBtn = document.querySelector('.controlBtn')
 const dropdown = document.querySelector(".dropDown")
+const statistic = document.querySelector('#stat')
+
+stoptime = true;
+
 whole.classList.add('show')
+rest.classList.add('play')
 let songIndex = 0
 
 loadSong(songs[songIndex])
@@ -41,12 +46,14 @@ function takeRest() {
     rest.classList.remove('play')
     rest.querySelector('i.fas').classList.remove('fa-play')
     rest.querySelector('i.fas').classList.add('fa-pause')
+    
 }
 
 function resumeRiding() {
     rest.classList.add('play')
     rest.querySelector('i.fas').classList.add('fa-play')
     rest.querySelector('i.fas').classList.remove('fa-pause')
+    stopTimer()
 }
 
 // next and last song
@@ -70,13 +77,13 @@ function nextSong() {
     playSong()
 }
 
-// pop up dialogue
+// pop up img dialogue
 function confirmAction() {
     var change = false;
     let confirmAction = confirm("Are you sure to end this tour?")
     if(confirmAction==true) {
         // return true;
-        window.location.replace("index.html");
+        window.location.replace("new target URL");
     } else {return false;}
 }
 
@@ -89,6 +96,7 @@ function hideAll() {
     map.style.display = "none";
     controlBtn.style.display = "none";
     dropdown.style.display = "none";
+    statistic.style.display = "none";
 }
 
 function showAll() {
@@ -99,8 +107,10 @@ function showAll() {
     map.style.display = "block";
     controlBtn.style.display = "block";
     dropdown.style.display = "block";
+    statistic.style.display = "block";
 }
 
+// play and pause music
 playBtn.addEventListener('click', () => {
     const isPlaying = music.classList.contains('play')
 
@@ -168,3 +178,76 @@ function showMenu() {
       }
     }
   }
+
+// timer
+const timer = document.getElementById('timer');
+const speed = document.getElementById('speed');
+const ridingBtn = document.getElementById('pauseRiding');
+var h = 0;
+var min = 0;
+var sec = 0;
+var speedValue = 10;
+var stoptime = true;
+
+function startTimer() {
+  if (stoptime == true) {
+        stoptime = false;
+        incrementTimer();
+    }
+}
+function stopTimer() {
+  if (stoptime == false) {
+    stoptime = true;
+  }
+}
+
+function incrementTimer() {
+    if (stoptime == false) {
+    sec = parseInt(sec);
+    min = parseInt(min);
+    h = parseInt(h);
+    sec = sec + 1;
+    if (sec == 60) {
+      min = min + 1;
+      sec = 0;
+    }
+    if (min == 60) {
+      h = h + 1;
+      min = 0;
+      sec = 0;
+    }
+    if (sec < 10 || sec == 0) {
+      sec = '0' + sec;
+    }
+    if (min < 10 || min == 0) {
+      min = '0' + min;
+    }
+    if (h < 10 || h == 0) {
+      h = '0' + h;
+    }
+    timer.innerHTML = "Riding time: " + h + ':' + min + ':' + sec;
+    setTimeout("incrementTimer()", 1000);
+  }
+}
+
+
+// function startSpeed() {
+//     if (stoptime == true) {
+//         stoptime = false;
+//         speedCycle()
+//     }
+// }
+// function stopSpeed() {
+//     if (stoptime == false) {
+//       stoptime = true;
+//     }
+//   }
+
+// function speedCycle() {
+//     if (stoptime == false) {
+//         speed = parseInt(speed);
+//         speed = speed + 2;
+//     }
+//     speed.innerHTML = speed + "km/h";
+//     setTimeout("speedCycle()", 2000);
+// }

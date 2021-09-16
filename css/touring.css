@@ -66,7 +66,7 @@ body{
   z-index: 1;
 }
 .action-btn{
-  background-color: #DEEBF2;
+  background-color: #deebf2;
   font-size: 20px;
   padding: 10px;
   margin: 0 20px;
@@ -232,3 +232,17 @@ body{
   font-weight: bold;
   transition: 0.3s;
 }
+
+#stat {
+  /* background-color: #0d84c4; */
+  background-color: rgba(15, 139, 193, 0.8); 
+  position: absolute;
+  color: #fff;
+  font-size: 25px;
+  height: 320px;
+  width: 300px;
+  right: 0;
+  bottom: 0;
+  
+}
+

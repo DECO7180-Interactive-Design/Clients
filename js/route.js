@@ -1,4 +1,4 @@
-let map = L.map('map').setView([-27.495432, 153.012024], 15);
+let map = L.map('map').setView([-27.495432, 153.012024], 12);
 
 // FIXME the arcgis' map has some problems.
 
@@ -12,7 +12,7 @@ L.esri.basemapLayer('Topographic').addTo(map);
 const routes = L.esri.featureLayer({
     url: 'https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0',
     // where: "DESCRIPTION = 'Primary cycle route'"
-});
+}).addTo(map);
 
 // console.log(routes);
 
@@ -33,7 +33,7 @@ map.fitBounds(bounds);
 
 // Query for primary clcle routes
 routes.query()
-    .within(bounds)
+    // .within(bounds)
     .where("DESCRIPTION = 'Primary cycle route'")
     .run(function (error, primaryRoutes) {
         // console.log(primaryRoutes);
@@ -43,10 +43,9 @@ routes.query()
         }).addTo(map);
     });
 
-
 // Query for local cycle routes.
 routes.query()
-    .within(bounds)
+    // .within(bounds)
     .where("DESCRIPTION = 'Local cycle route'")
     .run(function (error, secondaryRoutes) {
         // console.log(secondaryRoutes);
@@ -56,13 +55,21 @@ routes.query()
         }).addTo(map);
     });
 
+
 // Add routes to basic map.
 // routes.addTo(map);
 // routes.setWhere("DESCRIPTION = 'Secondary cycle route'");
 
+// routes.query()
+//     .run(function (error, routes) {
+//         console.log(routes);
+//         L.geoJSON(routes, {
+//             style: primaryStyle
+//         }).addTo(map);
+//     });
 
-function submitFilter() {
-    let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
-    let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
-    console.log(exerciseLevel, ridingTime);
-}
+let filterButton = document.getElementById("filterButton");
+
+filterButton.addEventListener("click", function() {
+    routes.setWhere("DESCRIPTION = 'Primary cycle route'");
+});

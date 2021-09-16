@@ -14,7 +14,7 @@ const routes = L.esri.featureLayer({
     // where: "DESCRIPTION = 'Primary cycle route'"
 });
 
-console.log(routes);
+// console.log(routes);
 
 // Set the style (colour) of different route type.
 let primaryStyle = {
@@ -36,7 +36,7 @@ routes.query()
     .within(bounds)
     .where("DESCRIPTION = 'Primary cycle route'")
     .run(function (error, primaryRoutes) {
-        console.log(primaryRoutes);
+        // console.log(primaryRoutes);
 
         L.geoJSON(primaryRoutes, {
             style: primaryStyle
@@ -49,7 +49,7 @@ routes.query()
     .within(bounds)
     .where("DESCRIPTION = 'Local cycle route'")
     .run(function (error, secondaryRoutes) {
-        console.log(secondaryRoutes);
+        // console.log(secondaryRoutes);
 
         L.geoJSON(secondaryRoutes, {
             style: secondaryStyle
@@ -59,3 +59,10 @@ routes.query()
 // Add routes to basic map.
 // routes.addTo(map);
 // routes.setWhere("DESCRIPTION = 'Secondary cycle route'");
+
+
+function submitFilter() {
+    let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
+    let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
+    console.log(exerciseLevel, ridingTime);
+}

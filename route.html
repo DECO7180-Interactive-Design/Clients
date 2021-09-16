@@ -34,15 +34,15 @@
 
     <form action="#" id="filter" class="overlay">
         <!-- <label for="ip">Interest Point</label> -->
-        <label for="el">Exercise Level</label>
-        <select name="el" id="el">
+        <label for="exerciseLevel">Exercise Level</label>
+        <select name="exerciseLevel" id="exerciseLevel">
             <option value="easy">Easy</option>
             <option value="balanced">Balanced</option>
             <option value="hard">Hard</option>
         </select><br>
-        <label for="rt">Minutes by bikes</label>
-        <input type="number" id="rt" name="rt"><br>
-        <input type="submit" value="Sumbit">
+        <label for="ridingTime">Minutes by bikes</label>
+        <input type="number" id="ridingTime" name="ridingTime"><br>
+        <input type="button" value="Sumbit" onclick="submitFilter()">
     </form>
 
     <script src="./js/route.js"></script>

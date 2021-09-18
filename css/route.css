@@ -43,6 +43,7 @@ body {
 }
 
 button {
+    cursor: pointer;
     width: 80px;
     padding: 5px;
     margin: 0 30px;
@@ -50,4 +51,8 @@ button {
     border-radius: 37px;
     background-color: #FFCE46;
 
+}
+
+button:hover {
+    opacity: 0.6;
 }

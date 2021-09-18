@@ -1,6 +1,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -13,23 +16,45 @@ em {
     font-style: normal;
     font-weight: 800;
     font-size: 64px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 div {
     margin: auto;
     width: 50%;
+    border-radius: 73px;
 }
 
 #competition {
-    margin-top: 20%;
-    border: 3px solid #707070;
+    margin-top: 99px;
+    border: 1px solid #707070;
     /* fot text in the div */
     text-align: center;
 }
 
+#competition p {
+    padding: 133px 68px 219px;
+}
+
 .btns {
-    
+    margin-top: 12px;
     /* fot text in the div */
     text-align: center;
+}
+
+button {
+    width: 280px;
+    margin: 30px 80px;
+    background-color: #FFCE46;
+    color: white;
+    border-radius: 37px;
+    padding: 21px 65px;
+    font-size: 23px;
+    /* remove button border */
+    border: none;
+
+}
+
+button:first-child {
+    background-color: #273A5E;
 }

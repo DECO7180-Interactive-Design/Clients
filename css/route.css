@@ -35,5 +35,19 @@ body {
 }
 
 #panel {
-    padding: 20px 60px;
+    padding: 20px 20px;
+}
+
+#panel {
+    text-align: center;
+}
+
+button {
+    width: 80px;
+    padding: 5px;
+    margin: 0 30px;
+    border: none;
+    border-radius: 37px;
+    background-color: #FFCE46;
+
 }

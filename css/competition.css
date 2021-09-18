@@ -9,6 +9,9 @@ body {
 h1 {
     font-weight: 300;
     font-size: 36px;
+    margin: 0 150px;
+    padding-bottom: 0;
+    border-bottom: 3px solid #1252AE;
 }
 
 em {
@@ -32,7 +35,15 @@ div {
     text-align: center;
 }
 
-#competition p {
+#content {
+    width: 100%;
+}
+
+#content img {
+    width: 60px;
+}
+
+#content p {
     padding: 133px 68px 219px;
 }
 

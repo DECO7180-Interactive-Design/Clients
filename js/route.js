@@ -70,6 +70,7 @@ let bounds = L.latLngBounds(southWest, northEast);
 
 let filterButton = document.getElementById("filterButton");
 
+// Get the values from html's form.
 filterButton.addEventListener("click", function() {
     let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
     let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
@@ -85,3 +86,15 @@ filterButton.addEventListener("click", function() {
         routes.setWhere('Shape__Length >=5000');
     }
 });
+
+function easyRoutes() {
+    routes.setWhere('Shape__Length < 2000');
+};
+
+function banlancedRoutes() {
+    routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
+};
+
+function hardRoutes() {
+    routes.setWhere('Shape__Length >=5000');
+};

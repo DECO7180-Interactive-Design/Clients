@@ -38,8 +38,7 @@
 
     <div id="map"></div>
 
-    <form action="#" id="filter" class="overlay">
-        <!-- <label for="ip">Interest Point</label> -->
+    <!-- <form action="#" id="filter" class="overlay">
         <label for="exerciseLevel">Exercise Level</label>
         <select name="exerciseLevel" id="exerciseLevel">
             <option value="easy">Easy</option>
@@ -49,7 +48,26 @@
         <label for="ridingTime">Minutes by bikes</label>
         <input type="number" placeholder="30" id="ridingTime" name="ridingTime"><br>
         <input type="button" value="Sumbit" id="filterButton">
-    </form>
+    </form> -->
+
+    <div class="overlay" id="panel">
+        <h2>Step 1</h2>
+        <p>Choose your interest point.</p>
+        <h2>Step 2</h2>
+        <p>Choose your exercise level.</p>
+        <div id="exerciseLevel">
+            <button>Easy</button>
+            <button>Balanced</button>
+            <button>Hard</button>
+        </div>
+        <h2>Step 3</h2>
+        <p>Choose your expected riding time.</p>
+        <div id="ridingTime">
+            <button>30</button>
+            <button>60</button>
+            <button>90</button>
+        </div>
+    </div>
 
     <script src="./js/route.js"></script>
 

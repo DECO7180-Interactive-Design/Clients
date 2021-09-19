@@ -89,31 +89,34 @@ let filterButton = document.getElementById("filterButton");
 
 // Step 1
 let marker;
-map.on('click', function(point) {
-    if (marker) {
+let circle;
+map.on('click', function (point) {
+    if (marker || circle) {
         map.removeLayer(marker);
+        map.removeLayer(circle);
     }
     console.log(point.latlng);
     marker = L.marker(point.latlng).addTo(map);
+    circle = L.circle(point.latlng, 8000).addTo(map);
 })
 
 // Step 2 & 3
 function easyRoutes() {
     routes.setWhere('Shape__Length < 2000');
-};
+}
 
 function banlancedRoutes() {
     routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
-};
+}
 
 function hardRoutes() {
     routes.setWhere('Shape__Length >= 5000');
-};
+}
 
 // only allow to choose one option each line.
 $('input[type="checkbox"]').on('change', function () {
     $(this).siblings('input[type="checkbox"]').prop('checked', false);
-});
+})
 
 // Step 4
 function showSlides() {

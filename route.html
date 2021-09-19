@@ -64,11 +64,11 @@
             <h3>Step 2</h3>
             <p>Choose your exercise level.</p>
             <div id="exerciseLevel" class="routesPanelBtn">
-                <button onclick="easyRoutes()">Easy</button>
+                <button onclick="easyRoutes(); changeLevelBtn();">Easy</button>
                 <div class="line"></div>
-                <button onclick="banlancedRoutes()">Balanced</button>
+                <button onclick="banlancedRoutes(); changeLevelBtn();">Balanced</button>
                 <div class="line"></div>
-                <button onclick="hardRoutes()">Hard</button>
+                <button onclick="hardRoutes(); changeLevelBtn();">Hard</button>
             </div>
         </section>
 
@@ -77,13 +77,13 @@
             <p>Choose your expected riding time.</p>
             <!-- TODO need to improve the accuracy of the recommendation -->
             <div id="ridingTime" class="routesPanelBtn">
-                <button onclick="banlancedRoutes()">30</button>
+                <button onclick="banlancedRoutes(); changeTimeBtn();">30</button>
                 <div class="line"></div>
-                <button onclick="banlancedRoutes()">60</button>
+                <button onclick="banlancedRoutes(); changeTimeBtn();">60</button>
                 <div class="line"></div>
                 <!-- Even the user choose a easy exercise level, if they would like to ride a long time, -->
                 <!-- give them a had routes because the hard means distance in this case. -->
-                <button onclick="hardRoutes()">90</button>
+                <button onclick="hardRoutes(); changeTimeBtn();">90</button>
             </div>
         </section>
 

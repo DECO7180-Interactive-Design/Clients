@@ -103,3 +103,7 @@ function hardRoutes() {
 $('input[type="checkbox"]').on('change', function() {
     $(this).siblings('input[type="checkbox"]').prop('checked', false);
  });
+
+ function showSlides() {
+     $('#slideshow').css('visibility', 'visible');
+ }

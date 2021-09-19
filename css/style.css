@@ -250,11 +250,13 @@ main .sign-up {
 /* Merge the btn of routes panel to a class for styling. */
 .routesPanelBtn {
   display: flex;
-  margin-left: 40px;
-  margin-right: 40px;
+  justify-content: space-between;
+  /* margin-left: 40px;
+  margin-right: 40px; */
   padding: 10px 0 10px;
 }
 
+/* FIXME double check if this is used for other pages (except the route page) */
 button {
   cursor: pointer;
   width: 30%;
@@ -263,7 +265,8 @@ button {
   background-color: transparent;
 }
 
-.overlay div div {
+/* FIXME double check if this is used for other pages (except the route page) */
+.line {
   width: 2px;
   min-height: 100%;
   background-color: #FFCE46;
@@ -271,6 +274,7 @@ button {
   border-radius: 3px;
 }
 
+/* FIXME double check if this is used for other pages (except the route page) */
 button:hover {
   background-color: #FFCE46;
   transition: ease-in-out 0.2s;
@@ -319,4 +323,19 @@ button:hover {
 #slideshow div {
   background-color: white;
   padding: 60px 160px;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  width: 30%;
+  padding: 10px 0 10px;
+}
+
+label:hover {
+  background-color: #FFCE46;
+  transition: ease-in-out 0.2s;
 }

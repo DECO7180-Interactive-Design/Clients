@@ -276,29 +276,29 @@ label:hover {
   transition: ease-in-out 0.2s;
 }
 
-/* FIXME double check if this is used for other pages (except the route page) */
-/* button {
-  cursor: pointer;
-  width: 30%;
-  padding: 10px 0 10px;
-  border: none;
-  background-color: transparent;
-} */
 
-/* FIXME double check if this is used for other pages (except the route page) */
-/* .line {
+button {
+  cursor: pointer;
+  width: 50%;
+  padding: 5px 0;
+  border-radius: 37px;
+  background-color: transparent;
+}
+
+button:hover, button:focus {
+  color: #273A5E;
+  background-color: #FFCE46;
+  transition: ease-in-out 0.2s;
+}
+
+.divLine {
   width: 2px;
   min-height: 100%;
   background-color: #FFCE46;
   display: inline-block;
   border-radius: 3px;
-} */
+}
 
-/* FIXME double check if this is used for other pages (except the route page) */
-/* button:hover {
-  background-color: #FFCE46;
-  transition: ease-in-out 0.2s;
-} */
 
 /* Move the lengend to the top right corner. */
 #legend {

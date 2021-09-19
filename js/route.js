@@ -92,6 +92,7 @@ let marker;
 let circle;
 let query;
 let queryLayer = L.layerGroup();
+const radius = 3000; // radius is 3km
 function choosePoint() {
     map.on('click', function (point) {
         if (marker || circle) {
@@ -100,7 +101,7 @@ function choosePoint() {
         }
         console.log(point.latlng);
         marker = L.marker(point.latlng).addTo(map);
-        circle = L.circle(point.latlng, 8000).addTo(map);
+        circle = L.circle(point.latlng, radius).addTo(map);
         const bounds = circle.getBounds();
         map.fitBounds(bounds, {padding: [30, 30]});
 

@@ -87,6 +87,17 @@ let filterButton = document.getElementById("filterButton");
 //     }
 // });
 
+// Step 1
+let marker;
+map.on('click', function(point) {
+    if (marker) {
+        map.removeLayer(marker);
+    }
+    console.log(point.latlng);
+    marker = L.marker(point.latlng).addTo(map);
+})
+
+// Step 2 & 3
 function easyRoutes() {
     routes.setWhere('Shape__Length < 2000');
 };
@@ -100,10 +111,11 @@ function hardRoutes() {
 };
 
 // only allow to choose one option each line.
-$('input[type="checkbox"]').on('change', function() {
+$('input[type="checkbox"]').on('change', function () {
     $(this).siblings('input[type="checkbox"]').prop('checked', false);
- });
+});
 
- function showSlides() {
-     $('#slideshow').css('visibility', 'visible');
- }
+// Step 4
+function showSlides() {
+    $('#slideshow').css('visibility', 'visible');
+}

@@ -72,12 +72,15 @@
         <section>
             <h3>Step 3</h3>
             <p>Choose your expected riding time.</p>
+            <!-- TODO need to improve the accuracy of the recommendation -->
             <div id="ridingTime">
-                <button>30</button>
+                <button onclick="banlancedRoutes()">30</button>
                 <div class="line"></div>
-                <button>60</button>
+                <button onclick="banlancedRoutes()">60</button>
                 <div class="line"></div>
-                <button>90</button>
+                <!-- Even the user choose a easy exercise level, if they would like to ride a long time, -->
+                <!-- give them a had routes because the hard means distance in this case. -->
+                <button onclick="hardRoutes()">90</button>
             </div>
         </section>
 

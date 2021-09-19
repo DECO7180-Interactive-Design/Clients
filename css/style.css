@@ -257,6 +257,11 @@ input[type=checkbox] {
   display: none;
 }
 
+/* '+' for nearby selector */
+input[type=checkbox]:checked + label {
+  background-color: #FFCE46;
+}
+
 label {
   font-size: small;
   cursor: pointer;

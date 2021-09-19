@@ -305,3 +305,18 @@ button:hover {
   display: inline-block;
   margin-right: 20px;
 }
+
+#slideshow {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#slideshow div {
+  background-color: white;
+  padding: 60px 160px;
+}

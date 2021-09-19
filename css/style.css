@@ -263,7 +263,11 @@ input[type=checkbox]:checked + label {
 }
 
 label {
+  width: 60px;
   font-size: small;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 37px;
   cursor: pointer;
 }
 
@@ -273,28 +277,28 @@ label:hover {
 }
 
 /* FIXME double check if this is used for other pages (except the route page) */
-button {
+/* button {
   cursor: pointer;
   width: 30%;
   padding: 10px 0 10px;
   border: none;
   background-color: transparent;
-}
+} */
 
 /* FIXME double check if this is used for other pages (except the route page) */
-.line {
+/* .line {
   width: 2px;
   min-height: 100%;
   background-color: #FFCE46;
   display: inline-block;
   border-radius: 3px;
-}
+} */
 
 /* FIXME double check if this is used for other pages (except the route page) */
-button:hover {
+/* button:hover {
   background-color: #FFCE46;
   transition: ease-in-out 0.2s;
-}
+} */
 
 /* Move the lengend to the top right corner. */
 #legend {

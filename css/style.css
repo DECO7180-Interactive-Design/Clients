@@ -228,7 +228,7 @@ main .sign-up {
 }
 
 #panel {
-  padding: 10px 8px 20px;
+  padding: 10px 8px;
 }
 
 #panel {
@@ -253,7 +253,7 @@ main .sign-up {
   justify-content: space-between;
   /* margin-left: 40px;
   margin-right: 40px; */
-  padding: 10px 0 10px;
+  /* padding: 10px 0 10px; */
 }
 
 /* FIXME double check if this is used for other pages (except the route page) */
@@ -322,7 +322,7 @@ button:hover {
 
 #slideshow div {
   background-color: white;
-  padding: 60px 160px;
+  padding: 60px 100px;
 }
 
 input[type=checkbox] {
@@ -330,6 +330,7 @@ input[type=checkbox] {
 }
 
 label {
+  font-size: small;
   cursor: pointer;
   width: 30%;
   padding: 10px 0 10px;

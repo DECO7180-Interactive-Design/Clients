@@ -225,7 +225,7 @@ function incrementTimer() {
     if (h < 10 || h == 0) {
       h = '0' + h;
     }
-    timer.innerHTML = "Riding time: " + h + ':' + min + ':' + sec;
+    timer.innerHTML = h + ':' + min + ':' + sec;
     setTimeout("incrementTimer()", 1000);
   }
 }

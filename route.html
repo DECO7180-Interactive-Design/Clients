@@ -32,6 +32,9 @@
     <script src="https://unpkg.com/esri-leaflet-vector@3.1.0/dist/esri-leaflet-vector.js"
         integrity="sha512-AAcPGWoYOQ7VoaC13L/rv6GwvzEzyknHQlrtdJSGD6cSzuKXDYILZqUhugbJFZhM+bEXH2Ah7mA1OxPFElQmNQ=="
         crossorigin=""></script>
+
+    <!-- Refercer to fontawesome -->
+    <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
 </head>
 
 <body>
@@ -51,12 +54,12 @@
     </form> -->
 
     <div class="overlay" id="panel">
-        
+
         <section>
             <h3>Step 1</h3>
             <p>Choose your interest point.</p>
         </section>
-        
+
         <section>
             <h3>Step 2</h3>
             <p>Choose your exercise level.</p>
@@ -68,7 +71,7 @@
                 <button onclick="hardRoutes()">Hard</button>
             </div>
         </section>
-        
+
         <section>
             <h3>Step 3</h3>
             <p>Choose your expected riding time.</p>
@@ -91,7 +94,7 @@
                 <button>Generate Routes</button>
             </div>
         </section>
-        
+
     </div>
 
     <section id="legend">
@@ -102,7 +105,22 @@
         </div>
     </section>
 
+    <section id="slideshow">
+        <div>
+            recommendation 1
+        </div>
+        <div>
+            recommendation 2
+        </div>
+        <div>
+            recommendation 3
+        </div>
+        <!-- <a class="prev-btn" onclick="controlSlides(-1)"><i class="fas fa-chevron-left"></i></a>
+        <a class="next-btn" onclick="controlSlides(1)"><i class="fas fa-chevron-right"></i></a> -->
+    </section>
+
     <script src="./js/route.js"></script>
+    <script src="js/slider.js"></script>
 
 </body>
 

@@ -340,7 +340,24 @@ button:hover, button:focus {
   justify-content: space-between;
 }
 
-#slideshow div {
-  background-color: white;
-  padding: 60px 100px;
+.slides {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 30%;
+  padding: 24px 0;
+}
+
+#slideshow article {
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+#slideshow article + div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#slideshow button {
+  width: 20%;
 }

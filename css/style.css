@@ -276,10 +276,11 @@ button:hover {
   transition: ease-in-out 0.2s;
 }
 
+/* Move the lengend to the top right corner. */
 #legend {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  right: 0;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.8);
 }

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycling Route</title>
+    <title>Cycling Map</title>
 
     <!-- Link to the stylesheet -->
-    <link rel="stylesheet" href="./css/route.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <!-- Google font API -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,23 +51,50 @@
     </form> -->
 
     <div class="overlay" id="panel">
-        <h3>Step 1</h3>
-        <p>Choose your interest point.</p>
-        <h3>Step 2</h3>
-        <p>Choose your exercise level.</p>
-        <div id="exerciseLevel">
-            <button onclick="easyRoutes()">Easy</button>
-            <button onclick="banlancedRoutes()">Balanced</button>
-            <button onclick="hardRoutes()">Hard</button>
-        </div>
-        <h3>Step 3</h3>
-        <p>Choose your expected riding time.</p>
-        <div id="ridingTime">
-            <button>30</button>
-            <button>60</button>
-            <button>90</button>
-        </div>
+        
+        <section>
+            <h3>Step 1</h3>
+            <p>Choose your interest point.</p>
+        </section>
+        
+        <section>
+            <h3>Step 2</h3>
+            <p>Choose your exercise level.</p>
+            <div id="exerciseLevel">
+                <button onclick="easyRoutes()">Easy</button>
+                <div class="line"></div>
+                <button onclick="banlancedRoutes()">Balanced</button>
+                <div class="line"></div>
+                <button onclick="hardRoutes()">Hard</button>
+            </div>
+        </section>
+        
+        <section>
+            <h3>Step 3</h3>
+            <p>Choose your expected riding time.</p>
+            <div id="ridingTime">
+                <button>30</button>
+                <div class="line"></div>
+                <button>60</button>
+                <div class="line"></div>
+                <button>90</button>
+            </div>
+        </section>
+
+        <section>
+            <h3>Step 4</h3>
+            <p>Click a route.</p>
+        </section>
+        
     </div>
+
+    <section id="legend">
+        <h3>Legend</h3>
+        <div class="track">
+            <div></div>
+            <p>Bicycle Track</p>
+        </div>
+    </section>
 
     <script src="./js/route.js"></script>
 

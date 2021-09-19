@@ -149,8 +149,8 @@ main .sign-up {
 
 #chooses {
   display: flex;
-  background: no-repeat url('../assets/background-triangle.png');
-  background-size: 100% 100%;
+  background: no-repeat center url('../assets/background-triangle.png');
+  background-size: 100% 80%;
   align-items: center;
   justify-content: center;
   height: 500px;
@@ -193,12 +193,120 @@ main .sign-up {
   transition: ease-in-out 0.2s;
 }
 
-/* Routes Selection */
+/* Route */
 
-#routes {
-  text-align: center;
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 
-#routes-list {
+#filter {
+  padding-left: 30px;
+}
+
+#filter label {
+  /* let the margin work using inline-block */
+  display: inline-block;
+  margin: 12px 5px 12px 0px;
+}
+
+.overlay {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.overlay section {
+  margin: 5% 0 5%;
+  padding: 0;
+}
+
+#panel {
+  padding: 10px 8px 20px;
+}
+
+#panel {
+  text-align: left;
+}
+
+#panel h3 {
+  padding-left: 12px;
+  margin: 12px;
+  margin-top: 12px;
+  font-family: 'Poppins';
+}
+
+#panel p {
+  padding-left: 25px;
+  margin: 12px;
+}
+
+#exerciseLevel {
   display: flex;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px 0 10px;
+}
+
+#ridingTime {
+  display: flex;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 10px 0 10px;
+}
+
+button {
+  cursor: pointer;
+  width: 30%;
+  padding: 10px 0 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.overlay div div {
+  width: 2px;
+  min-height: 100%;
+  background-color: #FFCE46;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #FFCE46;
+  transition: ease-in-out 0.2s;
+}
+
+#legend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#legend h3 {
+  padding-left: 12px;
+  margin: 12px;
+  margin-top: 12px;
+  font-family: 'Poppins';
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  padding: 0 25px 0;
+}
+
+.track div {
+  width: 50px;
+  height: 5px;
+  background-color: lightskyblue;
+  display: inline-block;
+  margin-right: 20px;
 }

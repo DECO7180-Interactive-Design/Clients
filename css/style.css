@@ -247,14 +247,8 @@ main .sign-up {
   margin: 12px;
 }
 
-#exerciseLevel {
-  display: flex;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 10px 0 10px;
-}
-
-#ridingTime {
+/* Merge the btn of routes panel to a class for styling. */
+.routesPanelBtn {
   display: flex;
   margin-left: 40px;
   margin-right: 40px;

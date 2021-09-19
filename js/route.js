@@ -103,7 +103,8 @@ function choosePoint() {
         marker = L.marker(point.latlng).addTo(map);
         circle = L.circle(point.latlng, radius).addTo(map);
         const bounds = circle.getBounds();
-        map.fitBounds(bounds, {padding: [30, 30]});
+        // map.fitBounds(bounds, {padding: [30, 30]});
+        map.fitBounds(bounds);
 
         query = routes.query()
             .within(bounds);

@@ -230,24 +230,34 @@ function incrementTimer() {
   }
 }
 
-
-// function startSpeed() {
-//     if (stoptime == true) {
-//         stoptime = false;
-//         speedCycle()
-//     }
+// function imgChange() {
+//   document.getElementById('bd').style.backgroundImage = "url(assets/riding.png)";
 // }
-// function stopSpeed() {
-//     if (stoptime == false) {
-//       stoptime = true;
-//     }
-//   }
+let bdImgIndex = 0
+bdImgs = ['bd1', 'bd2', 'bd3', 'bd4', 'bd5']
 
-// function speedCycle() {
-//     if (stoptime == false) {
-//         speed = parseInt(speed);
-//         speed = speed + 2;
-//     }
-//     speed.innerHTML = speed + "km/h";
-//     setTimeout("speedCycle()", 2000);
-// }
+function loadBdImg(bdImg) {
+  document.getElementById('bd').style.backgroundImage = `url(assets/${bdImg}.jpg`;
+}
+
+function prevBdImg() {
+  bdImgIndex--
+  if(bdImgIndex < 0) {
+      bdImgIndex = 4
+  }
+
+  loadBdImg(bdImgs[bdImgIndex])
+}
+
+function nextBdImg() {
+  bdImgIndex++
+  if(bdImgIndex > 4) {
+      bdImgIndex = 0
+  }
+
+  loadBdImg(bdImgs[bdImgIndex])
+}
+const prevStopBtn =document.querySelector('#lastStop')
+const nextStopBtn =document.querySelector('#nextStop')
+prevStopBtn.addEventListener('click', prevBdImg)
+nextStopBtn.addEventListener('click', nextBdImg)

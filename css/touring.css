@@ -1,6 +1,6 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(../assets/Main\ Interface.png);
+    background-image: url(../assets/bd1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -102,18 +102,18 @@ body{
   transition: ease-in-out 0.2s;
 }
 
-  .hideAll {
-    position: absolute; 
-    top: 1px;
-    right: 20px;
-    font-size: 30px;
-    padding: 20px;
-    cursor: pointer;
-    border: 0;
-  }
-  .hideAll i:hover {
-    opacity: 0.6;
-  }
+.hideAll {
+  position: absolute; 
+  top: 1px;
+  right: 20px;
+  font-size: 30px;
+  padding: 20px;
+  cursor: pointer;
+  border: 0;
+}
+.hideAll i:hover {
+  opacity: 0.6;
+}
 
   /* .hideAll:hover + .hide {
     display: block;
@@ -122,74 +122,74 @@ body{
     display: none;
   } */
 
-  #pauseRiding {
-    display: flex;
-    position: absolute;
-    left: 42%;
-    bottom: 8%;
-    background-color: #FBA100;
-    font-size: 3em;
-    border-radius: 50px;
-    cursor: pointer;
-  }
+#pauseRiding {
+  display: flex;
+  position: absolute;
+  left: 42%;
+  bottom: 8%;
+  background-color: #FBA100;
+  font-size: 3em;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
-  #lastStop {
-    display: flex;
-    position: absolute;
-    left: 35%;
-    bottom: 8%;
-    background-color: #FBA100;
-    font-size: 3em;
-    border-radius: 50px;
-    cursor: pointer;
-  }
+#lastStop {
+  display: flex;
+  position: absolute;
+  left: 35%;
+  bottom: 8%;
+  background-color: #FBA100;
+  font-size: 3em;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
-  #stop {
-    display: flex;
-    position: absolute;
-    left: 49%;
-    bottom: 8%;
-    background-color: #FBA100;
-    font-size: 3em;
-    border-radius: 50px;
-    cursor: pointer;
-  }
+#stop {
+  display: flex;
+  position: absolute;
+  left: 49%;
+  bottom: 8%;
+  background-color: #FBA100;
+  font-size: 3em;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
-  #nextStop{
-    display: flex;
-    position: absolute;
-    left: 56%;
-    bottom: 8%;
-    background-color: #FBA100;
-    font-size: 3em;
-    border-radius: 50px;
-    cursor: pointer;
-  }
+#nextStop{
+  display: flex;
+  position: absolute;
+  left: 56%;
+  bottom: 8%;
+  background-color: #FBA100;
+  font-size: 3em;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
-  #pauseRiding i:hover {
-    opacity: 0.8;
-  }
+#pauseRiding i:hover {
+  opacity: 0.8;
+}
 
-  #lastStop i:hover {
-    opacity: 0.8;
-  }
+#lastStop i:hover {
+  opacity: 0.8;
+}
 
-  #stop i:hover {
-    opacity: 0.8;
-  }
+#stop i:hover {
+  opacity: 0.8;
+}
 
-  #nextStop i:hover {
-    opacity: 0.8;
-  }
-  
-  .mapbox {
-    position: fixed;
-    width: 400px;
-    height: 320px;
-    text-align: center;
-    bottom: 1%;
-    background-color: rgba(0,0,0,0.1); /* opacity */
-  }
+#nextStop i:hover {
+  opacity: 0.8;
+}
+
+.mapbox {
+  position: fixed;
+  width: 400px;
+  height: 320px;
+  text-align: center;
+  bottom: 1%;
+  background-color: rgba(0,0,0,0.1); /* opacity */
+}
 
 /* mapPopUp */
 #mapImg {

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
   rel="stylesheet">
 </head>
-<body>
+<body id="bd">
     <div class="container">
         <div class="dropDown">
             <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
@@ -55,7 +55,7 @@
         <!-- <div class="hide">Hide All</div> -->
         
         <div class="controlBtn">
-            <div id="lastStop"><i class="fas fa-backward" style="color: #fff; margin: 20px;"></i></div>
+            <div id="lastStop"><i class="fas fa-backward" style="color: #fff; margin: 20px;" onclick="imgChange()"></i></div>
             <div id="pauseRiding"><i class="fas fa-play" style="color: #fff; margin: 20px;" onclick="startTimer()"></i></div>
             <div id="stop"><i class="fas fa-stop" style="color: #fff; margin: 20px;" onclick="confirmAction()"></i></div>
             <div id="nextStop"><i class="fas fa-forward" style="color: #fff; margin: 20px;"></i></div>

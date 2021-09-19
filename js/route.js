@@ -71,21 +71,21 @@ let bounds = L.latLngBounds(southWest, northEast);
 let filterButton = document.getElementById("filterButton");
 
 // Get the values from html's form.
-filterButton.addEventListener("click", function() {
-    let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
-    let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
+// filterButton.addEventListener("click", function() {
+//     let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
+//     let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
 
-    if (exerciseLevel == "easy") {
-        console.log(exerciseLevel, ridingTime);
-        routes.setWhere('Shape__Length < 2000');
-    } else if (exerciseLevel == "balanced") {
-        console.log(exerciseLevel, ridingTime);
-        routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
-    } else if (exerciseLevel == "hard") {
-        console.log(exerciseLevel, ridingTime);
-        routes.setWhere('Shape__Length >=5000');
-    }
-});
+//     if (exerciseLevel == "easy") {
+//         console.log(exerciseLevel, ridingTime);
+//         routes.setWhere('Shape__Length < 2000');
+//     } else if (exerciseLevel == "balanced") {
+//         console.log(exerciseLevel, ridingTime);
+//         routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
+//     } else if (exerciseLevel == "hard") {
+//         console.log(exerciseLevel, ridingTime);
+//         routes.setWhere('Shape__Length >=5000');
+//     }
+// });
 
 function easyRoutes() {
     routes.setWhere('Shape__Length < 2000');
@@ -96,5 +96,10 @@ function banlancedRoutes() {
 };
 
 function hardRoutes() {
-    routes.setWhere('Shape__Length >=5000');
+    routes.setWhere('Shape__Length >= 5000');
 };
+
+// only allow to choose one option each line.
+$('input[type="checkbox"]').on('change', function() {
+    $(this).siblings('input[type="checkbox"]').prop('checked', false);
+ });

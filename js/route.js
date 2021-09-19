@@ -12,7 +12,7 @@ L.esri.basemapLayer('Topographic').addTo(map);
 const routes = L.esri.featureLayer({
     url: 'https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0',
     // where: "DESCRIPTION = 'Primary cycle route'"
-}).addTo(map);
+});
 
 console.log(routes);
 
@@ -90,27 +90,72 @@ let filterButton = document.getElementById("filterButton");
 // Step 1
 let marker;
 let circle;
-map.on('click', function (point) {
-    if (marker || circle) {
-        map.removeLayer(marker);
-        map.removeLayer(circle);
-    }
-    console.log(point.latlng);
-    marker = L.marker(point.latlng).addTo(map);
-    circle = L.circle(point.latlng, 8000).addTo(map);
-})
+let query;
+let queryLayer = L.layerGroup();
+function choosePoint() {
+    map.on('click', function (point) {
+        if (marker || circle) {
+            map.removeLayer(marker);
+            map.removeLayer(circle);
+        }
+        console.log(point.latlng);
+        marker = L.marker(point.latlng).addTo(map);
+        circle = L.circle(point.latlng, 8000).addTo(map);
+        const bounds = circle.getBounds();
+        map.fitBounds(bounds, {padding: [30, 30]});
+
+        query = routes.query()
+            .within(bounds);
+    });
+}
+
+
 
 // Step 2 & 3
 function easyRoutes() {
-    routes.setWhere('Shape__Length < 2000');
+    if (query) {
+        map.removeLayer(query);
+        query.where('Shape__Length < 2000')
+            .run(function (error, interestPoint) {
+                if (error) {
+                    return;
+                }
+                queryLayer.clearLayers();
+                L.geoJSON(interestPoint).addTo(queryLayer);
+                queryLayer.addTo(map);
+            });
+    }
 }
 
 function banlancedRoutes() {
-    routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
+    if (query) {
+        map.removeLayer(query);
+        query.where('Shape__Length >= 2000 and Shape__Length < 5000')
+            .run(function (error, interestPoint) {
+                if (error) {
+                    return;
+                }
+                queryLayer.clearLayers();
+                L.geoJSON(interestPoint).addTo(queryLayer);
+                queryLayer.addTo(map);
+            });
+    }
 }
 
 function hardRoutes() {
-    routes.setWhere('Shape__Length >= 5000');
+    if (query) {
+        map.removeLayer(query);
+        query.where('Shape__Length >= 5000')
+            .run(function (error, interestPoint) {
+                if (error) {
+                    return;
+                }
+                queryLayer.clearLayers();
+                L.geoJSON(interestPoint).addTo(queryLayer);
+                queryLayer.addTo(map);
+            });
+    }
+    
 }
 
 // only allow to choose one option each line.

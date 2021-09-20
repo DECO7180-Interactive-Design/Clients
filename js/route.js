@@ -93,23 +93,29 @@ let circle;
 let query;
 let queryLayer = L.layerGroup();
 const radius = 3000; // radius is 3km
-function choosePoint() {
-    map.on('click', function (point) {
-        if (marker || circle) {
-            map.removeLayer(marker);
-            map.removeLayer(circle);
-        }
-        console.log(point.latlng);
-        marker = L.marker(point.latlng).addTo(map);
-        circle = L.circle(point.latlng, radius).addTo(map);
-        const bounds = circle.getBounds();
-        // map.fitBounds(bounds, {padding: [30, 30]});
-        map.fitBounds(bounds);
 
-        query = routes.query()
-            .within(bounds);
-    });
-}
+// test for click route segments.
+circle = L.circle([-27.495432, 153.012024], radius).addTo(map);
+map.fitBounds(circle.getBounds());
+query = routes.query()
+    .within(circle.getBounds());
+// function choosePoint() {
+//     map.on('click', function (point) {
+//         if (marker || circle) {
+//             map.removeLayer(marker);
+//             map.removeLayer(circle);
+//         }
+//         console.log(point.latlng);
+//         marker = L.marker(point.latlng).addTo(map);
+//         circle = L.circle(point.latlng, radius).addTo(map);
+//         const bounds = circle.getBounds();
+//         // map.fitBounds(bounds, {padding: [30, 30]});
+//         map.fitBounds(bounds);
+
+//         query = routes.query()
+//             .within(bounds);
+//     });
+// }
 
 
 
@@ -140,6 +146,9 @@ function banlancedRoutes() {
                 queryLayer.clearLayers();
                 L.geoJSON(interestPoint).addTo(queryLayer);
                 queryLayer.addTo(map);
+                queryLayer.on('click', function (evt) {
+                    console.log(evt.layer.feature.properties);
+                });
             });
     }
 }
@@ -157,7 +166,7 @@ function hardRoutes() {
                 queryLayer.addTo(map);
             });
     }
-    
+
 }
 
 // only allow to choose one option each line.

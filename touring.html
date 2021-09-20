@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
   rel="stylesheet">
+    <!--popup-->
+    <script language="javascript"> 
+        function openwin() 
+        {openwindow=window.open("popup.html", "newwin", "height=250, width=200,toolbar=no,scrollbars=no,menubar=no"); 
+    </script>
 </head>
 <body id="bd">
     <div class="container">
@@ -92,7 +97,13 @@
         </div>
     </section>
     
-
+    <!--popup-->
+    <div>
+      <a href="#">
+      <img src="assets/drink.png" alt="popup">
+      </a>
+      <input type="button" value="popup" onclick="openwin()"> 
+    </div>
 
     <script src="js/touring.js"></script>
     <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>

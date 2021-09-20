@@ -121,6 +121,7 @@ function choosePoint() {
 
 // Step 2 & 3
 function easyRoutes() {
+    map.off('click');
     if (query) {
         map.removeLayer(query);
         query.where('Shape__Length < 2000')
@@ -140,6 +141,7 @@ function easyRoutes() {
 }
 
 function banlancedRoutes() {
+    map.off('click');
     if (query) {
         map.removeLayer(query);
         query.where('Shape__Length >= 2000 and Shape__Length < 5000')
@@ -159,6 +161,7 @@ function banlancedRoutes() {
 }
 
 function hardRoutes() {
+    map.off('click');
     if (query) {
         map.removeLayer(query);
         query.where('Shape__Length >= 5000')

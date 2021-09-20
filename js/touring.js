@@ -230,9 +230,7 @@ function incrementTimer() {
   }
 }
 
-// function imgChange() {
-//   document.getElementById('bd').style.backgroundImage = "url(assets/riding.png)";
-// }
+// background image change
 let bdImgIndex = 0
 bdImgs = ['bd1', 'bd2', 'bd3', 'bd4', 'bd5']
 

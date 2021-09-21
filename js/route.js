@@ -127,7 +127,7 @@ function pickRoutes(routesCollection) {
 function displayRoute(route, place) {
     let id = route.feature.properties["OBJECTID"];
     let length = route.feature.properties["Shape__Length"];
-    length = Math.floor(length/1000);
+    length = Math.round(length) / 1000;
     let description = route.feature.properties["DESCRIPTION"];
     console.log(id, length, description);
 
@@ -168,11 +168,12 @@ function banlancedRoutes() {
                 let routesLayer = L.geoJSON(interestPoint);
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
-                let route = pickRoutes(routesLayer);
-                // let id = route.feature.properties["OBJECTID"];
-                // console.log(route.feature.properties);
-                // $("h4").append(`<p>${id}</p>`);
-                displayRoute(route, 2);
+                let route1 = pickRoutes(routesLayer);
+                let route2 = pickRoutes(routesLayer);
+                let route3 = pickRoutes(routesLayer);
+                displayRoute(route1, 1);
+                displayRoute(route2, 2);
+                displayRoute(route3, 3);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });

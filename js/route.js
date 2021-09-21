@@ -118,6 +118,11 @@ function choosePoint() {
 }
 
 
+function pickRoutes(routesCollection) {
+    let dict = routesCollection._layers;
+    let key = Object.keys(dict)[Math.floor(Math.random() * Object.keys(dict).length)];
+    return dict[key];
+}
 
 // Step 2 & 3
 function easyRoutes() {
@@ -153,6 +158,8 @@ function banlancedRoutes() {
                 let routesLayer = L.geoJSON(interestPoint);
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
+                let route = pickRoutes(routesLayer);
+                console.log(route);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });

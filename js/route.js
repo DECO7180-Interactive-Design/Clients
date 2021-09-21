@@ -124,6 +124,16 @@ function pickRoutes(routesCollection) {
     return dict[key];
 }
 
+function displayRoute(route, place) {
+    let id = route.feature.properties["OBJECTID"];
+    let length = route.feature.properties["Shape__Length"];
+    length = Math.floor(length/1000);
+    let description = route.feature.properties["DESCRIPTION"];
+    console.log(id, length, description);
+
+    $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+}
+
 // Step 2 & 3
 function easyRoutes() {
     map.off('click');
@@ -159,7 +169,10 @@ function banlancedRoutes() {
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
                 let route = pickRoutes(routesLayer);
-                console.log(route);
+                // let id = route.feature.properties["OBJECTID"];
+                // console.log(route.feature.properties);
+                // $("h4").append(`<p>${id}</p>`);
+                displayRoute(route, 2);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });

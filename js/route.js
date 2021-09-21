@@ -139,6 +139,15 @@ function displayRoute(route, place) {
     }
 }
 
+function recommend(routesCollection) {
+    let route1 = pickRoutes(routesCollection);
+    let route2 = pickRoutes(routesCollection);
+    let route3 = pickRoutes(routesCollection);
+    displayRoute(route1, 1);
+    displayRoute(route2, 2);
+    displayRoute(route3, 3);
+}
+
 // Step 2 & 3
 function easyRoutes() {
     map.off('click');
@@ -153,6 +162,7 @@ function easyRoutes() {
                 let routesLayer = L.geoJSON(interestPoint);
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
+                recommend(routesLayer);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });
@@ -173,12 +183,7 @@ function banlancedRoutes() {
                 let routesLayer = L.geoJSON(interestPoint);
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
-                let route1 = pickRoutes(routesLayer);
-                let route2 = pickRoutes(routesLayer);
-                let route3 = pickRoutes(routesLayer);
-                displayRoute(route1, 1);
-                displayRoute(route2, 2);
-                displayRoute(route3, 3);
+                recommend(routesLayer);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });
@@ -199,6 +204,7 @@ function hardRoutes() {
                 let routesLayer = L.geoJSON(interestPoint);
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
+                recommend(routesLayer);
                 routesLayer.on('click', function (event) {
                     console.log(event.layer.feature.properties);
                 });

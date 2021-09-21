@@ -131,7 +131,12 @@ function displayRoute(route, place) {
     let description = route.feature.properties["DESCRIPTION"];
     console.log(id, length, description);
 
-    $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+    if ($(`.slides:nth-child(${place}) p`).length) {
+        $(`.slides:nth-child(${place}) p`).remove();
+        $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+    } else {
+        $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+    }
 }
 
 // Step 2 & 3

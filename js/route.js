@@ -133,9 +133,9 @@ function displayRoute(route, place) {
 
     if ($(`.slides:nth-child(${place}) p`).length) {
         $(`.slides:nth-child(${place}) p`).remove();
-        $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+        $(`.slides:nth-child(${place}) article`).append(`<p>${length}</p>`);
     } else {
-        $(`.slides:nth-child(${place}) h4`).append(`<p>${length}</p>`);
+        $(`.slides:nth-child(${place}) article`).append(`<p>${length}</p>`);
     }
 }
 

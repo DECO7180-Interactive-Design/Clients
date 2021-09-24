@@ -257,5 +257,18 @@ function nextBdImg() {
 }
 const prevStopBtn =document.querySelector('#lastStop')
 const nextStopBtn =document.querySelector('#nextStop')
-prevStopBtn.addEventListener('click', prevBdImg)
-nextStopBtn.addEventListener('click', nextBdImg)
+prevStopBtn.addEventListener('click', loadImg)
+nextStopBtn.addEventListener('click', loadImg)
+
+// pass cordinates 
+let routeCoords = sessionStorage.getItem('coordsArray');
+sessionStorage.clear();
+console.log(routeCoords);
+
+function loadImg() {
+  var $lat = routeCoords[0];
+  var $lng = routeCoords[1];
+  var $address = $lat + ',' + $lng;
+  var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x320&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
+  document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
+}

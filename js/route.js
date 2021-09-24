@@ -139,16 +139,24 @@ function displayRoute(route, place) {
     }
 }
 
+let route1;
+let route2;
+let route3;
 function recommend(routesCollection) {
-    let route1 = pickRoutes(routesCollection);
-    let route2 = pickRoutes(routesCollection);
-    let route3 = pickRoutes(routesCollection);
+    route1 = pickRoutes(routesCollection);
+    route2 = pickRoutes(routesCollection);
+    route3 = pickRoutes(routesCollection);
     displayRoute(route1, 1);
     displayRoute(route2, 2);
     displayRoute(route3, 3);
-    let routeCoords = route1.feature.geometry.coordinates;
-    console.log(routeCoords);
-    sessionStorage.setItem('coordsArray', routeCoords);
+}
+
+function sotreCoords(routeName) {
+    if (routeName) {
+        let routeCoords = routeName.feature.geometry.coordinates;
+        console.log(routeCoords);
+        sessionStorage.setItem('coordsArray', routeCoords);
+    }
 }
 
 // Step 2 & 3

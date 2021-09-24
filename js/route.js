@@ -159,7 +159,9 @@ function easyRoutes() {
                     return;
                 }
                 queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint);
+                let routesLayer = L.geoJSON(interestPoint, {
+                    style: primaryStyle
+                });
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
                 recommend(routesLayer);
@@ -180,7 +182,9 @@ function banlancedRoutes() {
                     return;
                 }
                 queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint);
+                let routesLayer = L.geoJSON(interestPoint, {
+                    style: primaryStyle
+                });
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
                 recommend(routesLayer);
@@ -201,7 +205,9 @@ function hardRoutes() {
                     return;
                 }
                 queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint);
+                let routesLayer = L.geoJSON(interestPoint, {
+                    style: primaryStyle
+                });
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);
                 recommend(routesLayer);

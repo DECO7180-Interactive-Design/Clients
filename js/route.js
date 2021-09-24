@@ -146,6 +146,9 @@ function recommend(routesCollection) {
     displayRoute(route1, 1);
     displayRoute(route2, 2);
     displayRoute(route3, 3);
+    let routeCoords = route1.feature.geometry.coordinates;
+    console.log(routeCoords);
+    sessionStorage.setItem('coordsArray', routeCoords);
 }
 
 // Step 2 & 3

@@ -69,23 +69,6 @@ let bounds = L.latLngBounds(southWest, northEast);
 
 let filterButton = document.getElementById("filterButton");
 
-// Get the values from html's form.
-// filterButton.addEventListener("click", function() {
-//     let exerciseLevel = document.getElementById("filter").elements.namedItem("exerciseLevel").value;
-//     let ridingTime = document.getElementById("filter").elements.namedItem("ridingTime").value;
-
-//     if (exerciseLevel == "easy") {
-//         console.log(exerciseLevel, ridingTime);
-//         routes.setWhere('Shape__Length < 2000');
-//     } else if (exerciseLevel == "balanced") {
-//         console.log(exerciseLevel, ridingTime);
-//         routes.setWhere('Shape__Length >= 2000 and Shape__Length < 5000');
-//     } else if (exerciseLevel == "hard") {
-//         console.log(exerciseLevel, ridingTime);
-//         routes.setWhere('Shape__Length >=5000');
-//     }
-// });
-
 // Step 1
 let marker;
 let circle;

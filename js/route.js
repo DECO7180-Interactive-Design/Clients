@@ -52,13 +52,15 @@ function choosePoint() {
         }
         console.log(point.latlng);
         marker = L.marker(point.latlng).addTo(map);
-        circle = L.circle(point.latlng, radius, {color: 'grey', opacity: .3}).addTo(map);
+        circle = L.circle(point.latlng, radius, { color: 'grey', opacity: .3 }).addTo(map);
         const bounds = circle.getBounds();
         // map.fitBounds(bounds, {padding: [30, 30]});
         map.fitBounds(bounds);
 
         query = routes.query()
             .within(bounds);
+
+        map.off('click');
     });
 }
 
@@ -114,7 +116,6 @@ function routesFilter(level) {
     } else if (level == 'hard') {
         queryCondition = 'Shape__Length >= 5000';
     }
-    map.off('click');
     if (query) {
         map.removeLayer(query);
         query.where(queryCondition)

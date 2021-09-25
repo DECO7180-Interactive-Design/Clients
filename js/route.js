@@ -160,11 +160,19 @@ function sotreCoords(routeName) {
 }
 
 // Step 2 & 3
-function easyRoutes() {
+function routesFilter(level) {
+    let queryCondition;
+    if (level == 'easy') {
+        queryCondition = 'Shape__Length < 2000';
+    } else if (level == 'balanced') {
+        queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
+    } else if (level == 'hard') {
+        queryCondition = 'Shape__Length >= 5000';
+    }
     map.off('click');
     if (query) {
         map.removeLayer(query);
-        query.where('Shape__Length < 2000')
+        query.where(queryCondition)
             .run(function (error, interestPoint) {
                 if (error) {
                     return;
@@ -181,53 +189,6 @@ function easyRoutes() {
                 });
             });
     }
-}
-
-function banlancedRoutes() {
-    map.off('click');
-    if (query) {
-        map.removeLayer(query);
-        query.where('Shape__Length >= 2000 and Shape__Length < 5000')
-            .run(function (error, interestPoint) {
-                if (error) {
-                    return;
-                }
-                queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint, {
-                    style: primaryStyle
-                });
-                routesLayer.addTo(queryLayer);
-                queryLayer.addTo(map);
-                recommend(routesLayer);
-                routesLayer.on('click', function (event) {
-                    console.log(event.layer.feature.properties);
-                });
-            });
-    }
-}
-
-function hardRoutes() {
-    map.off('click');
-    if (query) {
-        map.removeLayer(query);
-        query.where('Shape__Length >= 5000')
-            .run(function (error, interestPoint) {
-                if (error) {
-                    return;
-                }
-                queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint, {
-                    style: primaryStyle
-                });
-                routesLayer.addTo(queryLayer);
-                queryLayer.addTo(map);
-                recommend(routesLayer);
-                routesLayer.on('click', function (event) {
-                    console.log(event.layer.feature.properties);
-                });
-            });
-    }
-
 }
 
 // For checkbox rules.

@@ -30,43 +30,6 @@ let northEast = L.latLng(-27.4776612, 153.0417289);
 let bounds = L.latLngBounds(southWest, northEast);
 // map.fitBounds(bounds);
 
-// Query for primary clcle routes
-// routes.query()
-//     // .within(bounds)
-//     .where("DESCRIPTION = 'Primary cycle route'")
-//     .run(function (error, primaryRoutes) {
-//         // console.log(primaryRoutes);
-
-//         L.geoJSON(primaryRoutes, {
-//             style: primaryStyle
-//         }).addTo(map);
-//     });
-
-// // Query for local cycle routes.
-// routes.query()
-//     // .within(bounds)
-//     .where("DESCRIPTION = 'Local cycle route'")
-//     .run(function (error, secondaryRoutes) {
-//         // console.log(secondaryRoutes);
-
-//         L.geoJSON(secondaryRoutes, {
-//             style: secondaryStyle
-//         }).addTo(map);
-//     });
-
-
-// Add routes to basic map.
-// routes.addTo(map);
-// routes.setWhere("DESCRIPTION = 'Secondary cycle route'");
-
-// routes.query()
-//     .run(function (error, routes) {
-//         console.log(routes);
-//         L.geoJSON(routes, {
-//             style: primaryStyle
-//         }).addTo(map);
-//     });
-
 let filterButton = document.getElementById("filterButton");
 
 // Step 1

@@ -33,6 +33,7 @@ let bounds = L.latLngBounds(southWest, northEast);
 let filterButton = document.getElementById("filterButton");
 
 // Step 1
+let routesLevel;
 let marker;
 let circle;
 let query;
@@ -58,13 +59,16 @@ function choosePoint() {
             interactive: false
         }).addTo(map);
         const bounds = circle.getBounds();
-        // map.fitBounds(bounds, {padding: [30, 30]});
         map.fitBounds(bounds);
 
         query = routes.query()
             .within(bounds);
 
         map.off('click');
+
+        if (routesLevel) {
+            routesFilter(routesLevel);
+        }
     });
 }
 
@@ -112,6 +116,7 @@ function sotreCoords(routeName) {
 
 // Step 2 & 3
 function routesFilter(level) {
+    routesLevel = level;
     let queryCondition;
     if (level == 'easy') {
         queryCondition = 'Shape__Length < 2000';

@@ -21,7 +21,7 @@ let primaryStyle = {
 };
 
 let secondaryStyle = {
-    "color": "#C2F784"
+    "color": "#7c83fd"
 }
 
 // Add a bounds aroud uq.
@@ -178,7 +178,7 @@ function routesFilter(level) {
                 }
                 queryLayer.clearLayers();
                 let routesLayer = L.geoJSON(interestPoint, {
-                    style: primaryStyle
+                    style: secondaryStyle
                 });
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);

@@ -12,6 +12,8 @@ const map = document.querySelector('.mapbox')
 const controlBtn = document.querySelector('.controlBtn')
 const dropdown = document.querySelector(".dropDown")
 const statistic = document.querySelector('#stat')
+const prevStopBtn =document.querySelector('#lastStop')
+const nextStopBtn =document.querySelector('#nextStop')
 
 stoptime = true;
 
@@ -161,6 +163,36 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
+let mapImgIndex = 0
+
+mapImgs = ['Route1', 'Route2', 'Route3', 'Route4', 'Route5']
+  
+function loadMapImg(mapImg) {
+  document.getElementById('mapImg').src = `assets/${mapImg}.png`;
+}
+  
+function prevMapImg() {
+  mapImgIndex--
+  if(mapImgIndex < 0) {
+      mapImgIndex = 4
+  }
+
+  loadMapImg(mapImgs[mapImgIndex])
+}
+
+function nextMapImg() {
+  mapImgIndex++
+  if(mapImgIndex > 4) {
+      mapImgIndex = 0
+  }
+
+  loadMapImg(mapImgs[mapImgIndex])
+}
+
+prevStopBtn.addEventListener('click', prevMapImg)
+nextStopBtn.addEventListener('click', nextMapImg)
+
+
 // dropdown
 function showMenu() {
     document.getElementById("options").classList.toggle("show");
@@ -255,20 +287,19 @@ function nextBdImg() {
 
   loadBdImg(bdImgs[bdImgIndex])
 }
-const prevStopBtn =document.querySelector('#lastStop')
-const nextStopBtn =document.querySelector('#nextStop')
-prevStopBtn.addEventListener('click', loadImg)
-nextStopBtn.addEventListener('click', loadImg)
+
+prevStopBtn.addEventListener('click', prevBdImg)
+nextStopBtn.addEventListener('click', nextBdImg)
 
 // pass cordinates 
-let routeCoords = sessionStorage.getItem('coordsArray');
-sessionStorage.clear();
-console.log(routeCoords);
+// let routeCoords = sessionStorage.getItem('coordsArray');
+// sessionStorage.clear();
+// console.log(routeCoords);
 
-function loadImg() {
-  var $lat = routeCoords[0];
-  var $lng = routeCoords[1];
-  var $address = $lat + ',' + $lng;
-  var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x320&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
-  document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
-}
+// function loadImg() {
+//   var $lat = routeCoords[1];
+//   var $lng = routeCoords[0];
+//   var $address = $lat + ',' + $lng;
+//   var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x320&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
+//   document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
+// }

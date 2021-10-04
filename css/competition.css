@@ -1,78 +1,129 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    font-size: 28px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  margin: 0;
 }
 
 /* close button */
 i {
-    position: absolute;
-    right: 5%;
-    top: 5%;
+  position: absolute;
+  right: 5%;
+  top: 5%;
 }
 
 h1 {
-    font-weight: 300;
-    font-size: 36px;
-    margin: 0 150px;
-    border-bottom: 3px solid #1252AE;
+  font-weight: 300;
+  font-size: 36px;
+  margin: 0 150px;
+  border-bottom: 3px solid #1252ae;
 }
 
 em {
-    color: #1252AE;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 64px;
-    text-transform: uppercase;
+  color: #1252ae;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  text-transform: uppercase;
 }
 
 div {
-    margin: auto;
-    width: 50%;
-    border-radius: 73px;
+  margin: auto;
+  width: 50%;
+  border-radius: 73px;
 }
 
 #competition {
-    margin-top: 99px;
-    border: 1px solid #707070;
-    /* fot text in the div */
-    text-align: center;
+  margin-top: 99px;
+  border: 1px solid #707070;
+  /* fot text in the div */
+  text-align: center;
 }
 
 #content {
-    width: 100%;
+  width: 100%;
 }
 
 #content img {
-    width: 60px;
-    padding-right: 20px;
+  width: 60px;
+  padding-right: 20px;
 }
 
 #content p {
-    padding: 133px 68px 219px;
+  padding: 133px 68px 219px;
 }
 
 .btns {
-    margin-top: 12px;
-    /* fot text in the div */
-    text-align: center;
+  margin-top: 12px;
+  /* fot text in the div */
+  text-align: center;
 }
 
 button {
-    width: 280px;
-    margin: 30px 80px;
-    background-color: #FFCE46;
-    color: white;
-    border-radius: 37px;
-    padding: 21px 65px;
-    font-size: 23px;
-    /* remove button border */
-    border: none;
-    /* when mouse hover the button, cursor will be changed to pointer */
-    cursor: pointer;
-
+  width: 280px;
+  margin: 30px 80px;
+  background-color: #ffce46;
+  color: white;
+  border-radius: 37px;
+  padding: 21px 65px;
+  font-size: 23px;
+  /* remove button border */
+  border: none;
+  /* when mouse hover the button, cursor will be changed to pointer */
+  cursor: pointer;
 }
 
 button:first-child {
-    background-color: #273A5E;
+  background-color: #273a5e;
+}
+
+nav {
+  margin: 0;
+  background-color: #1252ae;
+  opacity: 0.8;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+nav #logo {
+  width: 30%;
+}
+
+nav img {
+  height: 60px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+nav #menu {
+  font-family: "Poppins";
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 40px 0;
+}
+
+nav .selected {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #1252ae;
+  background-color: white;
+  padding: 0 40px 0;
+  border-radius: 10px;
+}
+
+nav .unselected {
+  font-size: 18pt;
+  opacity: 0.5;
+  color: white;
+}
+
+nav #separator {
+  font-size: 18pt;
+  font-weight: 100;
 }

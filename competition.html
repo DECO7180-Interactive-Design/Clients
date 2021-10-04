@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Competition</title>
-    <link rel="stylesheet" href="css/competition.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/competition.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
     <!-- google icons API -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
 
-<body>
-    <a href="touring.html"><i class="material-icons">close</i></a>
+  <body>
+    <nav>
+      <section id="logo">
+        <img src="./assets/logo.PNG" alt="Logo" />
+      </section>
+
+      <section id="menu">
+        <a href="#" class="unselected">Home</a>
+        <p id="separator">|</p>
+        <a href="./login.html" class="unselected">Account</a>
+        <p id="separator">|</p>
+        <a href="./competition.html" class="selected">Competition</a>
+      </section>
+    </nav>
+    <a href="index.html"><i class="material-icons">close</i></a>
     <div id="competition">
-        <h1>Be a <em>Hero</em> Today</h1>
-        <div id="content">
-            <p><img src="assets/icons/nope.png" alt="no competition event recently">Oops... No competition now, check
-                tomorrow.</p>
-        </div>
+      <h1>Be a <em>Hero</em> Today</h1>
+      <div id="content">
+        <p>
+          <img
+            src="assets/icons/nope.png"
+            alt="no competition event recently"
+          />Oops... No competition now, check tomorrow.
+        </p>
+      </div>
     </div>
     <!-- a set of buttons -->
     <div class="btns">
-        <button>Join Alone</button>
-        <button>Invite a Friend</button>
+      <button class="button1">Join Alone</button>
+      <button class="button2">Invite a Friend</button>
     </div>
-</body>
-
+    <script src="./js/competition.js"></script>
+  </body>
 </html>

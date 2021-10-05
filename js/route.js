@@ -17,7 +17,9 @@ console.log(routes);
 
 // Set the style (colour) of different route type.
 let primaryStyle = {
-    "color": "#EB92BE"
+    // "color": "#EB92BE",
+    "color": "#50CB93",
+    weight: 5,
 };
 
 let secondaryStyle = {
@@ -52,9 +54,9 @@ function choosePoint() {
             map.removeLayer(circle);
         }
         console.log(point.latlng);
-        marker = L.marker(point.latlng, {interactive: false}).addTo(map);
-        circle = L.circle(point.latlng, radius, { 
-            color: 'grey', 
+        marker = L.marker(point.latlng, { interactive: false }).addTo(map);
+        circle = L.circle(point.latlng, radius, {
+            color: 'grey',
             opacity: .3,
             interactive: false
         }).addTo(map);
@@ -134,7 +136,8 @@ function routesFilter(level) {
                 }
                 queryLayer.clearLayers();
                 let routesLayer = L.geoJSON(interestPoint, {
-                    style: secondaryStyle
+                    // style: secondaryStyle
+                    style: primaryStyle
                 });
                 routesLayer.addTo(queryLayer);
                 queryLayer.addTo(map);

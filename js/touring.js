@@ -5,7 +5,8 @@ const prevBtn =document.querySelector('#prev')
 const nextBtn =document.querySelector('#next')
 const title = document.querySelector('#title')
 const audio = document.querySelector('#audio')
-const songs = ['Levitating', 'I Feel It Coming', 'Blinding Lights']
+const songs = ['Levitating', 'I Feel It Coming', 'Blinding Lights','bensound-betterdays',
+'bensound-dubstep','bensound-energy','bensound-epic','bensound-sunny','bensound-tenderness']
 const rest = document.querySelector('#pauseRiding')
 const hideBtn = document.querySelector('.hideAll')
 const map = document.querySelector('.mapbox')
@@ -62,7 +63,7 @@ function resumeRiding() {
 function prevSong() {
     songIndex--
     if(songIndex < 0) {
-        songIndex = 2
+        songIndex = 8
     }
 
     loadSong(songs[songIndex])
@@ -71,7 +72,7 @@ function prevSong() {
 
 function nextSong() {
     songIndex++
-    if(songIndex > 2) {
+    if(songIndex > 8) {
         songIndex = 0
     }
 

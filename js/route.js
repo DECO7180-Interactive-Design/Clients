@@ -13,7 +13,21 @@ const routes = L.esri.featureLayer({
     // where: "DESCRIPTION = 'Primary cycle route'"
 });
 
-console.log(routes);
+let routesBounds;
+routes.query().run(function (error, interestPoint) {
+    if (error) {
+        return;
+    }
+    routesBounds = L.geoJSON(interestPoint).getBounds();
+    // console.log(routesBounds);
+    // console.log(routesBounds._northEast);
+    // console.log(routesBounds._southWest);
+    L.rectangle(routesBounds, {color: "#50CB93", weight: 1}).addTo(map);
+    // let polygon = L.polygon(routesBounds, { color: 'red' }).addTo(map);
+    // map.fitBounds(polygon.getBounds());
+});
+
+
 
 // Set the style (colour) of different route type.
 let primaryStyle = {
@@ -49,27 +63,31 @@ const radius = 3000; // radius is 3km
 //     .within(circle.getBounds());
 function choosePoint() {
     map.on('click', function (point) {
-        if (marker || circle) {
-            map.removeLayer(marker);
-            map.removeLayer(circle);
-        }
-        console.log(point.latlng);
-        marker = L.marker(point.latlng, { interactive: false }).addTo(map);
-        circle = L.circle(point.latlng, radius, {
-            color: 'grey',
-            opacity: .3,
-            interactive: false
-        }).addTo(map);
-        const bounds = circle.getBounds();
-        map.fitBounds(bounds);
+        if (!routesBounds.contains(point.latlng)) {
+            alert("Please choose the point in the bounds");
+        } else {
+            if (marker || circle) {
+                map.removeLayer(marker);
+                map.removeLayer(circle);
+            }
+            console.log(point.latlng);
+            marker = L.marker(point.latlng, { interactive: false }).addTo(map);
+            circle = L.circle(point.latlng, radius, {
+                color: 'grey',
+                opacity: .3,
+                interactive: false
+            }).addTo(map);
+            const bounds = circle.getBounds();
+            map.fitBounds(bounds);
 
-        query = routes.query()
-            .within(bounds);
+            query = routes.query()
+                .within(bounds);
 
-        map.off('click');
+            map.off('click');
 
-        if (routesLevel) {
-            routesFilter(routesLevel);
+            if (routesLevel) {
+                routesFilter(routesLevel);
+            }
         }
     });
 }

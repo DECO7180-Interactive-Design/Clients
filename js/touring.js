@@ -264,43 +264,64 @@ function incrementTimer() {
 }
 
 // background image change
-let bdImgIndex = 0
-bdImgs = ['bd1', 'bd2', 'bd3', 'bd4', 'bd5']
+// let bdImgIndex = 0
+// bdImgs = ['bd1', 'bd2', 'bd3', 'bd4', 'bd5']
 
-function loadBdImg(bdImg) {
-  document.getElementById('bd').style.backgroundImage = `url(assets/${bdImg}.jpg`;
-}
+// function loadBdImg(bdImg) {
+//   document.getElementById('bd').style.backgroundImage = `url(assets/${bdImg}.jpg`;
+// }
 
-function prevBdImg() {
-  bdImgIndex--
-  if(bdImgIndex < 0) {
-      bdImgIndex = 4
-  }
+// function prevBdImg() {
+//   bdImgIndex--
+//   if(bdImgIndex < 0) {
+//       bdImgIndex = 4
+//   }
 
-  loadBdImg(bdImgs[bdImgIndex])
-}
+//   loadBdImg(bdImgs[bdImgIndex])
+// }
 
-function nextBdImg() {
-  bdImgIndex++
-  if(bdImgIndex > 4) {
-      bdImgIndex = 0
-  }
+// function nextBdImg() {
+//   bdImgIndex++
+//   if(bdImgIndex > 4) {
+//       bdImgIndex = 0
+//   }
 
-  loadBdImg(bdImgs[bdImgIndex])
-}
+//   loadBdImg(bdImgs[bdImgIndex])
+// }
 
-prevStopBtn.addEventListener('click', prevBdImg)
-nextStopBtn.addEventListener('click', nextBdImg)
+prevStopBtn.addEventListener('click', loadImg)
+nextStopBtn.addEventListener('click', loadImg)
 
 // pass cordinates 
-// let routeCoords = sessionStorage.getItem('coordsArray');
-// sessionStorage.clear();
+let routeCoords = sessionStorage.getItem('coordsArray');
+sessionStorage.clear();
 // console.log(routeCoords);
 
-// function loadImg() {
-//   var $lat = routeCoords[1];
-//   var $lng = routeCoords[0];
-//   var $address = $lat + ',' + $lng;
-//   var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x320&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
-//   document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
-// }
+function loadImg() {
+  const pos = routeCoords.split(",");
+  const latArray = [];
+  const lngArray = [];
+
+  for (let i = 0; i < pos.length; i++) {
+    if (pos[i] > 0) {
+      lngArray.push(pos[i])
+    } else {
+      latArray.push(pos[i])
+    }
+  }
+
+  for (var i = 0; i < latArray.length; i++) {
+    for (var j = 0; j < lngArray.length; j++) {
+      if (latArray.indexOf(i) == lngArray.indexOf(j)) {
+        console.log(i, j);
+        var $lat = latArray[i];
+        var $lng = lngArray[j];
+        var $address = $lat + ',' + $lng;
+        var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x420&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
+        document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
+      }
+       
+    }
+  }
+  
+}

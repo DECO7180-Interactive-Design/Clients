@@ -1,151 +1,161 @@
-const whole = document.querySelector('.container')
-const music = document.querySelector('.music')
-const playBtn =document.querySelector('#play')
-const prevBtn =document.querySelector('#prev')
-const nextBtn =document.querySelector('#next')
-const title = document.querySelector('#title')
-const audio = document.querySelector('#audio')
-const songs = ['Levitating', 'I Feel It Coming', 'Blinding Lights','bensound-betterdays',
-'bensound-dubstep','bensound-energy','bensound-epic','bensound-sunny','bensound-tenderness']
-const rest = document.querySelector('#pauseRiding')
-const hideBtn = document.querySelector('.hideAll')
-const map = document.querySelector('.mapbox')
-const controlBtn = document.querySelector('.controlBtn')
-const dropdown = document.querySelector(".dropDown")
-const statistic = document.querySelector('#stat')
-const prevStopBtn =document.querySelector('#lastStop')
-const nextStopBtn =document.querySelector('#nextStop')
+const whole = document.querySelector(".container");
+const music = document.querySelector(".music");
+const playBtn = document.querySelector("#play");
+const prevBtn = document.querySelector("#prev");
+const nextBtn = document.querySelector("#next");
+const title = document.querySelector("#title");
+const audio = document.querySelector("#audio");
+const songs = [
+  "Levitating",
+  "I Feel It Coming",
+  "Blinding Lights",
+  "bensound-betterdays",
+  "bensound-dubstep",
+  "bensound-energy",
+  "bensound-epic",
+  "bensound-sunny",
+  "bensound-tenderness",
+];
+const rest = document.querySelector("#pauseRiding");
+const hideBtn = document.querySelector(".hideAll");
+const map = document.querySelector(".mapbox");
+const controlBtn = document.querySelector(".controlBtn");
+const dropdown = document.querySelector(".dropDown");
+const statistic = document.querySelector("#stat");
+const prevStopBtn = document.querySelector("#lastStop");
+const nextStopBtn = document.querySelector("#nextStop");
 
 stoptime = true;
 
-whole.classList.add('show')
-rest.classList.add('play')
-let songIndex = 0
+whole.classList.add("show");
+rest.classList.add("play");
+let songIndex = 0;
 
-loadSong(songs[songIndex])
+loadSong(songs[songIndex]);
 
 function loadSong(song) {
-    title.innerText = song
-    audio.src = `assets/${song}.mp3`
+  title.innerText = song;
+  audio.src = `assets/${song}.mp3`;
 }
 
 // play and pause songs
 function playSong() {
-    music.classList.add('play')
-    playBtn.querySelector('i.fas').classList.remove('fa-play')
-    playBtn.querySelector('i.fas').classList.add('fa-pause')
-    audio.play()
+  music.classList.add("play");
+  playBtn.querySelector("i.fas").classList.remove("fa-play");
+  playBtn.querySelector("i.fas").classList.add("fa-pause");
+  audio.play();
 }
 
 function pauseSong() {
-    music.classList.remove('play')
-    playBtn.querySelector('i.fas').classList.add('fa-play')
-    playBtn.querySelector('i.fas').classList.remove('fa-pause')
-    audio.pause()
+  music.classList.remove("play");
+  playBtn.querySelector("i.fas").classList.add("fa-play");
+  playBtn.querySelector("i.fas").classList.remove("fa-pause");
+  audio.pause();
 }
 
 //take a rest or keep riding
 function takeRest() {
-    rest.classList.remove('play')
-    rest.querySelector('i.fas').classList.remove('fa-play')
-    rest.querySelector('i.fas').classList.add('fa-pause')
-    
+  rest.classList.remove("play");
+  rest.querySelector("i.fas").classList.remove("fa-play");
+  rest.querySelector("i.fas").classList.add("fa-pause");
 }
 
 function resumeRiding() {
-    rest.classList.add('play')
-    rest.querySelector('i.fas').classList.add('fa-play')
-    rest.querySelector('i.fas').classList.remove('fa-pause')
-    stopTimer()
+  rest.classList.add("play");
+  rest.querySelector("i.fas").classList.add("fa-play");
+  rest.querySelector("i.fas").classList.remove("fa-pause");
+  stopTimer();
 }
 
 // next and last song
 function prevSong() {
-    songIndex--
-    if(songIndex < 0) {
-        songIndex = 8
-    }
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = 8;
+  }
 
-    loadSong(songs[songIndex])
-    playSong()
+  loadSong(songs[songIndex]);
+  playSong();
 }
 
 function nextSong() {
-    songIndex++
-    if(songIndex > 8) {
-        songIndex = 0
-    }
+  songIndex++;
+  if (songIndex > 8) {
+    songIndex = 0;
+  }
 
-    loadSong(songs[songIndex])
-    playSong()
+  loadSong(songs[songIndex]);
+  playSong();
 }
 
 // pop up img dialogue
 function confirmAction() {
-    var change = false;
-    let confirmAction = confirm("Are you sure to end this tour?")
-    if(confirmAction==true) {
-        // return true;
-        window.location.replace("index.html");
-    } else {return false;}
+  var change = false;
+  let confirmAction = confirm("Are you sure to end this tour?");
+  if (confirmAction == true) {
+    // return true;
+    window.location.replace("index.html");
+  } else {
+    return false;
+  }
 }
 
 // hide and show all buttons
 function hideAll() {
-    whole.classList.remove('show')
-    hideBtn.querySelector('i.fas').classList.remove('fa-eye-slash')
-    hideBtn.querySelector('i.fas').classList.add('fa-eye')
-    music.style.display = "none";
-    map.style.display = "none";
-    controlBtn.style.display = "none";
-    dropdown.style.display = "none";
-    statistic.style.display = "none";
+  whole.classList.remove("show");
+  hideBtn.querySelector("i.fas").classList.remove("fa-eye-slash");
+  hideBtn.querySelector("i.fas").classList.add("fa-eye");
+  music.style.display = "none";
+  map.style.display = "none";
+  controlBtn.style.display = "none";
+  dropdown.style.display = "none";
+  statistic.style.display = "none";
 }
 
 function showAll() {
-    whole.classList.add('show')
-    hideBtn.querySelector('i.fas').classList.remove('fa-eye')
-    hideBtn.querySelector('i.fas').classList.add('fa-eye-slash')
-    music.style.display = "block";
-    map.style.display = "block";
-    controlBtn.style.display = "block";
-    dropdown.style.display = "block";
-    statistic.style.display = "block";
+  whole.classList.add("show");
+  hideBtn.querySelector("i.fas").classList.remove("fa-eye");
+  hideBtn.querySelector("i.fas").classList.add("fa-eye-slash");
+  music.style.display = "block";
+  map.style.display = "block";
+  controlBtn.style.display = "block";
+  dropdown.style.display = "block";
+  statistic.style.display = "block";
 }
 
 // play and pause music
-playBtn.addEventListener('click', () => {
-    const isPlaying = music.classList.contains('play')
+playBtn.addEventListener("click", () => {
+  const isPlaying = music.classList.contains("play");
 
-    if(isPlaying) {
-        pauseSong()
-    } else {
-        playSong()
-    }
-})
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
 
-rest.addEventListener('click', () => {
-    const isRiding = rest.classList.contains('play')
+rest.addEventListener("click", () => {
+  const isRiding = rest.classList.contains("play");
 
-    if(isRiding) {
-        takeRest()
-    } else {
-        resumeRiding()
-    }
-})
+  if (isRiding) {
+    takeRest();
+  } else {
+    resumeRiding();
+  }
+});
 
-hideBtn.addEventListener('click', () => {
-    const isShowing = whole.classList.contains('show')
-    
-    if(isShowing) {
-        hideAll()
-    } else {
-        showAll()
-    }
-})
+hideBtn.addEventListener("click", () => {
+  const isShowing = whole.classList.contains("show");
 
-prevBtn.addEventListener('click', prevSong)
-nextBtn.addEventListener('click', nextSong)
+  if (isShowing) {
+    hideAll();
+  } else {
+    showAll();
+  }
+});
+
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
 
 // map popup
 var modal = document.getElementById("mapModal");
@@ -153,69 +163,68 @@ var modal = document.getElementById("mapModal");
 var img = document.getElementById("mapImg");
 var modalImg = document.getElementById("img1");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
+img.onclick = function () {
   modal.style.display = "block";
   modalImg.src = this.src;
   captionText.innerHTML = this.alt;
-}
+};
 
 var span = document.getElementsByClassName("close")[0];
-span.onclick = function() { 
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
-let mapImgIndex = 0
+let mapImgIndex = 0;
 
-mapImgs = ['Route1', 'Route2', 'Route3', 'Route4', 'Route5']
-  
+mapImgs = ["Route1", "Route2", "Route3", "Route4", "Route5"];
+
 function loadMapImg(mapImg) {
-  document.getElementById('mapImg').src = `assets/${mapImg}.png`;
+  document.getElementById("mapImg").src = `assets/${mapImg}.png`;
 }
-  
+
 function prevMapImg() {
-  mapImgIndex--
-  if(mapImgIndex < 0) {
-      mapImgIndex = 4
+  mapImgIndex--;
+  if (mapImgIndex < 0) {
+    mapImgIndex = 4;
   }
 
-  loadMapImg(mapImgs[mapImgIndex])
+  loadMapImg(mapImgs[mapImgIndex]);
 }
 
 function nextMapImg() {
-  mapImgIndex++
-  if(mapImgIndex > 4) {
-      mapImgIndex = 0
+  mapImgIndex++;
+  if (mapImgIndex > 4) {
+    mapImgIndex = 0;
   }
 
-  loadMapImg(mapImgs[mapImgIndex])
+  loadMapImg(mapImgs[mapImgIndex]);
 }
 
-prevStopBtn.addEventListener('click', prevMapImg)
-nextStopBtn.addEventListener('click', nextMapImg)
-
+prevStopBtn.addEventListener("click", prevMapImg);
+nextStopBtn.addEventListener("click", nextMapImg);
 
 // dropdown
 function showMenu() {
-    document.getElementById("options").classList.toggle("show");
-  }
-  
-  window.onclick = function(event) {
-    if (!event.target.matches('#dbutton')) {
-      var dropdowns = document.getElementsByClassName("dropdown-option");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
+  document.getElementById("options").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches("#dbutton")) {
+    var dropdowns = document.getElementsByClassName("dropdown-option");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
       }
     }
   }
+};
 
 // timer
-const timer = document.getElementById('timer');
-const speed = document.getElementById('speed');
-const ridingBtn = document.getElementById('pauseRiding');
+const timer = document.getElementById("timer");
+const speed = document.getElementById("speed");
+const ridingBtn = document.getElementById("pauseRiding");
 var h = 0;
 var min = 0;
 var sec = 0;
@@ -224,9 +233,9 @@ var stoptime = true;
 
 function startTimer() {
   if (stoptime == true) {
-        stoptime = false;
-        incrementTimer();
-    }
+    stoptime = false;
+    incrementTimer();
+  }
 }
 function stopTimer() {
   if (stoptime == false) {
@@ -235,7 +244,7 @@ function stopTimer() {
 }
 
 function incrementTimer() {
-    if (stoptime == false) {
+  if (stoptime == false) {
     sec = parseInt(sec);
     min = parseInt(min);
     h = parseInt(h);
@@ -250,15 +259,15 @@ function incrementTimer() {
       sec = 0;
     }
     if (sec < 10 || sec == 0) {
-      sec = '0' + sec;
+      sec = "0" + sec;
     }
     if (min < 10 || min == 0) {
-      min = '0' + min;
+      min = "0" + min;
     }
     if (h < 10 || h == 0) {
-      h = '0' + h;
+      h = "0" + h;
     }
-    timer.innerHTML = h + ':' + min + ':' + sec;
+    timer.innerHTML = h + ":" + min + ":" + sec;
     setTimeout("incrementTimer()", 1000);
   }
 }
@@ -289,13 +298,30 @@ function incrementTimer() {
 //   loadBdImg(bdImgs[bdImgIndex])
 // }
 
-prevStopBtn.addEventListener('click', loadImg)
-nextStopBtn.addEventListener('click', loadImg)
-
-// pass cordinates 
-let routeCoords = sessionStorage.getItem('coordsArray');
+// pass cordinates
+let routeCoords = sessionStorage.getItem("coordsArray");
 sessionStorage.clear();
 // console.log(routeCoords);
+
+let moder = 0;
+let currentPtr = 0;
+let urls = [];
+loadImg();
+
+const previousImg = () => {
+  const bg = document.getElementById("bd");
+  currentPtr = currentPtr % moder;
+  bg.style.backgroundImage = 'url("' + urls[--currentPtr] + '")';
+};
+
+const nextImg = () => {
+  const bg = document.getElementById("bd");
+  currentPtr = currentPtr % moder;
+  bg.style.backgroundImage = 'url("' + urls[++currentPtr] + '")';
+};
+
+prevStopBtn.addEventListener("click", previousImg);
+nextStopBtn.addEventListener("click", nextImg);
 
 function loadImg() {
   const pos = routeCoords.split(",");
@@ -304,24 +330,22 @@ function loadImg() {
 
   for (let i = 0; i < pos.length; i++) {
     if (pos[i] > 0) {
-      lngArray.push(pos[i])
+      lngArray.push(pos[i]);
     } else {
-      latArray.push(pos[i])
+      latArray.push(pos[i]);
     }
   }
 
+  moder = latArray.length - 1;
+
   for (var i = 0; i < latArray.length; i++) {
-    for (var j = 0; j < lngArray.length; j++) {
-      if (latArray.indexOf(i) == lngArray.indexOf(j)) {
-        console.log(i, j);
-        var $lat = latArray[i];
-        var $lng = lngArray[j];
-        var $address = $lat + ',' + $lng;
-        var addressUrl = 'http://maps.googleapis.com/maps/api/streetview?size=700x420&location=' + $address +'&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0';
-        document.getElementById('bd').style.backgroundImage = 'url("'+ addressUrl + '")';
-      }
-       
-    }
+    var $lat = latArray[i];
+    var $lng = lngArray[i];
+    var $address = $lat + "," + $lng;
+    var addressUrl =
+      "http://maps.googleapis.com/maps/api/streetview?size=700x420&location=" +
+      $address +
+      "&key=AIzaSyDzhjAxe7rAUePAGS11UmlV8DHliHAn_D0";
+    urls.push(addressUrl);
   }
-  
 }

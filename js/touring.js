@@ -6,9 +6,6 @@ const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
 const songs = [
-  "Levitating",
-  "I Feel It Coming",
-  "Blinding Lights",
   "bensound-betterdays",
   "bensound-dubstep",
   "bensound-energy",
@@ -71,7 +68,7 @@ function resumeRiding() {
 function prevSong() {
   songIndex--;
   if (songIndex < 0) {
-    songIndex = 8;
+    songIndex = 5;
   }
 
   loadSong(songs[songIndex]);
@@ -80,7 +77,7 @@ function prevSong() {
 
 function nextSong() {
   songIndex++;
-  if (songIndex > 8) {
+  if (songIndex > 5) {
     songIndex = 0;
   }
 
@@ -272,31 +269,6 @@ function incrementTimer() {
   }
 }
 
-// background image change
-// let bdImgIndex = 0
-// bdImgs = ['bd1', 'bd2', 'bd3', 'bd4', 'bd5']
-
-// function loadBdImg(bdImg) {
-//   document.getElementById('bd').style.backgroundImage = `url(assets/${bdImg}.jpg`;
-// }
-
-// function prevBdImg() {
-//   bdImgIndex--
-//   if(bdImgIndex < 0) {
-//       bdImgIndex = 4
-//   }
-
-//   loadBdImg(bdImgs[bdImgIndex])
-// }
-
-// function nextBdImg() {
-//   bdImgIndex++
-//   if(bdImgIndex > 4) {
-//       bdImgIndex = 0
-//   }
-
-//   loadBdImg(bdImgs[bdImgIndex])
-// }
 
 // pass cordinates
 let routeCoords = sessionStorage.getItem("coordsArray");

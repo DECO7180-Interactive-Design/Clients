@@ -1,3 +1,9 @@
+let test = 4160 in [4160];
+console.log([4160].includes(4160));
+console.log(1 in [1, 2, 3]);
+console.log([1].includes(1));
+
+
 let map = L.map("map").setView([-27.495432, 153.012024], 14);
 
 // Use the ArcGIS's map.
@@ -40,9 +46,11 @@ function addRiverRoutes(feature) {
         if (error) {
             return;
         }
-        riverView.features.forEach(function(feature) {
+        riverView.features.forEach(function (feature) {
             riverRoutesId.push(feature['id']);
+            // console.log(riverRoutesId);
         })
+        // console.log(riverRoutesId);
         L.geoJSON(riverView, {
             style: secondaryStyle,
         }).addTo(riverRoutes);
@@ -57,7 +65,12 @@ river.query().run(function (error, riverBounds) {
     console.log(riverBounds.features);
     riverBounds.features.forEach(addRiverRoutes);
     // riverRoutes.addTo(map);
+    // console.log(riverRoutesId);
 });
+
+// setTimeout(() => {  console.log(riverRoutesId) }, 2000);
+console.log(riverRoutesId);
+
 
 let filterButton = document.getElementById("filterButton");
 
@@ -141,7 +154,7 @@ function sotreCoords(routeName) {
 
 // Step 2 & 3
 function routesFilter(level, idName) {
-    console.log($(`#${idName}`).is(':checked'));
+    // console.log($(`#${idName}`).is(':checked'));
     if ($(`#${idName}`).is(':checked')) {
         routesLevel = level;
         let queryCondition;
@@ -160,16 +173,22 @@ function routesFilter(level, idName) {
                         return;
                     }
                     queryLayer.clearLayers();
-                    let routesLayer = L.geoJSON(interestPoint, {
-                        // style: secondaryStyle
-                        style: primaryStyle
-                    });
-                    routesLayer.addTo(queryLayer);
+                    // console.log(interestPoint);
+                    interestPoint.features.forEach(function (feature) {
+                        if (riverRoutesId.includes(feature['id'])) {
+                            L.geoJSON(feature).addTo(queryLayer);
+                        }
+                    })
+                    // let routesLayer = L.geoJSON(interestPoint, {
+                    //     // style: secondaryStyle
+                    //     style: primaryStyle
+                    // });
+                    // routesLayer.addTo(queryLayer);
                     queryLayer.addTo(map);
-                    recommend(routesLayer);
-                    routesLayer.on('click', function (event) {
-                        console.log(event.layer.feature.properties);
-                    });
+                    // recommend(queryLayer);
+                    // queryLayer.on('click', function (event) {
+                    //     console.log(event.layer.feature.properties);
+                    // });
                 });
             }
     }

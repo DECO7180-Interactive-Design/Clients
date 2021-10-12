@@ -135,36 +135,41 @@ function sotreCoords(routeName) {
 }
 
 // Step 2 & 3
-function routesFilter(level) {
-    routesLevel = level;
-    let queryCondition;
-    if (level == 'easy') {
-        queryCondition = 'Shape__Length < 2000';
-    } else if (level == 'balanced') {
-        queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
-    } else if (level == 'hard') {
-        queryCondition = 'Shape__Length >= 5000';
-    }
-    if (query) {
-        map.removeLayer(query);
-        query.where(queryCondition)
-            .run(function (error, interestPoint) {
-                if (error) {
-                    return;
-                }
-                queryLayer.clearLayers();
-                let routesLayer = L.geoJSON(interestPoint, {
-                    // style: secondaryStyle
-                    style: primaryStyle
+function routesFilter(level, idName) {
+    console.log($(`#${idName}`).is(':checked'));
+    if ($(`#${idName}`).is(':checked')) {
+        // document.getElementById(`${idName}`).setAttribute("disabled", "enabled");
+        routesLevel = level;
+        let queryCondition;
+        if (level == 'easy') {
+            queryCondition = 'Shape__Length < 2000';
+        } else if (level == 'balanced') {
+            queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
+        } else if (level == 'hard') {
+            queryCondition = 'Shape__Length >= 5000';
+        }
+        if (query) {
+            map.removeLayer(query);
+            query.where(queryCondition)
+                .run(function (error, interestPoint) {
+                    if (error) {
+                        return;
+                    }
+                    queryLayer.clearLayers();
+                    let routesLayer = L.geoJSON(interestPoint, {
+                        // style: secondaryStyle
+                        style: primaryStyle
+                    });
+                    routesLayer.addTo(queryLayer);
+                    queryLayer.addTo(map);
+                    recommend(routesLayer);
+                    routesLayer.on('click', function (event) {
+                        console.log(event.layer.feature.properties);
+                    });
                 });
-                routesLayer.addTo(queryLayer);
-                queryLayer.addTo(map);
-                recommend(routesLayer);
-                routesLayer.on('click', function (event) {
-                    console.log(event.layer.feature.properties);
-                });
-            });
+            }
     }
+    // document.getElementById(`${idName}`).setAttribute("disabled", "disabled");
 }
 
 // For checkbox rules.

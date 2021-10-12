@@ -16,7 +16,7 @@ const routes = L.esri.featureLayer({
 
 const river = L.esri.featureLayer({
     url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/arcgis/rest/services/Waterway_corridors_overlay_Brisbane_River_corridor_section_boundary/FeatureServer/0",
-}).addTo(map);
+});
 
 let routesBounds;
 routes.query().run(function (error, interestPoint) {
@@ -43,10 +43,36 @@ let secondaryStyle = {
   color: "#7c83fd",
 };
 
+let riverRoutes = L.layerGroup();
+let riverRoutesId = [];
+function addRiverRoutes(feature) {
+    routes.query().within(L.geoJSON(feature)).run(function (error, riverView) {
+        if (error) {
+            return;
+        }
+        riverView.features.forEach(function(feature) {
+            riverRoutesId.push(feature['id']);
+        })
+        L.geoJSON(riverView, {
+            style: secondaryStyle,
+        }).addTo(riverRoutes);
+    }); 
+}
+
+river.query().run(function (error, riverBounds) {
+    if (error) {
+        return;
+    }
+    console.log(riverBounds);
+    console.log(riverBounds.features);
+    riverBounds.features.forEach(addRiverRoutes);
+    riverRoutes.addTo(map);
+});
+
 // Add a bounds aroud uq.
-let southWest = L.latLng(-27.5014174, 152.9891076);
-let northEast = L.latLng(-27.4776612, 153.0417289);
-let bounds = L.latLngBounds(southWest, northEast);
+// let southWest = L.latLng(-27.5014174, 152.9891076);
+// let northEast = L.latLng(-27.4776612, 153.0417289);
+// let bounds = L.latLngBounds(southWest, northEast);
 // map.fitBounds(bounds);
 
 let filterButton = document.getElementById("filterButton");
@@ -81,10 +107,20 @@ function choosePoint() {
         interactive: false,
       }).addTo(map);
       const bounds = circle.getBounds();
+    //   river.query().run(function (error, riverBounds) {
+    //     if (error) {
+    //         return;
+    //     }
+    //     console.log(riverBounds);
+    //     console.log(riverBounds.features);
+    //     riverBounds.features.forEach(function(bounds) {
+    //         addRiverRoutes(feature, bounds);
+    //     })
+    //     // riverRoutes.addTo(map);
+    // });
       map.fitBounds(bounds);
-
       query = routes.query().within(bounds);
-
+    riverRoutes.addTo(map);
       map.off("click");
 
       if (routesLevel) {

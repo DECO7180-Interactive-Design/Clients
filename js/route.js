@@ -1,4 +1,4 @@
-let map = L.map("map").setView([-27.495432, 153.012024], 12);
+let map = L.map("map").setView([-27.495432, 153.012024], 14);
 
 // Use the ArcGIS's map.
 L.esri.Vector.vectorBasemapLayer("ArcGIS:Topographic", {
@@ -13,6 +13,10 @@ const routes = L.esri.featureLayer({
   url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0",
   // where: "DESCRIPTION = 'Primary cycle route'"
 });
+
+const river = L.esri.featureLayer({
+    url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/arcgis/rest/services/Waterway_corridors_overlay_Brisbane_River_corridor_section_boundary/FeatureServer/0",
+}).addTo(map);
 
 let routesBounds;
 routes.query().run(function (error, interestPoint) {

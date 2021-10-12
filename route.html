@@ -56,17 +56,17 @@
             <p>Choose your exercise level.</p>
             <div id="exerciseLevel" class="routesPanelBtn">
 
-                <input type="checkbox" id="levelBtn1" onclick="routesFilter('easy')" />
+                <input type="checkbox" id="levelBtn1" onclick="routesFilter('easy', 'levelBtn1')" />
                 <label for="levelBtn1">Easy</label>
 
                 <div class="divLine"></div>
 
-                <input type="checkbox" id="levelBtn2" onclick="routesFilter('balanced')" />
+                <input type="checkbox" id="levelBtn2" onclick="routesFilter('balanced', 'levelBtn2')" />
                 <label for="levelBtn2">Balanced</label>
 
                 <div class="divLine"></div>
 
-                <input type="checkbox" id="levelBtn3" onclick="routesFilter('hard')" />
+                <input type="checkbox" id="levelBtn3" onclick="routesFilter('hard', 'levelBtn3')" />
                 <label for="levelBtn3">Hard</label>
 
             </div>
@@ -78,17 +78,17 @@
             <!-- TODO need to improve the accuracy of the recommendation -->
             <div id="ridingTime" class="routesPanelBtn">
 
-                <input type="checkbox" id="timeBtn1" onclick="routesFilter('easy')" />
+                <input type="checkbox" id="timeBtn1" onclick="routesFilter('easy', 'timeBtn1')" />
                 <label for="timeBtn1">30</label>
 
                 <div class="divLine"></div>
 
-                <input type="checkbox" id="timeBtn2" onclick="routesFilter('balanced')" />
+                <input type="checkbox" id="timeBtn2" onclick="routesFilter('balanced', 'timeBtn2')" />
                 <label for="timeBtn2">60</label>
 
                 <div class="divLine"></div>
 
-                <input type="checkbox" id="timeBtn3" onclick="routesFilter('hard')" />
+                <input type="checkbox" id="timeBtn3" onclick="routesFilter('hard', 'timeBtn3')" />
                 <label for="timeBtn3">90</label>
 
             </div>
@@ -127,7 +127,7 @@
             <div>
                 <button>photos</button>
                 <button>comments</button>
-                <button onclick="window.location.href='touring.html'; sotreCoords(route2);">select</a></button>
+                <button onclick="window.location.href='#'; sotreCoords(route2);">select</a></button>
             </div>
         </div>
         <div class="slides">

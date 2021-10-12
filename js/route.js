@@ -6,12 +6,8 @@ L.esri.Vector.vectorBasemapLayer("ArcGIS:Topographic", {
     "AAPKb74ce1d9657b4e7a937e5d491f507f80I6a303ICiJJ0cg5QgZhry93CHhjFPZOFp6LzeYpZ9JGcBgN1mdLirFVut47IjMZ-",
 }).addTo(map);
 
-// Using the basic map to replace the api map.
-// L.esri.basemapLayer('Topographic').addTo(map);
-
 const routes = L.esri.featureLayer({
   url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0",
-  // where: "DESCRIPTION = 'Primary cycle route'"
 });
 
 const river = L.esri.featureLayer({
@@ -24,17 +20,11 @@ routes.query().run(function (error, interestPoint) {
     return;
   }
   routesBounds = L.geoJSON(interestPoint).getBounds();
-  // console.log(routesBounds);
-  // console.log(routesBounds._northEast);
-  // console.log(routesBounds._southWest);
   L.rectangle(routesBounds, { color: "#50CB93", weight: 1 }).addTo(map);
-  // let polygon = L.polygon(routesBounds, { color: 'red' }).addTo(map);
-  // map.fitBounds(polygon.getBounds());
 });
 
 // Set the style (colour) of different route type.
 let primaryStyle = {
-  // "color": "#EB92BE",
   color: "#50CB93",
   weight: 5,
 };
@@ -66,14 +56,8 @@ river.query().run(function (error, riverBounds) {
     console.log(riverBounds);
     console.log(riverBounds.features);
     riverBounds.features.forEach(addRiverRoutes);
-    riverRoutes.addTo(map);
+    // riverRoutes.addTo(map);
 });
-
-// Add a bounds aroud uq.
-// let southWest = L.latLng(-27.5014174, 152.9891076);
-// let northEast = L.latLng(-27.4776612, 153.0417289);
-// let bounds = L.latLngBounds(southWest, northEast);
-// map.fitBounds(bounds);
 
 let filterButton = document.getElementById("filterButton");
 
@@ -85,11 +69,6 @@ let query;
 let queryLayer = L.layerGroup();
 const radius = 3000; // radius is 3km
 
-// test for click route segments.
-// circle = L.circle([-27.495432, 153.012024], radius).addTo(map);
-// map.fitBounds(circle.getBounds());
-// query = routes.query()
-//     .within(circle.getBounds());
 function choosePoint() {
   map.on("click", function (point) {
     if (!routesBounds.contains(point.latlng)) {
@@ -107,20 +86,8 @@ function choosePoint() {
         interactive: false,
       }).addTo(map);
       const bounds = circle.getBounds();
-    //   river.query().run(function (error, riverBounds) {
-    //     if (error) {
-    //         return;
-    //     }
-    //     console.log(riverBounds);
-    //     console.log(riverBounds.features);
-    //     riverBounds.features.forEach(function(bounds) {
-    //         addRiverRoutes(feature, bounds);
-    //     })
-    //     // riverRoutes.addTo(map);
-    // });
       map.fitBounds(bounds);
       query = routes.query().within(bounds);
-    riverRoutes.addTo(map);
       map.off("click");
 
       if (routesLevel) {
@@ -176,7 +143,6 @@ function sotreCoords(routeName) {
 function routesFilter(level, idName) {
     console.log($(`#${idName}`).is(':checked'));
     if ($(`#${idName}`).is(':checked')) {
-        // document.getElementById(`${idName}`).setAttribute("disabled", "enabled");
         routesLevel = level;
         let queryCondition;
         if (level == 'easy') {
@@ -207,7 +173,6 @@ function routesFilter(level, idName) {
                 });
             }
     }
-    // document.getElementById(`${idName}`).setAttribute("disabled", "disabled");
 }
 
 // For checkbox rules.

@@ -142,6 +142,9 @@ function recommend(routesCollection) {
 }
 
 function sotreCoords(routeName) {
+  keys = Object.keys(routeName._layers);
+  key = parseInt(keys[0]);
+  routeName = routeName._layers[key];
   if (routeName) {
     let routeCoords = routeName.feature.geometry.coordinates;
     console.log(routeCoords);
@@ -158,7 +161,7 @@ function routesFilter(level, idName) {
         routesLevel = level;
         let queryCondition;
         if (level == 'easy') {
-            queryCondition = 'Shape__Length < 2000';
+            queryCondition = 'Shape__Length < 2000 and Shape__Length > 300';
         } else if (level == 'balanced') {
             queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
         } else if (level == 'hard') {

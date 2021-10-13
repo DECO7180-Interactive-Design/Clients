@@ -1,9 +1,3 @@
-let test = 4160 in [4160];
-console.log([4160].includes(4160));
-console.log(1 in [1, 2, 3]);
-console.log([1].includes(1));
-
-
 let map = L.map("map").setView([-27.495432, 153.012024], 14);
 
 // Use the ArcGIS's map.
@@ -103,8 +97,8 @@ function choosePoint() {
       query = routes.query().within(bounds);
       map.off("click");
 
-      if (routesLevel) {
-        routesFilter(routesLevel);
+      if (routesLevel && buttonId) {
+        routesFilter(routesLevel, buttonId);
       }
     }
   });
@@ -118,6 +112,9 @@ function pickRoutes(routesCollection) {
 }
 
 function displayRoute(route, place) {
+  keys = Object.keys(route._layers);
+  key = parseInt(keys[0]);
+  route = route._layers[key];
   let id = route.feature.properties["OBJECTID"];
   let length = route.feature.properties["Shape__Length"];
   length = Math.round(length) / 1000;
@@ -153,9 +150,11 @@ function sotreCoords(routeName) {
 }
 
 // Step 2 & 3
+let buttonId;
 function routesFilter(level, idName) {
     // console.log($(`#${idName}`).is(':checked'));
     if ($(`#${idName}`).is(':checked')) {
+      buttonId = idName;
         routesLevel = level;
         let queryCondition;
         if (level == 'easy') {
@@ -179,16 +178,16 @@ function routesFilter(level, idName) {
                             L.geoJSON(feature).addTo(queryLayer);
                         }
                     })
-                    // let routesLayer = L.geoJSON(interestPoint, {
+                    // let routesLayer = L.geoJSON(queryLayer, {
                     //     // style: secondaryStyle
                     //     style: primaryStyle
                     // });
                     // routesLayer.addTo(queryLayer);
                     queryLayer.addTo(map);
-                    // recommend(queryLayer);
-                    // queryLayer.on('click', function (event) {
-                    //     console.log(event.layer.feature.properties);
-                    // });
+                    recommend(queryLayer);
+                    queryLayer.on('click', function (event) {
+                        console.log(event.layer.feature.properties);
+                    });
                 });
             }
     }

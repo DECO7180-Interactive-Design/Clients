@@ -206,13 +206,13 @@ function showMenu() {
 }
 
 window.onclick = function (event) {
-  if (!event.target.matches(".dropDown")) {
+  if (!event.target.matches("#dbutton")) {
     var dropdowns = document.getElementsByClassName("dropdown-option");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
+      var showDropdown = dropdowns[i];
+      if (showDropdown.classList.contains("show")) {
+        showDropdown.classList.remove("show");
       }
     }
   }

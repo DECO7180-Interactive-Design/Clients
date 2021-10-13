@@ -174,10 +174,14 @@ function routesFilter(level, idName) {
                     queryLayer.clearLayers();
                     // console.log(interestPoint);
                     interestPoint.features.forEach(function (feature) {
+                      if (level == 'easy') {
                         if (riverRoutesId.includes(feature['id'])) {
-                            L.geoJSON(feature).addTo(queryLayer);
+                          L.geoJSON(feature).addTo(queryLayer);
                         }
-                    })
+                      } else {
+                        L.geoJSON(feature).addTo(queryLayer);
+                      }  
+                    });
                     // let routesLayer = L.geoJSON(queryLayer, {
                     //     // style: secondaryStyle
                     //     style: primaryStyle

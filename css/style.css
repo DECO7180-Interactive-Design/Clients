@@ -306,7 +306,7 @@ button:hover, button:focus {
 
 /* Move the lengend to the top right corner. */
 #legend {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 0;
   right: 0;

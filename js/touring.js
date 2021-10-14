@@ -6,11 +6,11 @@ const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
 const songs = [
+  "bensound-energy",
+  "bensound-sunny",
   "bensound-betterdays",
   "bensound-dubstep",
-  "bensound-energy",
   "bensound-epic",
-  "bensound-sunny",
   "bensound-tenderness",
 ];
 const rest = document.querySelector("#pauseRiding");
@@ -62,6 +62,8 @@ function resumeRiding() {
   rest.querySelector("i.fas").classList.add("fa-play");
   rest.querySelector("i.fas").classList.remove("fa-pause");
   stopTimer();
+  stopCalory();
+  stopspeed();
 }
 
 // next and last song
@@ -208,8 +210,7 @@ function showMenu() {
 window.onclick = function (event) {
   if (!event.target.matches("#dbutton")) {
     var dropdowns = document.getElementsByClassName("dropdown-option");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
+    for (var i = 0; i < dropdowns.length; i++) {
       var showDropdown = dropdowns[i];
       if (showDropdown.classList.contains("show")) {
         showDropdown.classList.remove("show");
@@ -217,17 +218,65 @@ window.onclick = function (event) {
     }
   }
 };
-
+// dropdown.addEventListener("click", showMenu);
 // timer
 const timer = document.getElementById("timer");
 const speed = document.getElementById("speed");
+const calory = document.getElementById("calories");
 const ridingBtn = document.getElementById("pauseRiding");
 var h = 0;
 var min = 0;
 var sec = 0;
-var speedValue = 10;
+var speedValue = 0;
+var caloryValue = 0;
 var stoptime = true;
+var stopSpeed = true;
+var stopCalories = true;
+// CALORIES
+function setCalories() {
+  if (stopCalories == false) {
+    caloryValue = parseInt(caloryValue);
+    caloryValue += 10;
+    calory.innerHTML = caloryValue + " KJ";
+    setTimeout("setCalories()", 4000)
+  }
+}
+function startCalory() {
+  if (stopCalories == true) {
+    stopCalories = false;
+    setCalories();
+  }
+}
+function stopCalory() {
+  if (stopCalories == false) {
+    stopCalories = true;
+  }
+}
 
+// SPEED
+function setSpeed() {
+  if (stopSpeed == false) {
+    speedValue = parseInt(speedValue);
+    speedValue = Math.floor((Math.random()*20) + 10);
+    speed.innerHTML = speedValue + " Km/h";
+    setTimeout("setSpeed()", 2000)
+  }
+};
+
+function startSpeed() {
+  if (stopSpeed == true) {
+    stopSpeed = false;
+    setSpeed();
+  }
+}
+function stopspeed() {
+  if (stopSpeed == false) {
+    stopSpeed = true;
+    speed.innerHTML = "0 Km/h";
+  }
+}
+
+// TIMER
 function startTimer() {
   if (stoptime == true) {
     stoptime = false;

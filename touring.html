@@ -22,7 +22,7 @@
 
 <body id="bd">
   <div class="container">
-    <div class="dropDown" onclick="showMenu()">
+    <div class="dropDown">
       <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
       <div id="options" class="dropdown-option">
         <a href="#">Take Photo</a>
@@ -64,7 +64,7 @@
 
     <div class="controlBtn">
       <div id="lastStop"><i class="fas fa-backward" style="color: #fff; margin: 20px;" onclick="imgChange()"></i></div>
-      <div id="pauseRiding"><i class="fas fa-play" style="color: #fff; margin: 20px;" onclick="startTimer()"></i></div>
+      <div id="pauseRiding"><i class="fas fa-play" style="color: #fff; margin: 20px;" onclick="startTimer(); startSpeed(); startCalory()"></i></div>
       <div id="stop"><i class="fas fa-stop" style="color: #fff; margin: 20px;" onclick="confirmAction()"></i></div>
       <div id="nextStop"><i class="fas fa-forward" style="color: #fff; margin: 20px;"></i></div>
     </div>
@@ -88,11 +88,11 @@
     </div>
     <div>
       <h3>Speed</h3>
-      <p>15 km/h</p>
+      <p id="speed">1 km/h</p>
     </div>
     <div>
       <h3>Calories Burned</h3>
-      <p>10 KJ</p>
+      <p id="calories">1 KJ</p>
     </div>
     <div>
       <h3>RPM</h3>

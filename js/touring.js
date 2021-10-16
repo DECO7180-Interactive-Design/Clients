@@ -370,3 +370,10 @@ function loadImg() {
     urls.push(addressUrl);
   }
 }
+// shadow cyclist
+var closebtn = document.getElementsByClassName('closeshadowcycling');
+closebtn.onclick = function() {
+  popup.style.display = "none";
+}
+
+

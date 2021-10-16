@@ -21,13 +21,16 @@
 </head>
 
 <body id="bd">
+ 
   <div class="container">
     <div class="dropDown">
       <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
       <div id="options" class="dropdown-option">
         <a href="#">Take Photo</a>
-        <a href="shadowcycling.html">Shadow Cyclist</a>
+        <a href="#">Shadow Cyclist</a>
         <a href="login.html">Around Me</a>
+        <button id="sbtn" class="shadowButton">Shadow Cyclist</button>
+        
       </div>
     </div>
 
@@ -107,8 +110,102 @@
     </a>
   </div>
 
+  <!--shadow cyclist popup-->
+  <div id= "mysc" class="shadowcycling">
+  <span id="nmsl" class="closeshadowcycling">&times;</span>
+  <div class="left">
+    <img src="assets/logo.png" class="img">
+  </div>
+  <div class="right">
+    <h1><span>S</span>hadow&nbsp&nbsp<span>C</span>yclist</h1>
+    <select class="select">
+      <option>Select a Friend as Shadow Cyclist</option>
+      <option>YOU NEED TO SIGN IN</option>
+    </select>
+    <P class="set">Set By Your Like</P>
+    <div class="speed">
+      Min Speed(Km/h):
+      <select>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+      </select>
+    </div>
+
+    <div class="speed">
+      Max Speed(Km/h):
+      <select>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+      </select>
+    </div>
+    <P class="set">Compete with Computer</P>
+    <ul class="list">
+      <computer>
+        <img src="assets/IMG_4733.png" class="img">
+      </computer>
+      <computer>
+        <img src="assets/IMG_4730.png" class="img">
+      </computer>
+      <computer>
+        <img src="assets/IMG_4738.png" class="img">
+      </computer>
+      <computer>
+        <img src="assets/IMG_4734.png" class="img">
+      </computer>
+      <computer>
+        <img src="assets/IMG_4736.png" class="img">
+      </computer>
+    </ul>
+    <div class="btn">
+      <a class="add">Add</a>
+      <a class="Cansel">Cansel</a>
+    </div>
+  </div>
+</div>
+
   <script src="js/touring.js"></script>
   <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>
+
+  
+<script>
+var popup = document.getElementById("mysc");
+var button = document.getElementById("sbtn");
+
+button.onclick = function () {
+  popup.style.display = "block";
+};
+
+
+</script>
+
 </body>
 
 </html>

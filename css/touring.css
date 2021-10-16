@@ -29,6 +29,7 @@ body{
   z-index: 10;
 }
 
+
 .dropDown a:hover {
   background-color: #FFCE46;
   transition: ease-in-out 0.2s;
@@ -280,4 +281,103 @@ body{
 #stat p {
   padding-left: 10px;
   margin: 5px;
+}
+
+/* shadow cyclist*/
+.shadowcycling {
+  display: none;
+  position: fixed; 
+  z-index: 11; 
+  left: 21%;
+  top: 2%;
+  width: 60%; 
+  height: 60%;
+  background-color: rgb(246, 244, 244); 
+  background-color: rgba(245, 239, 239, 0.4);
+}
+.left{
+	width:49%;
+	float:left;
+	padding-top:100px;
+}
+.left img{
+	margin-top:80px;
+}
+.right{
+	width:49%;
+	float:right;
+	padding-top:100px;
+}
+h1{
+	margin:40px 0px;
+	text-align: center;
+	font-size:50px;
+	letter-spacing: 2px
+}
+h1 span{
+	color:rgb(255,218,26);
+}
+.select{
+	width:96%;
+	padding:20px 0px;
+	border-radius:10px;
+	margin:20px 2%;
+	font-size:30px;
+	color:#666;
+	text-indent:30px;
+}
+.set{
+	color:#666;
+	font-size:20px;
+	margin:20px 0px;
+}
+.speed{
+	margin:20px 20px;
+	font-size:30px;
+	color:#666;
+}
+.speed select{
+	border-radius:25px;
+	color:#666;
+	text-align: center;
+	padding:15px 20px;
+	margin-left:50px;
+	font-size:20px;
+}
+.list computer{
+	width:18%;
+	float:left;
+	margin:20px 1%;
+}
+.btn a{
+	width:30%;
+	margin:20px 9%;
+	float:left;
+	border-radius:10px;
+	text-align: center;
+	padding:20px 0px;
+	font-size:20px;
+}
+.btn a.add{
+	background: rgb(255,218,26);
+	color:#fff;
+}
+.btn a.Cansel{
+	background:#fff;
+	border:1px solid #666;
+	color:#666;
+}
+/* 关闭按钮 */
+.closeshadowcycling {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeshadowcycling:hover,
+.closeshadowcycling:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -9,7 +9,7 @@ ul{
 	list-style: none
 }
 body{
-	font-family: Verdana;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
 	font-weight:bold;
 }
 .content{
@@ -54,12 +54,12 @@ h1 span{
 	font-size:20px;
 	margin:20px 0px;
 }
-.jl{
+.speed{
 	margin:20px 20px;
 	font-size:30px;
 	color:#666;
 }
-.jl select{
+.speed select{
 	border-radius:25px;
 	color:#666;
 	text-align: center;
@@ -67,7 +67,7 @@ h1 span{
 	margin-left:50px;
 	font-size:20px;
 }
-.list li{
+.list computer{
 	width:18%;
 	float:left;
 	margin:20px 1%;

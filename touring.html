@@ -10,10 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!--popup-->
+  <script language="javascript">
+    function openwin() {
+      var left = (screen.width/2)-250;
+      var top = (screen.height/2)-250;
+      openwindow = window.open("popup.html", "newwin", "height=500, width=500,toolbar=no,scrollbars=no,menubar=no");
+    }
+  </script>
 </head>
 
 <body id="bd">
-
+ 
   <div class="container">
     <div class="dropDown" onclick="showMenu()">
       <i id="dbutton" class="fas fa-bars"  style="color: #fff; margin: 20px;"></i>
@@ -21,8 +29,7 @@
         <a href="#">Take Photo</a>
         <a class='11111' href="#">Shadow Cyclist</a>
         <a href="login.html">Around Me</a>
-        <button id="sbtn" class="shadowButton">Shadow Cyclist</button>
-
+        <button style="padding: 1em 0.8em; background: none; border: none; font-size: 0.6em" id="sbtn" class="shadowButton">Shadow Cyclist</button> 
       </div>
     </div>
 
@@ -96,21 +103,10 @@
   </section>
 
   <!--popup-->
-
-  <div style="padding:100px，0">
-      <i class="fas fa-wine-bottle" style="float:right;"></i>
-  </div>
-
-  <div id = "drink" class = "drink active">
-    <span id="nmsl" class="closeshadowcycling">&times;</span>
-  <div class="qs-container">
-    <h2>🥤Hi there, you have completed a journey, it's time to
-      pause and drink some water!</h2>
-  </div>
-
-  <a class="pop-btn" >Yes, sure!</a>
-  <br>
-  <a class="pop-btn" >No, I'm not thirsty.</a>
+  <div style="padding:100px">
+    <a href="javascript:openwin()">
+      <img src="assets/drink.png" alt="popup" style="float:right;width:5%;height:5%;opacity:0;">
+    </a>
   </div>
 
   <!--shadow cyclist popup-->
@@ -197,17 +193,15 @@
   <script src="js/touring.js"></script>
   <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>
 
-
+  
 <script>
-var popup = document.getElementById("drink");
 var popup = document.getElementById("mysc");
 var button = document.getElementById("sbtn");
 var closebtn = document.getElementById("nmsl");
-var counter = 0;
+var counter = 0; 
 button.onclick = function () {
     popup.style.display = "block";
 };
-
 closebtn.onclick = function () {
     popup.style.display = "none";
 };

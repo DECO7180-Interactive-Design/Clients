@@ -23,14 +23,13 @@
 <body id="bd">
  
   <div class="container">
-    <div class="dropDown">
-      <i id="dbutton" class="fas fa-bars" onclick="showMenu()" style="color: #fff; margin: 20px;"></i>
+    <div class="dropDown" onclick="showMenu()">
+      <i id="dbutton" class="fas fa-bars"  style="color: #fff; margin: 20px;"></i>
       <div id="options" class="dropdown-option">
         <a href="#">Take Photo</a>
-        <a href="#">Shadow Cyclist</a>
+        <a class='11111' href="#">Shadow Cyclist</a>
         <a href="login.html">Around Me</a>
-        <button id="sbtn" class="shadowButton">Shadow Cyclist</button>
-        
+        <button style="padding: 1em 0.8em; background: none; border: none; font-size: 0.6em" id="sbtn" class="shadowButton">Shadow Cyclist</button> 
       </div>
     </div>
 
@@ -198,12 +197,14 @@
 <script>
 var popup = document.getElementById("mysc");
 var button = document.getElementById("sbtn");
-
+var closebtn = document.getElementById("nmsl");
+var counter = 0; 
 button.onclick = function () {
-  popup.style.display = "block";
+    popup.style.display = "block";
 };
-
-
+closebtn.onclick = function () {
+    popup.style.display = "none";
+};
 </script>
 
 </body>

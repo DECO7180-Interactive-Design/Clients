@@ -97,11 +97,12 @@
 
   <!--popup-->
 
-  <div style="padding:100px">
-      <input type="image" class= "bottle" src="assets/drink.png" alt="popup" style="float:right;width:5%;height:5%;"/>
+  <div style="padding:100px，0">
+      <i class="fas fa-wine-bottle" style="float:right;"></i>
   </div>
 
-  <div class = "drink active">
+  <div id = "drink" class = "drink active">
+    <span id="nmsl" class="closeshadowcycling">&times;</span>
   <div class="qs-container">
     <h2>🥤Hi there, you have completed a journey, it's time to
       pause and drink some water!</h2>
@@ -198,6 +199,7 @@
 
 
 <script>
+var popup = document.getElementById("drink");
 var popup = document.getElementById("mysc");
 var button = document.getElementById("sbtn");
 var closebtn = document.getElementById("nmsl");
@@ -205,6 +207,7 @@ var counter = 0;
 button.onclick = function () {
     popup.style.display = "block";
 };
+
 closebtn.onclick = function () {
     popup.style.display = "none";
 };

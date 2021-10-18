@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16pt;
+  overflow: hidden;
 }
 
 .horizontal-line {
@@ -37,7 +38,7 @@ nav img {
 }
 
 nav #menu {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: white;
   display: flex;
   align-items: center;
@@ -57,12 +58,6 @@ nav .selected {
   border-radius: 10px;
 }
 
-nav .unselected {
-  font-size: 18pt;
-  opacity: 0.5;
-  color: white;
-}
-
 nav #separator {
   font-size: 18pt;
   font-weight: 100;
@@ -73,6 +68,7 @@ nav #separator {
 main {
   background: no-repeat url("../assets/hero-image.png");
   background-size: cover;
+  height: 95vh;
 }
 
 main #main-texts {
@@ -80,20 +76,22 @@ main #main-texts {
   flex-direction: column;
   padding-left: 5%;
   padding-top: 5%;
+  justify-content: left;
 }
 
-main h2{
-  font-family: 'Poppins';
+main h2 {
+  font-family: "Poppins";
   font-size: 32pt;
   font-weight: 400;
   margin: 0;
 }
 
 main h1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 48pt;
   font-weight: 700;
   margin: 1% 5% 1.2%;
+  text-align: left;
 }
 
 main p {
@@ -113,7 +111,7 @@ main #account-links {
 main a {
   text-decoration: none;
   color: white;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 22pt;
   width: 400px;
   margin: 8px 0 8px;
@@ -123,11 +121,11 @@ main a {
 }
 
 main .log-in {
-  background-color: #FFCE46;
+  background-color: #ffce46;
 }
 
 main .sign-up {
-  background-color: #273A5E;
+  background-color: #273a5e;
 }
 
 /* Chapter 1 - Questions */
@@ -137,7 +135,7 @@ main .sign-up {
 }
 
 #c1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 48pt;
   font-weight: 100;
   margin: 0 0 8%;
@@ -149,7 +147,7 @@ main .sign-up {
 
 #chooses {
   display: flex;
-  background: no-repeat center url('../assets/background-triangle.png');
+  background: no-repeat center url("../assets/background-triangle.png");
   background-size: 100% 80%;
   align-items: center;
   justify-content: center;
@@ -158,12 +156,12 @@ main .sign-up {
 
 #chooses a {
   width: 50%;
-  background-color: #DEEBF2;
+  background-color: #deebf2;
   border-radius: 0;
   text-decoration: none;
   color: black;
   margin: 0;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 22pt;
   padding-top: 150px;
   padding-bottom: 150px;
@@ -190,12 +188,6 @@ main .sign-up {
 .choose3 {
   text-align: left;
   padding-left: 20px;
-}
-
-#chooses a:hover {
-  background-color: #1252ae;
-  color: white;
-  transition: ease-in-out 0.2s;
 }
 
 /* Route */
@@ -244,7 +236,7 @@ main .sign-up {
   padding-left: 12px;
   margin: 12px;
   margin-top: 12px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 #panel p {
@@ -258,13 +250,13 @@ main .sign-up {
   justify-content: space-around;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   display: none;
 }
 
 /* '+' for nearby selector */
-input[type=checkbox]:checked + label {
-  background-color: #FFCE46;
+input[type="checkbox"]:checked + label {
+  background-color: #ffce46;
 }
 
 label {
@@ -277,10 +269,9 @@ label {
 }
 
 label:hover {
-  background-color: #FFCE46;
+  background-color: #ffce46;
   transition: ease-in-out 0.2s;
 }
-
 
 button {
   cursor: pointer;
@@ -289,20 +280,20 @@ button {
   background-color: transparent;
 }
 
-button:hover, button:focus {
-  color: #273A5E;
-  background-color: #FFCE46;
+button:hover,
+button:focus {
+  color: #273a5e;
+  background-color: #ffce46;
   transition: ease-in-out 0.2s;
 }
 
 .divLine {
   width: 2px;
   min-height: 100%;
-  background-color: #FFCE46;
+  background-color: #ffce46;
   display: inline-block;
   border-radius: 3px;
 }
-
 
 /* Move the lengend to the top right corner. */
 #legend {
@@ -318,7 +309,7 @@ button:hover, button:focus {
   padding-left: 12px;
   margin: 12px;
   margin-top: 12px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 .track {

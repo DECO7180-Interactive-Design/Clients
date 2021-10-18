@@ -5,10 +5,15 @@
   <meta charset="utf-8">
   <title>popupquestion</title>
   <link rel="stylesheet" href="css/popup.css">
+  <script language="javascript">
+  function closeit()
+  {
+    setTimeout("self.close()",10000)
+  }
+  </script>
 </head>
 
-<body>
-
+<body onload="closeit()">
   <div class="qs-container">
     <h2>🥤Hi there, you have completed a journey, it's time to
       pause and drink some water!</h2>
@@ -17,7 +22,6 @@
   <a class="pop-btn" href="javascript:window.close();">Yes, sure!</a>
   <br>
   <a class="pop-btn" href="javascript:window.close();">No, I'm not thirsty.</a>
-
 </body>
 
 </html>

@@ -6,7 +6,6 @@ const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
 const bottle = document.querySelector(".bottle");
-const drink = document.querySelector(".drink");
 const songs = [
   "bensound-energy",
   "bensound-sunny",
@@ -57,6 +56,7 @@ function takeRest() {
   rest.classList.remove("play");
   rest.querySelector("i.fas").classList.remove("fa-play");
   rest.querySelector("i.fas").classList.add("fa-pause");
+  setTimeout(openwin, 5000);
 }
 
 function resumeRiding() {
@@ -125,19 +125,6 @@ function showAll() {
   statistic.style.display = "block";
   bottle.style.display = "block";
 }
-
-// pop-up
-function showQs() {
-  whole.classList.remove("show");
-  drink.style.display = "block";
-}
-
-function hideQs() {
-  whole.classList.add("show");
-  drink.style.display = "none";
-}
-
-
 
 
 // play and pause music

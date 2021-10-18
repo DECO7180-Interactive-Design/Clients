@@ -20,6 +20,7 @@ routes.query().run(function (error, interestPoint) {
     return;
   }
   routesBounds = L.geoJSON(interestPoint).getBounds();
+  // L.rectangle(routesBounds, { color: "#50CB93", weight: 1 }).addTo(map);
   L.rectangle(routesBounds, { color: "#50CB93", weight: 1 }).addTo(map);
 });
 
@@ -179,22 +180,18 @@ function routesFilter(level, idName) {
                     interestPoint.features.forEach(function (feature) {
                       if (level == 'easy') {
                         if (riverRoutesId.includes(feature['id'])) {
-                          L.geoJSON(feature).addTo(queryLayer);
+                          L.geoJSON(feature).addTo(queryLayer).on('click', function(e) {
+                            console.log(e.layer.feature.properties);
+                          });
                         }
                       } else {
-                        L.geoJSON(feature).addTo(queryLayer);
+                        L.geoJSON(feature).addTo(queryLayer).on('click', function(e) {
+                          console.log(e.layer.feature.properties);
+                        });
                       }  
                     });
-                    // let routesLayer = L.geoJSON(queryLayer, {
-                    //     // style: secondaryStyle
-                    //     style: primaryStyle
-                    // });
-                    // routesLayer.addTo(queryLayer);
                     queryLayer.addTo(map);
                     recommend(queryLayer);
-                    queryLayer.on('click', function (event) {
-                        console.log(event.layer.feature.properties);
-                    });
                 });
             }
     }

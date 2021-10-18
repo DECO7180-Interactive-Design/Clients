@@ -142,15 +142,46 @@ function recommend(routesCollection) {
   displayRoute(route3, 3);
 }
 
-function sotreCoords(routeName) {
-  keys = Object.keys(routeName._layers);
-  key = parseInt(keys[0]);
-  routeName = routeName._layers[key];
-  if (routeName) {
-    let routeCoords = routeName.feature.geometry.coordinates;
-    console.log(routeCoords);
-    sessionStorage.setItem("coordsArray", routeCoords);
+// function sotreCoords(routeName) {
+//   // keys = Object.keys(routeName._layers);
+//   // key = parseInt(keys[0]);
+//   // routeName = routeName._layers[key];
+//   // if (routeName) {
+//   //   let routeCoords = routeName.feature.geometry.coordinates;
+//   //   console.log(routeCoords);
+//   //   sessionStorage.setItem("coordsArray", routeCoords);
+//   // }
+//   let routeCoords = routeName._latlags;
+//   console.log(routeCoords);
+//   sessionStorage.setItem("coordsArray", routeCoords);
+
+// }
+
+let route_coords = 0;
+
+function sotreCoords() {
+  // keys = Object.keys(routeName._layers);
+  // key = parseInt(keys[0]);
+  // routeName = routeName._layers[key];
+  // if (routeName) {
+  //   let routeCoords = routeName.feature.geometry.coordinates;
+  //   console.log(routeCoords);
+  //   sessionStorage.setItem("coordsArray", routeCoords);
+  // }
+  // let routeCoords = routeName._latlags;
+  console.log(route_coords);
+  coords_to_st = []
+  if (route_coords) {
+    route_coords.forEach(function (coord) {
+      coords_to_st.push(coord['lat']);
+      coords_to_st.push(coord['lng']);
+    })
+    console.log(coords_to_st);
+    sessionStorage.setItem("coordsArray", coords_to_st);
   }
+  
+  // sessionStorage.setItem("coordsArray", routeCoords);
+
 }
 
 // Step 2 & 3
@@ -180,13 +211,26 @@ function routesFilter(level, idName) {
                     interestPoint.features.forEach(function (feature) {
                       if (level == 'easy') {
                         if (riverRoutesId.includes(feature['id'])) {
-                          L.geoJSON(feature).addTo(queryLayer).on('click', function(e) {
-                            console.log(e.layer.feature.properties);
+                          L.geoJSON(feature, {
+                            onEachFeature: function (f, l) {
+                              // console.log(l);
+                              let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                              l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+`<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; sotreCoords();\">select</a></button></div>`);
+                            }
+                          }).addTo(queryLayer).on('click', function(e) {
+                            route_coords = e.layer._latlngs;
+                            console.log(e.layer._latlngs);
                           });
                         }
                       } else {
-                        L.geoJSON(feature).addTo(queryLayer).on('click', function(e) {
-                          console.log(e.layer.feature.properties);
+                        L.geoJSON(feature, {
+                          onEachFeature: function (f, l) {
+                            let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                            l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+"<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; sotreCoords();\">select</a></button></div>");
+                          }
+                        }).addTo(queryLayer).on('click', function(e) {
+                          rroute_coords = e.layer._latlngs;
+                          console.log(e.layer._latlngs);
                         });
                       }  
                     });

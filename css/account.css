@@ -1,164 +1,164 @@
-*{
-	margin:0;
-	padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
-a{
-	text-decoration: none
+a {
+  text-decoration: none;
 }
-ul{
-	list-style: none
+ul {
+  list-style: none;
 }
-body{
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-weight:bold;
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }
-.img{
-	width:100%;
+.img {
+  width: 100%;
 }
-nav a:hover{
-	font-size: 24pt;
-    font-weight: 700;
-    color: #1252ae !important;
-    background:#fff ;
-    padding: 0 40px 0;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index:999;
+nav a:hover {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #1252ae !important;
+  background: #fff;
+  padding: 0 40px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 999;
 }
-.fixed{
-	position: fixed;
-	width:100%;
-	height:100%;
-	left:0;
-	top:80px;
-	display: none;
-	background: rgba(0,0,0,.4);
+.fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 80px;
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
 }
-.con{
-	width:70%;
-	margin:40px auto;
-	overflow: hidden;
-	padding:20px 0px;
-	position: relative;
-	background: #fff;
-	z-index:999;
-	display: none
+.con {
+  width: 70%;
+  margin: 40px auto;
+  overflow: hidden;
+  padding: 20px 0px;
+  position: relative;
+  background: #fff;
+  z-index: 999;
+  display: none;
 }
-.fi{
-	position: absolute;
-	width:30px;
-	height:30px;
-	text-align: center;
-	border-radius:25px;
-	color:#000;
-	line-height: 30px;
-	z-index:999;
-	left:200px;
-	top:80px;
-	border:1px solid #000;
+.fi {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 25px;
+  color: #000;
+  line-height: 30px;
+  z-index: 999;
+  left: 200px;
+  top: 80px;
+  border: 1px solid #000;
 }
-.left{
-	width:40%;
-	float:left;
-	padding-top:100px;
+.left {
+  width: 40%;
+  float: left;
+  padding-top: 100px;
 }
-.left img{
-	cursor: pointer;
+.left img {
+  cursor: pointer;
 }
-.fi{
-	cursor: pointer;
+.fi {
+  cursor: pointer;
 }
-.right{
-	width:49%;
-	float:right;
-	padding-top:100px;
+.right {
+  width: 49%;
+  float: right;
+  padding-top: 100px;
 }
-.name{
-	width:20%;
-	float:left;
+.name {
+  width: 20%;
+  float: left;
 }
-.musk{
-	width:48%;
-	float:left;
-	margin-left:20px;
+.musk {
+  width: 48%;
+  float: left;
+  margin-left: 20px;
 }
-.musk p{
-	margin:10px 0px;
-	color:#666;
+.musk p {
+  margin: 10px 0px;
+  color: #666;
 }
-h3{
-	color:#666;
-	margin:80px 0px;
-	text-align: center;
-	width:60%;
+h3 {
+  color: #666;
+  margin: 80px 0px;
+  text-align: center;
+  width: 60%;
 }
-h1{
-	margin:40px 0px;
-	text-align: center;
-	font-size:50px;
-	letter-spacing: 2px
+h1 {
+  margin: 40px 0px;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 2px;
 }
-h1 span{
-	color:rgb(255,218,26);
+h1 span {
+  color: rgb(255, 218, 26);
 }
-.select{
-	width:96%;
-	padding:20px 0px;
-	border-radius:10px;
-	margin:20px 2%;
-	font-size:30px;
-	color:#666;
-	text-indent:30px;
+.select {
+  width: 96%;
+  padding: 20px 0px;
+  border-radius: 10px;
+  margin: 20px 2%;
+  font-size: 30px;
+  color: #666;
+  text-indent: 30px;
 }
-.set{
-	color:#666;
-	font-size:20px;
-	margin:20px 0px;
+.set {
+  color: #666;
+  font-size: 20px;
+  margin: 20px 0px;
 }
-.jl{
-	margin:20px 20px;
-	font-size:30px;
-	color:#666;
+.jl {
+  margin: 20px 20px;
+  font-size: 30px;
+  color: #666;
 }
-.jl select{
-	border-radius:25px;
-	color:#666;
-	text-align: center;
-	padding:15px 20px;
-	margin-left:50px;
-	font-size:20px;
+.jl select {
+  border-radius: 25px;
+  color: #666;
+  text-align: center;
+  padding: 15px 20px;
+  margin-left: 50px;
+  font-size: 20px;
 }
-.list li{
-	width:18%;
-	float:left;
-	margin:20px 1%;
+.list li {
+  width: 18%;
+  float: left;
+  margin: 20px 1%;
 }
-.btn a{
-	width:30%;
-	margin:20px 9%;
-	float:left;
-	border-radius:10px;
-	text-align: center;
-	padding:20px 0px;
-	font-size:20px;
+.btn a {
+  width: 30%;
+  margin: 20px 9%;
+  float: left;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 20px;
 }
-.btn a.add{
-	background: rgb(255,218,26);
-	color:#fff;
+.btn a.add {
+  background: rgb(255, 218, 26);
+  color: #fff;
 }
-.btn a.Cansel{
-	background:#fff;
-	border:1px solid #666;
-	color:#666;
+.btn a.Cansel {
+  background: #fff;
+  border: 1px solid #666;
+  color: #666;
 }
-.one{
-	width:90%;
-	border:1px solid #666;
+.one {
+  width: 90%;
+  border: 1px solid #666;
 }
-.two{
-	font-size:40px;
-	color:#666;
-	height:115px;
-	line-height: 115px;
-	text-align: center
+.two {
+  font-size: 40px;
+  color: #666;
+  height: 115px;
+  line-height: 115px;
+  text-align: center;
 }

@@ -5,6 +5,8 @@ const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
+const bottle = document.querySelector(".bottle");
+const drink = document.querySelector(".drink");
 const songs = [
   "bensound-energy",
   "bensound-sunny",
@@ -109,6 +111,7 @@ function hideAll() {
   controlBtn.style.display = "none";
   dropdown.style.display = "none";
   statistic.style.display = "none";
+  bottle.style.display = "none";
 }
 
 function showAll() {
@@ -120,7 +123,22 @@ function showAll() {
   controlBtn.style.display = "block";
   dropdown.style.display = "block";
   statistic.style.display = "block";
+  bottle.style.display = "block";
 }
+
+// pop-up
+function showQs() {
+  whole.classList.remove("show");
+  drink.style.display = "block";
+}
+
+function hideQs() {
+  whole.classList.add("show");
+  drink.style.display = "none";
+}
+
+
+
 
 // play and pause music
 playBtn.addEventListener("click", () => {
@@ -375,5 +393,3 @@ var closebtn = document.getElementsByClassName('closeshadowcycling');
 closebtn.onclick = function() {
   popup.style.display = "none";
 }
-
-

@@ -104,7 +104,7 @@ body{
 }
 
 .hideAll {
-  position: absolute; 
+  position: absolute;
   top: 1px;
   right: 20px;
   font-size: 30px;
@@ -204,13 +204,13 @@ body{
 /* Modal background */
 .modal {
   display: none;
-  position: fixed; 
-  z-index: 10; 
+  position: fixed;
+  z-index: 10;
   padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.6); /* opacity */
 }
@@ -235,7 +235,7 @@ body{
 }
 
 /* Animation */
-.modal-content, #caption {  
+.modal-content, #caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.3s;
   animation-name: zoom;
@@ -243,12 +243,12 @@ body{
 }
 
 @-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
+  from {-webkit-transform:scale(0)}
   to {-webkit-transform:scale(1)}
 }
 
 @keyframes zoom {
-  from {transform:scale(0)} 
+  from {transform:scale(0)}
   to {transform:scale(1)}
 }
 
@@ -286,13 +286,13 @@ body{
 /* shadow cyclist*/
 .shadowcycling {
   display: none;
-  position: fixed; 
-  z-index: 11; 
+  position: fixed;
+  z-index: 11;
   left: 21%;
   top: 2%;
-  width: 60%; 
+  width: 60%;
   height: 60%;
-  background-color: rgb(246, 244, 244); 
+  background-color: rgb(246, 244, 244);
   background-color: rgba(245, 239, 239, 0.4);
 }
 .left{
@@ -380,4 +380,70 @@ h1 span{
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* pop up */
+.drink body{
+    background-color: #FAFBFB;
+    text-align: center;
+}
+
+.drinkn h2 {
+  font-family: 'Geneva', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #344F69;
+}
+
+.drink a {
+  font-family: 'poppin', sans-serif;
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #344F69;
+  text-decoration: none;
+}
+.drink {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: 1px solid grey;
+  border-radius: 5px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 70%;
+}
+.drink.active{
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.qs-container {
+  position: relative;
+  padding: 60px,25px,25px,25px;
+}
+
+.pop-btn {
+  cursor: pointer;
+  width: 30%;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 1.6em;
+  padding: 0.5em;
+  margin-bottom: 25px;
+  border: 2px solid #555555;
+  background-color: white;
+}
+
+.pop-btn:hover {
+  transition-duration: 0.2s;
+  background-color: #FFCE46;
+}
+
+.close-btn {
+  cursor:pointer;
+  border: none;
+  outline:none;
+  background: none;
+  font-weight: bold;
 }

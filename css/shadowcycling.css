@@ -62,6 +62,19 @@ h1 span{
 	margin-left: 50px;
 	font-size: 20px;
 }
+.jl1{
+	margin: 4px 57px;
+	font-size: 25px;
+	color: #666;
+}
+.jl1 select{
+	border-radius: 24px;
+	color: #666;
+	text-align: center;
+	padding: 7px 15px;
+	margin-left: 43px;
+	font-size: 20px;
+}
 .list li{
 	width: 18%;
 	float: left;

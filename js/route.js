@@ -11,7 +11,7 @@ const routes = L.esri.featureLayer({
 });
 
 const river = L.esri.featureLayer({
-    url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/arcgis/rest/services/Waterway_corridors_overlay_Brisbane_River_corridor_section_boundary/FeatureServer/0",
+  url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/arcgis/rest/services/Waterway_corridors_overlay_Brisbane_River_corridor_section_boundary/FeatureServer/0",
 });
 
 let routesBounds;
@@ -37,30 +37,30 @@ let secondaryStyle = {
 let riverRoutes = L.layerGroup();
 let riverRoutesId = [];
 function addRiverRoutes(feature) {
-    routes.query().within(L.geoJSON(feature)).run(function (error, riverView) {
-        if (error) {
-            return;
-        }
-        riverView.features.forEach(function (feature) {
-            riverRoutesId.push(feature['id']);
-            // console.log(riverRoutesId);
-        })
-        // console.log(riverRoutesId);
-        L.geoJSON(riverView, {
-            style: secondaryStyle,
-        }).addTo(riverRoutes);
-    }); 
+  routes.query().within(L.geoJSON(feature)).run(function (error, riverView) {
+    if (error) {
+      return;
+    }
+    riverView.features.forEach(function (feature) {
+      riverRoutesId.push(feature['id']);
+      // console.log(riverRoutesId);
+    })
+    // console.log(riverRoutesId);
+    L.geoJSON(riverView, {
+      style: secondaryStyle,
+    }).addTo(riverRoutes);
+  });
 }
 
 river.query().run(function (error, riverBounds) {
-    if (error) {
-        return;
-    }
-    console.log(riverBounds);
-    console.log(riverBounds.features);
-    riverBounds.features.forEach(addRiverRoutes);
-    // riverRoutes.addTo(map);
-    // console.log(riverRoutesId);
+  if (error) {
+    return;
+  }
+  console.log(riverBounds);
+  console.log(riverBounds.features);
+  riverBounds.features.forEach(addRiverRoutes);
+  // riverRoutes.addTo(map);
+  // console.log(riverRoutesId);
 });
 
 // setTimeout(() => {  console.log(riverRoutesId) }, 2000);
@@ -174,61 +174,61 @@ function storeCoords() {
 // Step 2 & 3
 let buttonId;
 function routesFilter(level, idName) {
-    // console.log($(`#${idName}`).is(':checked'));
-    if ($(`#${idName}`).is(':checked')) {
-      buttonId = idName;
-        routesLevel = level;
-        let queryCondition;
-        if (level == 'easy') {
-            queryCondition = 'Shape__Length < 2000 and Shape__Length > 300';
-        } else if (level == 'balanced') {
-            queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
-        } else if (level == 'hard') {
-            queryCondition = 'Shape__Length >= 5000';
-        }
-        if (query) {
-            map.removeLayer(query);
-            query.where(queryCondition)
-                .run(function (error, interestPoint) {
-                    if (error) {
-                        return;
-                    }
-                    queryLayer.clearLayers();
-                    // console.log(interestPoint);
-                    interestPoint.features.forEach(function (feature) {
-                      let btnContent = "<div> \
+  // console.log($(`#${idName}`).is(':checked'));
+  if ($(`#${idName}`).is(':checked')) {
+    buttonId = idName;
+    routesLevel = level;
+    let queryCondition;
+    if (level == 'easy') {
+      queryCondition = 'Shape__Length < 2000 and Shape__Length > 300';
+    } else if (level == 'balanced') {
+      queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
+    } else if (level == 'hard') {
+      queryCondition = 'Shape__Length >= 5000';
+    }
+    if (query) {
+      map.removeLayer(query);
+      query.where(queryCondition)
+        .run(function (error, interestPoint) {
+          if (error) {
+            return;
+          }
+          queryLayer.clearLayers();
+          // console.log(interestPoint);
+          interestPoint.features.forEach(function (feature) {
+            let btnContent = "<div> \
                         <button>photos</button> \
                         <button>comments</button> \
                         <button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>";
-                      if (level == 'easy') {
-                        if (riverRoutesId.includes(feature['id'])) {
-                          L.geoJSON(feature, {
-                            onEachFeature: function (f, l) {
-                              let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                              l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+btnContent);
-                            }
-                          }).addTo(queryLayer).on('click', function(e) {
-                            route_coords = e.layer._latlngs;
-                            console.log(e.layer._latlngs);
-                          });
-                        }
-                      } else {
-                        L.geoJSON(feature, {
-                          onEachFeature: function (f, l) {
-                            let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                            l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+btnContent);
-                          }
-                        }).addTo(queryLayer).on('click', function(e) {
-                          route_coords = e.layer._latlngs;
-                          console.log(e.layer._latlngs);
-                        });
-                      }  
-                    });
-                    queryLayer.addTo(map);
-                    recommend(queryLayer);
+            if (level == 'easy') {
+              if (riverRoutesId.includes(feature['id'])) {
+                L.geoJSON(feature, {
+                  onEachFeature: function (f, l) {
+                    let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                    l.bindPopup('<p>' + JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
+                  }
+                }).addTo(queryLayer).on('click', function (e) {
+                  route_coords = e.layer._latlngs;
+                  console.log(e.layer._latlngs);
                 });
+              }
+            } else {
+              L.geoJSON(feature, {
+                onEachFeature: function (f, l) {
+                  let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
+                }
+              }).addTo(queryLayer).on('click', function (e) {
+                route_coords = e.layer._latlngs;
+                console.log(e.layer._latlngs);
+              });
             }
+          });
+          queryLayer.addTo(map);
+          recommend(queryLayer);
+        });
     }
+  }
 }
 
 // For checkbox rules.

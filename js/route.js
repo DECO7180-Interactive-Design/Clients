@@ -20,8 +20,7 @@ routes.query().run(function (error, interestPoint) {
     return;
   }
   routesBounds = L.geoJSON(interestPoint).getBounds();
-  // L.rectangle(routesBounds, { color: "#50CB93", weight: 1 }).addTo(map);
-  L.rectangle(routesBounds, { color: "#50CB93", weight: 1 }).addTo(map);
+  L.rectangle(routesBounds, { color: "#50CB93", weight: 1, interactive: false }).addTo(map);
 });
 
 // Set the style (colour) of different route type.
@@ -43,9 +42,7 @@ function addRiverRoutes(feature) {
     }
     riverView.features.forEach(function (feature) {
       riverRoutesId.push(feature['id']);
-      // console.log(riverRoutesId);
     })
-    // console.log(riverRoutesId);
     L.geoJSON(riverView, {
       style: secondaryStyle,
     }).addTo(riverRoutes);
@@ -59,13 +56,7 @@ river.query().run(function (error, riverBounds) {
   console.log(riverBounds);
   console.log(riverBounds.features);
   riverBounds.features.forEach(addRiverRoutes);
-  // riverRoutes.addTo(map);
-  // console.log(riverRoutesId);
 });
-
-// setTimeout(() => {  console.log(riverRoutesId) }, 2000);
-console.log(riverRoutesId);
-
 
 let filterButton = document.getElementById("filterButton");
 

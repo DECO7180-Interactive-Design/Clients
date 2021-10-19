@@ -158,17 +158,7 @@ function recommend(routesCollection) {
 // }
 
 let route_coords = 0;
-
-function sotreCoords() {
-  // keys = Object.keys(routeName._layers);
-  // key = parseInt(keys[0]);
-  // routeName = routeName._layers[key];
-  // if (routeName) {
-  //   let routeCoords = routeName.feature.geometry.coordinates;
-  //   console.log(routeCoords);
-  //   sessionStorage.setItem("coordsArray", routeCoords);
-  // }
-  // let routeCoords = routeName._latlags;
+function storeCoords() {
   console.log(route_coords);
   coords_to_st = []
   if (route_coords) {
@@ -179,9 +169,6 @@ function sotreCoords() {
     console.log(coords_to_st);
     sessionStorage.setItem("coordsArray", coords_to_st);
   }
-  
-  // sessionStorage.setItem("coordsArray", routeCoords);
-
 }
 
 // Step 2 & 3
@@ -215,7 +202,7 @@ function routesFilter(level, idName) {
                             onEachFeature: function (f, l) {
                               // console.log(l);
                               let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                              l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+`<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; sotreCoords();\">select</a></button></div>`);
+                              l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+`<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>`);
                             }
                           }).addTo(queryLayer).on('click', function(e) {
                             route_coords = e.layer._latlngs;
@@ -226,7 +213,7 @@ function routesFilter(level, idName) {
                         L.geoJSON(feature, {
                           onEachFeature: function (f, l) {
                             let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                            l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+"<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; sotreCoords();\">select</a></button></div>");
+                            l.bindPopup('<p>'+JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g,'')+'</p>'+'<br>'+"<div><button>photos</button><button>comments</button><button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>");
                           }
                         }).addTo(queryLayer).on('click', function(e) {
                           rroute_coords = e.layer._latlngs;

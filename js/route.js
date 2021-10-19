@@ -172,7 +172,7 @@ function routesFilter(level, idName) {
     routesLevel = level;
     let queryCondition;
     if (level == 'easy') {
-      queryCondition = 'Shape__Length < 2000 and Shape__Length > 300';
+      queryCondition = 'Shape__Length < 2000 and Shape__Length > 500';
     } else if (level == 'balanced') {
       queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
     } else if (level == 'hard') {
@@ -185,12 +185,12 @@ function routesFilter(level, idName) {
           if (error) {
             return;
           }
+          let btnContent = "<div> \
+            <button>photos</button> \
+            <button>comments</button> \
+            <button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>";
           queryLayer.clearLayers();
           interestPoint.features.forEach(function (feature) {
-            let btnContent = "<div> \
-                        <button>photos</button> \
-                        <button>comments</button> \
-                        <button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>";
             if (level == 'easy') {
               if (riverRoutesId.includes(feature['id'])) {
                 L.geoJSON(feature, {
@@ -201,7 +201,7 @@ function routesFilter(level, idName) {
                 }).addTo(queryLayer).on('click', function (e) {
                   routeCoords = e.layer._latlngs;
                   console.log(e.layer._latlngs);
-                });
+                })
               }
             } else {
               L.geoJSON(feature, {
@@ -212,12 +212,28 @@ function routesFilter(level, idName) {
               }).addTo(queryLayer).on('click', function (e) {
                 routeCoords = e.layer._latlngs;
                 console.log(e.layer._latlngs);
-              });
+              })
             }
-          });
+          })
+          // If the slected area no river view route, change the filter.
+          if (level == 'easy' && Object.keys(queryLayer._layers).length == 0) {
+            queryLayer.clearLayers();
+            interestPoint.features.forEach(function (feature) { 
+              L.geoJSON(feature, {
+                onEachFeature: function (f, l) {
+                  let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
+                }
+              }).addTo(queryLayer).on('click', function (e) {
+                routeCoords = e.layer._latlngs;
+                console.log(e.layer._latlngs);
+              })
+            })
+          }
+          console.log(Object.keys(queryLayer._layers).length);
           queryLayer.addTo(map);
           recommend(queryLayer);
-        });
+        })
     }
   }
 }

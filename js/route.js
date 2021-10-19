@@ -49,6 +49,7 @@ function addRiverRoutes(feature) {
   });
 }
 
+// Store all river view routes's id in an array.
 river.query().run(function (error, riverBounds) {
   if (error) {
     return;
@@ -57,8 +58,6 @@ river.query().run(function (error, riverBounds) {
   console.log(riverBounds.features);
   riverBounds.features.forEach(addRiverRoutes);
 });
-
-let filterButton = document.getElementById("filterButton");
 
 // Step 1
 let routesLevel;
@@ -148,24 +147,23 @@ function recommend(routesCollection) {
 
 // }
 
-let route_coords = 0;
+let routeCoords = 0;
 function storeCoords() {
-  console.log(route_coords);
-  coords_to_st = []
-  if (route_coords) {
-    route_coords.forEach(function (coord) {
-      coords_to_st.push(coord['lat']);
-      coords_to_st.push(coord['lng']);
+  console.log(routeCoords);
+  coordsList = []
+  if (routeCoords) {
+    routeCoords.forEach(function (coord) {
+      coordsList.push(coord['lat']);
+      coordsList.push(coord['lng']);
     })
-    console.log(coords_to_st);
-    sessionStorage.setItem("coordsArray", coords_to_st);
+    console.log(coordsList);
+    sessionStorage.setItem("coordsArray", coordsList);
   }
 }
 
 // Step 2 & 3
 let buttonId;
 function routesFilter(level, idName) {
-  // console.log($(`#${idName}`).is(':checked'));
   if ($(`#${idName}`).is(':checked')) {
     buttonId = idName;
     routesLevel = level;
@@ -185,7 +183,6 @@ function routesFilter(level, idName) {
             return;
           }
           queryLayer.clearLayers();
-          // console.log(interestPoint);
           interestPoint.features.forEach(function (feature) {
             let btnContent = "<div> \
                         <button>photos</button> \
@@ -195,22 +192,22 @@ function routesFilter(level, idName) {
               if (riverRoutesId.includes(feature['id'])) {
                 L.geoJSON(feature, {
                   onEachFeature: function (f, l) {
-                    let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                    l.bindPopup('<p>' + JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
+                    let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                    l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
                   }
                 }).addTo(queryLayer).on('click', function (e) {
-                  route_coords = e.layer._latlngs;
+                  routeCoords = e.layer._latlngs;
                   console.log(e.layer._latlngs);
                 });
               }
             } else {
               L.geoJSON(feature, {
                 onEachFeature: function (f, l) {
-                  let route_distance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${route_distance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
+                  let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
+                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
                 }
               }).addTo(queryLayer).on('click', function (e) {
-                route_coords = e.layer._latlngs;
+                routeCoords = e.layer._latlngs;
                 console.log(e.layer._latlngs);
               });
             }

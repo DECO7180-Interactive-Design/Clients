@@ -10,24 +10,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/shadowcycling.css"/>
   <!--popup-->
   <script language="javascript">
     function openwin() {
-      openwindow = window.open("popup.html", "newwin", "height=500, width=500,toolbar=0, top=150px,left=450px, scrollbars=no, menubar=no, resizable=no,location=no, status=no");
+      var left = (screen.width/2)-250;
+      var top = (screen.height/2)-250;
+      openwindow = window.open("popup.html", "newwin", "height=500, width=500,toolbar=no,scrollbars=no,menubar=no");
     }
   </script>
 </head>
 
 <body id="bd">
-
+ 
   <div class="container">
     <div class="dropDown" onclick="showMenu()">
       <i id="dbutton" class="fas fa-bars"  style="color: #fff; margin: 20px;"></i>
       <div id="options" class="dropdown-option">
         <a href="#">Take Photo</a>
-        <a class='11111' href="#">Shadow Cyclist</a>
+        <a href="#" class="shadow-cyclist">Shadow Cyclist</a>
         <a href="login.html">Around Me</a>
-        <button style="padding: 1em 0.8em; background: none; border: none; font-size: 0.6em" id="sbtn" class="shadowButton">Shadow Cyclist</button>
       </div>
     </div>
 
@@ -80,6 +82,11 @@
       <img id="mapImg" src="assets/Route.png" alt="route map">
     </div>
 
+    <div id="cyclistModal" class="modal modal1">
+      <span class="close close1">&times;</span>
+      <div id="modal-content"></div>
+    </div>
+
   </div>
   <section id="stat">
     <div>
@@ -107,103 +114,174 @@
     </a>
   </div>
 
-  <!--shadow cyclist popup-->
-  <div id= "mysc" class="shadowcycling">
-  <span id="nmsl" class="closeshadowcycling">&times;</span>
-  <div class="left">
-    <img src="assets/logo.png" class="img">
-  </div>
-  <div class="right">
-    <h1><span>S</span>hadow&nbsp&nbsp<span>C</span>yclist</h1>
-    <select class="select">
-      <option>Select a Friend as Shadow Cyclist</option>
-      <option>YOU NEED TO SIGN IN</option>
-    </select>
-    <P class="set">Set By Your Like</P>
-    <div class="speed">
-      Min Speed(Km/h):
-      <select>
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-      </select>
-    </div>
-
-    <div class="speed">
-      Max Speed(Km/h):
-      <select>
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-      </select>
-    </div>
-    <P class="set">Compete with Computer</P>
-    <ul class="list">
-      <computer>
-        <img src="assets/IMG_4733.png" class="img">
-      </computer>
-      <computer>
-        <img src="assets/IMG_4730.png" class="img">
-      </computer>
-      <computer>
-        <img src="assets/IMG_4738.png" class="img">
-      </computer>
-      <computer>
-        <img src="assets/IMG_4734.png" class="img">
-      </computer>
-      <computer>
-        <img src="assets/IMG_4736.png" class="img">
-      </computer>
-    </ul>
-    <div class="btn">
-      <a class="add">Add</a>
-      <a class="Cancel">Cancel</a>
-    </div>
-  </div>
-</div>
-
   <script src="js/touring.js"></script>
   <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    const cyclist = document.querySelector(".shadow-cyclist");
+    let cyclistModal = document.getElementById("cyclistModal");
+    let modalContent = document.getElementById("modal-content");
+    let close = document.getElementsByClassName("close")[1];
+
+    cyclist.onclick = function () {
+      document.body.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      cyclistModal.style.display = "block";
+      modalContent.innerHTML = getContent();
+
+      let add = document.querySelector(".add");
+      let cancel = document.querySelector(".Cancel");
+
+      let select1 = document.getElementsByClassName('jl')[0].getElementsByTagName('select')[0];
+      let select2 = document.getElementsByClassName('jl')[1].getElementsByTagName('select')[0];
+      let option1 = select1.children[5];
+      let option2 = select2.children[12];
+
+      let select11 = document.getElementsByClassName('jl')[0].getElementsByTagName('select')[0];
+      let select22 = document.getElementsByClassName('jl')[1].getElementsByTagName('select')[0];
+      let option11 = select11.children[4];
+      let option22= select22.children[3];
+
+      let select111 = document.getElementsByClassName('jl')[0].getElementsByTagName('select')[0];
+      let select222 = document.getElementsByClassName('jl')[1].getElementsByTagName('select')[0];
+      let option111 = select111.children[3];
+      let option222= select222.children[6];
+
+      let select1111 = document.getElementsByClassName('jl')[0].getElementsByTagName('select')[0];
+      let select2222 = document.getElementsByClassName('jl')[1].getElementsByTagName('select')[0];
+      let option1111 = select1111.children[7];
+      let option2222= select2222.children[9];
+
+      let select11111 = document.getElementsByClassName('jl')[0].getElementsByTagName('select')[0];
+      let select22222 = document.getElementsByClassName('jl')[1].getElementsByTagName('select')[0];
+      let option11111 = select11111.children[10];
+      let option22222= select22222.children[15];
+
+      let list = document.querySelector('ul.list');
+      let allLis = list.children;
+      for(let i=0; i< allLis.length; i++){
+        let li = allLis[i];
+        li.onclick = function() {
+          for(let j=0; j<allLis.length;j++){
+            allLis[j].classList.remove('active');
+          }
+          li.classList.add('active');
+          if(i === 0){
+            option1.selected = 'selected';
+            option2.selected = 'selected';
+          }else if(i===1){
+            option11.selected = 'selected';
+            option22.selected = 'selected';
+          }else if(i===2){
+            option111.selected = 'selected';
+            option222.selected = 'selected';
+          }else if(i===3){
+            option1111.selected = 'selected';
+            option2222.selected = 'selected';
+          }else{
+            option11111.selected = 'selected';
+            option22222.selected = 'selected';
+          };
+        };
+      };
 
 
-<script>
-var popup = document.getElementById("mysc");
-var button = document.getElementById("sbtn");
-var closebtn = document.getElementById("nmsl");
-var counter = 0;
-button.onclick = function () {
-    popup.style.display = "block";
-};
-closebtn.onclick = function () {
-    popup.style.display = "none";
-};
-</script>
+      add.onclick =  function() {
+        let active = document.querySelector('.active');
+        if(active !== null ){
+          alert("success");
+        }
+      }
+      cancel.onclick = function () {
+        cyclistModal.style.display = "none";
+      };
+    };
+
+    close.onclick = function () {
+      cyclistModal.style.display = "none";
+    };
+
+    function getContent() {
+      let content = `
+        <div class="content">
+        <div class="left">
+        <img src="assets/logo.png" class="img">
+        </div>
+        <div class="right">
+        <h1><span>S</span>hadow&nbsp&nbsp<span>C</span>yclist</h1>
+        <select class="select">
+        <option>Select a Friend as Shadow Cyclist</option>
+        <option>You need to Sign In Firstly</option>
+        </select>
+        <P class="set">Set By Your Like</P>
+        <div class="jl">
+        Min Speed(Km/h):
+        <select>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        </select>
+        </div>
+        <div class="jl">
+        Max Speed(Km/h):
+        <select>
+          <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        </select>
+        </div>
+        <P class="set">Compete with Computer</P>
+        <ul class="list">
+        <li>
+        <img src="assets/IMG_4733.png" class="img">
+        </li>
+        <li>
+        <img src="assets/IMG_4730.png" class="img">
+        </li>
+        <li>
+        <img src="assets/IMG_4738.png" class="img">
+        </li>
+        <li>
+        <img src="assets/IMG_4734.png" class="img">
+        </li>
+        <li>
+        <img src="assets/IMG_4736.png" class="img">
+        </li>
+        </ul>
+        <div class="btn">
+        <button type="button" class="add">Add</button>
+        <button type="button" class="Cancel">Cancel</button>
+        </div>
+        </div>
+        </div>
+      `;
+      return content;
+    }
+  </script>
 
 </body>
 

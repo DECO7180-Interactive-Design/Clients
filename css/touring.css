@@ -350,35 +350,6 @@ h1 span{
 	float:left;
 	margin:20px 1%;
 }
-.btn a{
-	width:30%;
-	margin:20px 9%;
-	float:left;
-	border-radius:10px;
-	text-align: center;
-	padding:20px 0px;
-	font-size:20px;
-}
-.btn a.add{
-	background: rgb(255,218,26);
-	color:#fff;
-}
-.btn a.Cancel{
-	background:#fff;
-	border:1px solid #666;
-	color:#666;
-}
-/* 关闭按钮 */
-.closeshadowcycling {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.closeshadowcycling:hover,
-.closeshadowcycling:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+
+

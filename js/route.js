@@ -6,6 +6,9 @@ L.esri.Vector.vectorBasemapLayer("ArcGIS:Topographic", {
     "AAPKb74ce1d9657b4e7a937e5d491f507f80I6a303ICiJJ0cg5QgZhry93CHhjFPZOFp6LzeYpZ9JGcBgN1mdLirFVut47IjMZ-",
 }).addTo(map);
 
+// User cannot continue to zoom out again when reachs the threshold.
+map.options.minZoom = 11;
+
 const routes = L.esri.featureLayer({
   url: "https://services2.arcgis.com/dEKgZETqwmDAh1rP/ArcGIS/rest/services/Bicycle_network_overlay/FeatureServer/0",
 });
@@ -20,7 +23,7 @@ routes.query().run(function (error, interestPoint) {
     return;
   }
   routesBounds = L.geoJSON(interestPoint).getBounds();
-  L.rectangle(routesBounds, { color: "#50CB93", weight: 1, interactive: false }).addTo(map);
+  L.rectangle(routesBounds, { color: "#50CB93", weight: 3, interactive: false, fill: false }).addTo(map);
 });
 
 // Set the style (colour) of different route type.

@@ -51,6 +51,17 @@ function pauseSong() {
   audio.pause();
 }
 
+//pop-up question
+  function openwin() {
+    //openwindow = window.open("popup.html", "newwin", "height=500, width=500, top = (screen.height/2)-250, left = (screen.width/2)-250, toolbar=no,scrollbars=no,menubar=no")
+    document.getElementById("qs-container").classList.add("open");
+    resumeRiding();
+  }
+
+  function closewin() {
+    document.getElementById("qs-container").classList.remove("open");
+  }
+
 //take a rest or keep riding
 function takeRest() {
   rest.classList.remove("play");

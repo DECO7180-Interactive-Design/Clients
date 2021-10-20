@@ -51,6 +51,7 @@ h1 span{
 } */
 .jl{
 	margin: 4px 57px;
+	margin-left: 0px;
 	font-size: 25px;
 	color: #666;
 }
@@ -64,6 +65,7 @@ h1 span{
 }
 .jl1{
 	margin: 4px 57px;
+	margin-left: 0px;
 	font-size: 25px;
 	color: #666;
 }

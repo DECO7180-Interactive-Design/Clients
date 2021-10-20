@@ -5,6 +5,54 @@ body{
     background-size: cover;
 }
 
+#qs-container {
+  visibility: hidden;
+  position:absolute;
+  top:10%;
+  right:12%;
+  width:35%;
+  background-color: #FAFBFB;
+  text-align: center;
+  opacity: 90%;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: 'Geneva', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #344F69;
+}
+
+#pop-btn:hover {
+  background-color: #FFCE46;
+}
+
+#qs-container.open {
+  visibility: visible;
+}
+
+#bottle img{
+  float:right;
+  width:4%;
+  height:4%;
+  padding:100px;
+}
+
+#pop-btn{
+  font-family: 'poppin', sans-serif;
+  font-weight: normal;
+  font-size: 1.3rem;
+  color: #344F69;
+  text-decoration: none;
+  cursor: pointer;
+  width: 60%;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 0.5em;
+  margin: 10px;
+  border: 2px solid #555555;
+  background-color: white;
+}
+
 .dropDown {
   position: absolute;
   top: 1px;
@@ -350,6 +398,3 @@ h1 span{
 	float:left;
 	margin:20px 1%;
 }
-
-
-

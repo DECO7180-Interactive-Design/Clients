@@ -5,7 +5,7 @@ const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
-const bottle = document.querySelector(".bottle");
+const bottle = document.querySelector("#bottle");
 const songs = [
   "bensound-energy",
   "bensound-sunny",
@@ -50,6 +50,16 @@ function pauseSong() {
   playBtn.querySelector("i.fas").classList.remove("fa-pause");
   audio.pause();
 }
+
+//pop-up question
+  function openwin() {
+    document.getElementById("qs-container").classList.add("open");
+    resumeRiding();
+  }
+
+  function closewin() {
+    document.getElementById("qs-container").classList.remove("open");
+  }
 
 //take a rest or keep riding
 function takeRest() {

@@ -318,6 +318,12 @@ button:focus {
   padding: 0 25px 0;
 }
 
+.bound {
+  display: flex;
+  align-items: center;
+  padding: 0 25px 0; 
+}
+
 .track div {
   width: 50px;
   height: 5px;
@@ -326,35 +332,9 @@ button:focus {
   margin-right: 20px;
 }
 
-#slideshow {
-  visibility: hidden;
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.slides {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 30%;
-  padding: 24px 0;
-}
-
-#slideshow article {
-  display: flex;
-  justify-content: space-around;
-  font-size: 12px;
-}
-
-#slideshow article + div {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-#slideshow button {
-  width: 20%;
+.bound div {
+  border: solid 3px #50CB93;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }

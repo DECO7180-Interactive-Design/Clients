@@ -226,8 +226,3 @@ $('input[type="checkbox"]').on("change", function () {
   $(this).siblings('input[type="checkbox"]').prop("checked", false);
   $(this).prop("checked", true); // if the checkbox is already checked, keep it.
 });
-
-// Step 4
-function showSlides() {
-  $("#slideshow").css("visibility", "visible");
-}

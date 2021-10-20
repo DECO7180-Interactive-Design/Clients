@@ -190,7 +190,15 @@
         add.onclick = function () {
           let active = document.querySelector(".active");
           if (active !== null) {
-            alert("success");
+            // alert("success");
+          cyclistModal.style.display = "none";
+          speed.style.color = 'orange';
+          // stopSpeed = true;
+          // speed.style.font-weight = "700"
+          speedValue = Math.floor(Math.random()*10) + 1;
+          speed.innerHTML = speedValue + " Km/h";
+          // speed.innerHTML = "<p>7 Km/h </p>"
+
           }
         };
         cancel.onclick = function () {

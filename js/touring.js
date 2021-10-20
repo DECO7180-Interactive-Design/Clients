@@ -22,6 +22,7 @@ const dropdown = document.querySelector(".dropDown");
 const statistic = document.querySelector("#stat");
 const prevStopBtn = document.querySelector("#lastStop");
 const nextStopBtn = document.querySelector("#nextStop");
+let start = true;
 
 stoptime = true;
 
@@ -66,7 +67,12 @@ function takeRest() {
   rest.classList.remove("play");
   rest.querySelector("i.fas").classList.remove("fa-play");
   rest.querySelector("i.fas").classList.add("fa-pause");
-  setTimeout(openwin, 5000);
+  
+  if (start == true) {
+    setTimeout(openwin, 5000);
+    start = false;
+  }
+  
 }
 
 function resumeRiding() {

@@ -81,7 +81,7 @@
       </div>
 
       <div id="cyclistModal" class="modal modal1">
-        
+        <span class="close close1">&times;</span>
         <div id="modal-content"></div>
       </div>
     </div>
@@ -117,14 +117,14 @@
       <br />
       <a id="pop-btn" href="javascript:closewin();takeRest();">No, I'm not thirsty.</a>
     </div>
-    
+
     <script src="js/touring.js"></script>
     <script src="https://kit.fontawesome.com/418ddc71e3.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       const cyclist = document.querySelector(".shadow-cyclist");
       let cyclistModal = document.getElementById("cyclistModal");
       let modalContent = document.getElementById("modal-content");
- 
+      let close = document.getElementsByClassName("close")[1];
 
       cyclist.onclick = function () {
         document.body.style.backgroundColor = "rgba(0,0,0,0.6)";
@@ -198,7 +198,9 @@
         };
       };
 
-      
+      close.onclick = function () {
+        cyclistModal.style.display = "none";
+      };
 
       function getContent() {
         let content = `
@@ -207,7 +209,6 @@
         <img src="assets/logo.png" class="img">
         </div>
         <div class="right">
-        <h1><span>S</span>hadow&nbsp&nbsp<span>C</span>yclist</h1>
         </select>
         <P class="set">Set by Your Like</P>
         <div class="jl">

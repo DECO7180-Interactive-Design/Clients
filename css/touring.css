@@ -326,6 +326,9 @@ body{
 #stat div {
   display: flex;
   flex-direction: column;
+  height: 90px;
+  width: 160px;
+}
 }
 
 #stat p {

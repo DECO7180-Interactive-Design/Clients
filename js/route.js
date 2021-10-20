@@ -177,24 +177,24 @@ function routesFilter(level, idName) {
             if (level == 'easy') {
               if (riverRoutesId.includes(feature['id'])) {
                 L.geoJSON(feature, {
+                  weight: 7,
                   onEachFeature: function (f, l) {
                     let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
                     l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
                   }
                 }).addTo(queryLayer).on('click', function (e) {
                   routeCoords = e.layer._latlngs;
-                  console.log(e.layer._latlngs);
                 })
               }
             } else {
               L.geoJSON(feature, {
+                weight: 7,
                 onEachFeature: function (f, l) {
                   let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
                   l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
                 }
               }).addTo(queryLayer).on('click', function (e) {
                 routeCoords = e.layer._latlngs;
-                console.log(e.layer._latlngs);
               })
             }
           })
@@ -203,6 +203,7 @@ function routesFilter(level, idName) {
             queryLayer.clearLayers();
             interestPoint.features.forEach(function (feature) { 
               L.geoJSON(feature, {
+                weight: 7,
                 onEachFeature: function (f, l) {
                   let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
                   l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
@@ -212,7 +213,6 @@ function routesFilter(level, idName) {
               })
             })
           }
-          console.log(Object.keys(queryLayer._layers).length);
           queryLayer.addTo(map);
           recommend(queryLayer);
         })

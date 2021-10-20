@@ -57,8 +57,6 @@ river.query().run(function (error, riverBounds) {
   if (error) {
     return;
   }
-  console.log(riverBounds);
-  console.log(riverBounds.features);
   riverBounds.features.forEach(addRiverRoutes);
 });
 
@@ -79,7 +77,6 @@ function choosePoint() {
         map.removeLayer(marker);
         map.removeLayer(circle);
       }
-      console.log(point.latlng);
       marker = L.marker(point.latlng, { interactive: false }).addTo(map);
       circle = L.circle(point.latlng, radius, {
         color: "grey",
@@ -113,7 +110,6 @@ function displayRoute(route, place) {
   let length = route.feature.properties["Shape__Length"];
   length = Math.round(length) / 1000;
   let description = route.feature.properties["DESCRIPTION"];
-  console.log(id, length, description);
 
   if ($(`.slides:nth-child(${place}) p`).length) {
     $(`.slides:nth-child(${place}) p`).remove();
@@ -135,36 +131,23 @@ function recommend(routesCollection) {
   displayRoute(route3, 3);
 }
 
-// function sotreCoords(routeName) {
-//   // keys = Object.keys(routeName._layers);
-//   // key = parseInt(keys[0]);
-//   // routeName = routeName._layers[key];
-//   // if (routeName) {
-//   //   let routeCoords = routeName.feature.geometry.coordinates;
-//   //   console.log(routeCoords);
-//   //   sessionStorage.setItem("coordsArray", routeCoords);
-//   // }
-//   let routeCoords = routeName._latlags;
-//   console.log(routeCoords);
-//   sessionStorage.setItem("coordsArray", routeCoords);
-
-// }
-
 let routeCoords = 0;
 function storeCoords() {
-  console.log(routeCoords);
   coordsList = []
   if (routeCoords) {
     routeCoords.forEach(function (coord) {
       coordsList.push(coord['lat']);
       coordsList.push(coord['lng']);
     })
-    console.log(coordsList);
     sessionStorage.setItem("coordsArray", coordsList);
   }
 }
 
 // Step 2 & 3
+function noDevelop() {
+  alert("Under developing");
+}
+
 let buttonId;
 function routesFilter(level, idName) {
   if ($(`#${idName}`).is(':checked')) {
@@ -186,8 +169,8 @@ function routesFilter(level, idName) {
             return;
           }
           let btnContent = "<div> \
-            <button>photos</button> \
-            <button>comments</button> \
+            <button onclick=\"noDevelop()\"}>photos</button> \
+            <button onclick=\"noDevelop()\"}>comments</button> \
             <button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>";
           queryLayer.clearLayers();
           interestPoint.features.forEach(function (feature) {
@@ -226,7 +209,6 @@ function routesFilter(level, idName) {
                 }
               }).addTo(queryLayer).on('click', function (e) {
                 routeCoords = e.layer._latlngs;
-                console.log(e.layer._latlngs);
               })
             })
           }

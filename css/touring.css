@@ -9,8 +9,8 @@ body{
   visibility: hidden;
   position:absolute;
   top:10%;
-  right:10%;
-  width:40%;
+  right:12%;
+  width:35%;
   background-color: #FAFBFB;
   text-align: center;
   opacity: 80%;
@@ -28,6 +28,13 @@ body{
 
 #qs-container.open {
   visibility: visible;
+}
+
+#bottle img{
+  float:right;
+  width:4%;
+  height:4%;
+  padding:100px;
 }
 
 #pop-btn{

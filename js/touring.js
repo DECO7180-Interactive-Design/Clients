@@ -5,7 +5,7 @@ const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const title = document.querySelector("#title");
 const audio = document.querySelector("#audio");
-const bottle = document.querySelector(".bottle");
+const bottle = document.querySelector("#bottle");
 const songs = [
   "bensound-energy",
   "bensound-sunny",
@@ -53,7 +53,6 @@ function pauseSong() {
 
 //pop-up question
   function openwin() {
-    //openwindow = window.open("popup.html", "newwin", "height=500, width=500, top = (screen.height/2)-250, left = (screen.width/2)-250, toolbar=no,scrollbars=no,menubar=no")
     document.getElementById("qs-container").classList.add("open");
     resumeRiding();
   }

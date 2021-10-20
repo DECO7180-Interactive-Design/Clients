@@ -2,8 +2,7 @@ let map = L.map("map").setView([-27.495432, 153.012024], 14);
 
 // Use the ArcGIS's map.
 L.esri.Vector.vectorBasemapLayer("ArcGIS:Topographic", {
-  apikey:
-    "AAPKb74ce1d9657b4e7a937e5d491f507f80I6a303ICiJJ0cg5QgZhry93CHhjFPZOFp6LzeYpZ9JGcBgN1mdLirFVut47IjMZ-",
+  apikey: "AAPKb74ce1d9657b4e7a937e5d491f507f80I6a303ICiJJ0cg5QgZhry93CHhjFPZOFp6LzeYpZ9JGcBgN1mdLirFVut47IjMZ-",
 }).addTo(map);
 
 // User cannot continue to zoom out again when reachs the threshold.
@@ -39,17 +38,20 @@ let secondaryStyle = {
 let riverRoutes = L.layerGroup();
 let riverRoutesId = [];
 function addRiverRoutes(feature) {
-  routes.query().within(L.geoJSON(feature)).run(function (error, riverView) {
-    if (error) {
-      return;
-    }
-    riverView.features.forEach(function (feature) {
-      riverRoutesId.push(feature['id']);
-    })
-    L.geoJSON(riverView, {
-      style: secondaryStyle,
-    }).addTo(riverRoutes);
-  });
+  routes
+    .query()
+    .within(L.geoJSON(feature))
+    .run(function (error, riverView) {
+      if (error) {
+        return;
+      }
+      riverView.features.forEach(function (feature) {
+        riverRoutesId.push(feature["id"]);
+      });
+      L.geoJSON(riverView, {
+        style: secondaryStyle,
+      }).addTo(riverRoutes);
+    });
 }
 
 // Store all river view routes's id in an array.
@@ -97,8 +99,7 @@ function choosePoint() {
 
 function pickRoutes(routesCollection) {
   let dict = routesCollection._layers;
-  let key =
-    Object.keys(dict)[Math.floor(Math.random() * Object.keys(dict).length)];
+  let key = Object.keys(dict)[Math.floor(Math.random() * Object.keys(dict).length)];
   return dict[key];
 }
 
@@ -133,12 +134,12 @@ function recommend(routesCollection) {
 
 let routeCoords = 0;
 function storeCoords() {
-  coordsList = []
+  coordsList = [];
   if (routeCoords) {
     routeCoords.forEach(function (coord) {
-      coordsList.push(coord['lat']);
-      coordsList.push(coord['lng']);
-    })
+      coordsList.push(coord["lat"]);
+      coordsList.push(coord["lng"]);
+    });
     sessionStorage.setItem("coordsArray", coordsList);
   }
 }
@@ -150,72 +151,96 @@ function noDevelop() {
 
 let buttonId;
 function routesFilter(level, idName) {
-  if ($(`#${idName}`).is(':checked')) {
+  if ($(`#${idName}`).is(":checked")) {
     buttonId = idName;
     routesLevel = level;
     let queryCondition;
-    if (level == 'easy') {
-      queryCondition = 'Shape__Length < 2000 and Shape__Length > 500';
-    } else if (level == 'balanced') {
-      queryCondition = 'Shape__Length >= 2000 and Shape__Length < 5000';
-    } else if (level == 'hard') {
-      queryCondition = 'Shape__Length >= 5000';
+    if (level == "easy") {
+      queryCondition = "Shape__Length < 2000 and Shape__Length > 500";
+    } else if (level == "balanced") {
+      queryCondition = "Shape__Length >= 2000 and Shape__Length < 5000";
+    } else if (level == "hard") {
+      queryCondition = "Shape__Length >= 5000";
     }
     if (query) {
       map.removeLayer(query);
-      query.where(queryCondition)
-        .run(function (error, interestPoint) {
-          if (error) {
-            return;
+      query.where(queryCondition).run(function (error, interestPoint) {
+        if (error) {
+          return;
+        }
+        let btnContent =
+          '<div class=\'route-buttons\'> \
+            <button class= onclick="noDevelop()"}>Photos</button> \
+            <button onclick="noDevelop()"}>Comments</button> \
+            <button onclick="window.location.href=\'touring.html\'; storeCoords();">Select</a></button></div>';
+        queryLayer.clearLayers();
+        interestPoint.features.forEach(function (feature) {
+          if (level == "easy") {
+            if (riverRoutesId.includes(feature["id"])) {
+              L.geoJSON(feature, {
+                weight: 7,
+                onEachFeature: function (f, l) {
+                  let routeDistance = Math.round(f.properties["Shape__Length"] / 10) / 100;
+                  l.bindPopup(
+                    "<p>" +
+                      JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, "") +
+                      "</p>" +
+                      "<br>" +
+                      btnContent
+                  );
+                },
+              })
+                .addTo(queryLayer)
+                .on("click", function (e) {
+                  routeCoords = e.layer._latlngs;
+                });
+            }
+          } else {
+            L.geoJSON(feature, {
+              weight: 7,
+              onEachFeature: function (f, l) {
+                let routeDistance = Math.round(f.properties["Shape__Length"] / 10) / 100;
+                l.bindPopup(
+                  "<p>" +
+                    JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, "") +
+                    "</p>" +
+                    "<br>" +
+                    btnContent
+                );
+              },
+            })
+              .addTo(queryLayer)
+              .on("click", function (e) {
+                routeCoords = e.layer._latlngs;
+              });
           }
-          let btnContent = "<div> \
-            <button onclick=\"noDevelop()\"}>photos</button> \
-            <button onclick=\"noDevelop()\"}>comments</button> \
-            <button onclick=\"window.location.href='touring.html'; storeCoords();\">select</a></button></div>";
+        });
+        // If the slected area no river view route, change the filter.
+        if (level == "easy" && Object.keys(queryLayer._layers).length == 0) {
           queryLayer.clearLayers();
           interestPoint.features.forEach(function (feature) {
-            if (level == 'easy') {
-              if (riverRoutesId.includes(feature['id'])) {
-                L.geoJSON(feature, {
-                  weight: 7,
-                  onEachFeature: function (f, l) {
-                    let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                    l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
-                  }
-                }).addTo(queryLayer).on('click', function (e) {
-                  routeCoords = e.layer._latlngs;
-                })
-              }
-            } else {
-              L.geoJSON(feature, {
-                weight: 7,
-                onEachFeature: function (f, l) {
-                  let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
-                }
-              }).addTo(queryLayer).on('click', function (e) {
-                routeCoords = e.layer._latlngs;
-              })
-            }
-          })
-          // If the slected area no river view route, change the filter.
-          if (level == 'easy' && Object.keys(queryLayer._layers).length == 0) {
-            queryLayer.clearLayers();
-            interestPoint.features.forEach(function (feature) { 
-              L.geoJSON(feature, {
-                weight: 7,
-                onEachFeature: function (f, l) {
-                  let routeDistance = Math.round(f.properties['Shape__Length'] / 10) / 100;
-                  l.bindPopup('<p>' + JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, '') + '</p>' + '<br>' + btnContent);
-                }
-              }).addTo(queryLayer).on('click', function (e) {
-                routeCoords = e.layer._latlngs;
-              })
+            L.geoJSON(feature, {
+              weight: 7,
+              onEachFeature: function (f, l) {
+                let routeDistance = Math.round(f.properties["Shape__Length"] / 10) / 100;
+                l.bindPopup(
+                  "<p>" +
+                    JSON.stringify(`Distance: ${routeDistance}km`).replace(/[\{\}"]/g, "") +
+                    "</p>" +
+                    "<br>" +
+                    btnContent
+                );
+              },
             })
-          }
-          queryLayer.addTo(map);
-          recommend(queryLayer);
-        })
+              .addTo(queryLayer)
+              .on("click", function (e) {
+                routeCoords = e.layer._latlngs;
+              });
+          });
+        }
+        queryLayer.addTo(map);
+        recommend(queryLayer);
+      });
     }
   }
 }

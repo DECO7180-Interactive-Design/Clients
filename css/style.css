@@ -28,7 +28,7 @@ nav {
 }
 
 nav #logo {
-  width: 40%;
+  width: 30%;
 }
 
 nav img {
@@ -217,8 +217,8 @@ main .sign-up {
   left: 0;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.8);
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.25);
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   border-radius: 0 15px 15px 0;
 }
 
@@ -308,8 +308,8 @@ button:focus {
   background-color: rgba(255, 255, 255, 0.8);
   padding-bottom: 12px;
   border-radius: 0 0 0 15px;
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.25);
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
 }
 
 #legend h3 {

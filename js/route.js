@@ -212,7 +212,13 @@ function routesFilter(level, idName) {
               .addTo(queryLayer)
               .on("click", function (e) {
                 routeCoords = e.layer._latlngs;
-              });
+              })
+              .on("mouseover", function (e) {
+                e.layer.setStyle({ color: "#7C83FD" });
+              })
+              .on("mouseout", function (e) {
+                e.layer.setStyle({ color: "#2F87FF" });
+              })
           }
         });
         // If the slected area no river view route, change the filter.
@@ -235,7 +241,13 @@ function routesFilter(level, idName) {
               .addTo(queryLayer)
               .on("click", function (e) {
                 routeCoords = e.layer._latlngs;
-              });
+              })
+              .on("mouseover", function (e) {
+                e.layer.setStyle({ color: "#7C83FD" });
+              })
+              .on("mouseout", function (e) {
+                e.layer.setStyle({ color: "#2F87FF" });
+              })
           });
         }
         queryLayer.addTo(map);

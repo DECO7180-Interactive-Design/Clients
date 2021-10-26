@@ -193,7 +193,13 @@ function routesFilter(level, idName) {
                 .addTo(queryLayer)
                 .on("click", function (e) {
                   routeCoords = e.layer._latlngs;
-                });
+                })
+                .on("mouseover", function (e) {
+                  e.layer.setStyle({ color: "#4E9F3D" });
+                })
+                .on("mouseout", function (e) {
+                  e.layer.setStyle({ color: "#2F87FF" });
+                })
             }
           } else {
             L.geoJSON(feature, {
@@ -214,7 +220,7 @@ function routesFilter(level, idName) {
                 routeCoords = e.layer._latlngs;
               })
               .on("mouseover", function (e) {
-                e.layer.setStyle({ color: "#7C83FD" });
+                e.layer.setStyle({ color: "#4E9F3D" });
               })
               .on("mouseout", function (e) {
                 e.layer.setStyle({ color: "#2F87FF" });
@@ -243,7 +249,7 @@ function routesFilter(level, idName) {
                 routeCoords = e.layer._latlngs;
               })
               .on("mouseover", function (e) {
-                e.layer.setStyle({ color: "#7C83FD" });
+                e.layer.setStyle({ color: "#4E9F3D" });
               })
               .on("mouseout", function (e) {
                 e.layer.setStyle({ color: "#2F87FF" });

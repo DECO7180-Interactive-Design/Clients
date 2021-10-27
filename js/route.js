@@ -269,3 +269,15 @@ $('input[type="checkbox"]').on("change", function () {
   $(this).siblings('input[type="checkbox"]').prop("checked", false);
   $(this).prop("checked", true); // if the checkbox is already checked, keep it.
 });
+
+// REFERENCES
+
+// For out datasets
+// Brisbane City Council. (2018). City Plan 2014 — Bicycle network overlay. Brisbane: Brisbane City Council.
+// Brisbane City Council. (2018). City Plan 2014 — Waterway corridors overlay — Brisbane River corridor section boundary. Brisbane: Brisbane City Council.
+
+// For map
+// ArcGIS. (2021). Base map layer [Image].
+
+// For API
+// Agafonkin, V. (2020). Leaflet (Version 1.7.1).

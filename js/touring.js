@@ -397,3 +397,10 @@ var closebtn = document.getElementsByClassName('closeshadowcycling');
 closebtn.onclick = function() {
   popup.style.display = "none";
 }
+
+// REFERENCES
+
+// W3schools.com. 2021. How TO - Clickable Dropdown. https://www.w3schools.com/howto/howto_js_dropdown.asp
+// W3schools.com. 2021. How TO - Modal Images. https://www.w3schools.com/howto/howto_css_modal_images.asp
+
+// GoogleDevelopers. 2021. Street View Static API overview. https://developers.google.com/maps/documentation/streetview/overview

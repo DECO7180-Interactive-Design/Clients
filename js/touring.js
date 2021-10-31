@@ -240,7 +240,6 @@ window.onclick = function (event) {
     }
   }
 };
-// dropdown.addEventListener("click", showMenu);
 // timer
 const timer = document.getElementById("timer");
 const speed = document.getElementById("speed");
@@ -344,7 +343,6 @@ function incrementTimer() {
 // pass cordinates
 let routeCoords = sessionStorage.getItem("coordsArray");
 sessionStorage.clear();
-// console.log(routeCoords);
 
 let moder = 0;
 let currentPtr = 0;
@@ -402,5 +400,4 @@ closebtn.onclick = function() {
 
 // W3schools.com. 2021. How TO - Clickable Dropdown. https://www.w3schools.com/howto/howto_js_dropdown.asp
 // W3schools.com. 2021. How TO - Modal Images. https://www.w3schools.com/howto/howto_css_modal_images.asp
-
-// GoogleDevelopers. 2021. Street View Static API overview. https://developers.google.com/maps/documentation/streetview/overview
+// Google, Google street view API. 2021. 
